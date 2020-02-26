@@ -2,28 +2,15 @@ const dict = ["team", "meat", "apple", "orange"];
 const targetWord = "tame";
 
 function anagrams(dict, targetWord) {
-  function buildCharMap(str) {
-    const charMap = {};
-    for (let char of str.replace(/[^\w]/g, "").toLocaleLowerCase()) {
-      charMap[char] = charMap[char] + 1 || 1;
-    }
-    return charMap;
-  }
-
-  const targetWordMap = buildCharMap(targetWord);
+  const targetWordSorted = [...targetWord].sort().join("");
   let foundAnagrams = [targetWord];
 
-  for (let word of dict) {
-    if (word.length === targetWord.length) {
-      let wordMap = buildCharMap(word);
-      for (char in wordMap) {
-        wordMap[char] === targetWordMap[char]
-          ? foundAnagrams.push(word)
-          : false;
-      }
+  for (let i = 0; i < dict.length; i++) {
+    if ([...dict[i]].sort().join("") === targetWordSorted) {
+      foundAnagrams.push(dict[i]);
     }
   }
-  console.log([...new Set(foundAnagrams)]);
+  console.log(foundAnagrams);
 }
 
 anagrams(dict, targetWord);
