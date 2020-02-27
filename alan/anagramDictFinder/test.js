@@ -2,6 +2,7 @@
 
 const anagrams = require("./anagramDictFinderSort.js");
 
+// happy path test
 test("anagrams with arguments targetWord of 'tame', and dictionary of ['team', 'meat', 'apple', 'orange'] returns an array of ['tame', 'team', 'meat']", () => {
   expect(anagrams("tame", ["team", "meat", "apple", "orange"])).toEqual([
     "tame",
@@ -10,17 +11,12 @@ test("anagrams with arguments targetWord of 'tame', and dictionary of ['team', '
   ]);
 });
 
+// test for no anagrams found
 test("anagrams with arguments targetWord of 'tame', and dictionary of ['apple', 'orange'] returns an array of ['tame']", () => {
   expect(anagrams("tame", ["apple", "orange"])).toEqual(["tame"]);
 });
 
-test("anagrams with arguments targetWord of 'dog', and dictionary of ['apple', 'orange', 'god'] returns an array of ['dog', 'god']", () => {
-  expect(anagrams("dog", ["apple", "god", "orange"])).toEqual(["dog", "god"]);
+// test for arguments of different case
+test("anagrams with arguments targetWord of 'Dog', and dictionary of ['apple', 'orange', 'god'] returns an array of ['Dog', 'god']", () => {
+  expect(anagrams("Dog", ["apple", "god", "orange"])).toEqual(["Dog", "god"]);
 });
-
-// test("anagrams with arguments targetWord of 'dormitory', and dictionary of ['apple', 'orange', 'dirty room'] returns an array of ['tame']", () => {
-//   expect(anagrams("dormitory", ["apple", "orange", "dirty room"])).toEqual([
-//     "dormitory",
-//     "dirty room"
-//   ]);
-// });

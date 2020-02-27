@@ -1,12 +1,20 @@
-const targetWord = "tame";
-const dict = ["team", "meat", "apple", "orange"];
+const targetWord = "Dog";
+const dict = ["team", "meat", "apple", "god", "orange"];
 
 function anagrams(targetWord, dict) {
-  const targetWordSorted = [...targetWord].sort().join("");
+  const targetWordSorted = [...targetWord]
+    .sort()
+    .join("")
+    .toLocaleLowerCase();
   let foundAnagrams = [targetWord];
 
   for (let i = 0; i < dict.length; i++) {
-    if ([...dict[i]].sort().join("") === targetWordSorted) {
+    if (
+      [...dict[i]]
+        .sort()
+        .join("")
+        .toLocaleLowerCase() === targetWordSorted
+    ) {
       foundAnagrams.push(dict[i]);
     }
   }
