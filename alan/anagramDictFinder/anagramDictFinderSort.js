@@ -1,7 +1,7 @@
 const targetWord = "tame";
 const dict = ["team", "meat", "apple", "orange"];
 
-function anagramDictFinder(targetWord, dict) {
+function anagrams(targetWord, dict) {
   const targetWordSorted = [...targetWord].sort().join("");
   let foundAnagrams = [targetWord];
 
@@ -14,6 +14,6 @@ function anagramDictFinder(targetWord, dict) {
   return foundAnagrams;
 }
 
-anagramDictFinder(targetWord, dict);
+anagrams(targetWord, dict);
 
-module.exports = anagramDictFinder;
+module.exports = anagrams;

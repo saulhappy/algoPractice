@@ -1,5 +1,5 @@
 const dict = ["team", "meat", "apple", "orange"];
-const targetWord = "tame";
+const targetWord = "Tame";
 
 function anagrams(dict, targetWord) {
   function buildCharMap(str) {
@@ -27,3 +27,5 @@ function anagrams(dict, targetWord) {
 }
 
 anagrams(dict, targetWord);
+
+module.exports = anagrams;
