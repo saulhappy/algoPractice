@@ -20,12 +20,3 @@ test("anagrams with arguments targetWord of 'tame', and dictionary of ['apple', 
 test("anagrams with arguments targetWord of 'Dog', and dictionary of ['apple', 'orange', 'god'] returns an array of ['Dog', 'god']", () => {
   expect(anagrams("Dog", ["apple", "god", "orange"])).toEqual(["Dog", "god"]);
 });
-
-// test for anagrams in different amount of words
-
-// test.skip("anagrams with arguments targetWord of 'dormitory', and dictionary of ['apple', 'orange', 'dirty room'] returns an array of ['tame']", () => {
-//   expect(anagrams("dormitory", ["apple", "orange", "dirty room"])).toEqual([
-//     "dormitory",
-//     "dirty room"
-//   ]);
-// });
