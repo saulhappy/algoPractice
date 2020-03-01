@@ -1,15 +1,15 @@
 const dict = ["team", "meat", "apple", "orange"];
 const targetWord = "Tame";
 
-function anagrams(dict, targetWord) {
-  function buildCharMap(str) {
-    const charMap = {};
-    for (let char of str.replace(/[^\w]/g, "").toLocaleLowerCase()) {
-      charMap[char] = charMap[char] + 1 || 1;
-    }
-    return charMap;
+function buildCharMap(str) {
+  const charMap = {};
+  for (let char of str.replace(/[^\w]/g, "").toLocaleLowerCase()) {
+    charMap[char] = charMap[char] + 1 || 1;
   }
+  return charMap;
+}
 
+function anagrams(targetWord, dict) {
   const targetWordMap = buildCharMap(targetWord);
   let foundAnagrams = [targetWord];
 
@@ -23,9 +23,9 @@ function anagrams(dict, targetWord) {
       }
     }
   }
-  console.log([...new Set(foundAnagrams)]);
+  return [...new Set(foundAnagrams)];
 }
 
-anagrams(dict, targetWord);
+anagrams(targetWord, dict);
 
-module.exports = anagrams;
+module.exports = { anagrams, buildCharMap };
