@@ -10,20 +10,10 @@ function sortFunc(str) {
 
 function anagrams(targetWord, dict) {
   const targetWordSorted = sortFunc(targetWord);
-  // const targetWordSorted = [...targetWord]
-  // .sort()
-  // .join("")
-  // .toLocaleLowerCase();
   let foundAnagrams = [targetWord];
 
   for (let i = 0; i < dict.length; i++) {
-    if (
-      sortFunc(dict[i]) === targetWordSorted
-      // [...dict[i]]
-      //   .sort()
-      //   .join("")
-      // .toLocaleLowerCase()
-    ) {
+    if (sortFunc(dict[i]) === targetWordSorted) {
       foundAnagrams.push(dict[i]);
     }
   }
