@@ -1,2 +1,2 @@
 # algoPractice
-algorithms and data structures practice
+Personal algorithms and data structures practice
