@@ -1,3 +1,7 @@
+// --- Directions
+// Implement classes Node and Linked Lists
+// See 'directions' document
+
 class Node {
   constructor(data, next = null) {
     this.data = data;
@@ -11,7 +15,9 @@ class LinkedList {
   }
 
   insertFirst(data) {
-    this.head = new Node(data, this.head);
+    // this works, but with code reuse, we could've done...
+    // this.head = new Node(data, this.head);
+    this.insertAt(data, 0);
   }
 
   size() {
@@ -30,18 +36,21 @@ class LinkedList {
   }
 
   getLast() {
-    if (!this.head) {
-      return null;
-    }
+    // this works, but with code re use, we could do...
+    // if (!this.head) {
+    //   return null;
+    // }
 
-    let node = this.head;
+    // let node = this.head;
 
-    while (node) {
-      if (!node.next) {
-        return node;
-      }
-      node = node.next;
-    }
+    // while (node) {
+    //   if (!node.next) {
+    //     return node;
+    //   }
+    //   node = node.next;
+    // }
+
+    return this.getAt(this.size() - 1);
   }
 
   clear() {
@@ -155,41 +164,28 @@ class LinkedList {
   // }
 
   insertAt(data, index) {
+    //insert at empty list
     if (!this.head) {
       this.head = new Node(data);
       return;
     }
-
-    // // SAUL ORIGINAL APPROACH FAILED 2 TESTS
-    // const prevNode = this.getAt(index - 1);
-    // const currNode = this.getAt(index);
-    // const newNode = new Node(data);
-    // const nextNode = this.getAt(index + 1);
-
-    // if (currNode) {
-    //   this.head = newNode;
-    //   newNode.next = currNode;
-    //   return;
-    // }
-
-    // if (index > 0) {
-    //   prevNode.next = newNode;
-    //   newNode.next = nextNode;
-    //   return;
-    // }
-
-    // if (index > this.size()) {
-    //   this.insertLast(data);
-    //   return;
-    // }
-
+    // insert at 0
     if (index === 0) {
       this.head = new Node(data, this.head);
       return;
     }
-
+    // insert at out of bounds, make it last node
+    if (index > this.size() - 1) {
+      const lastNode = this.getLast();
+      lastNode.next = new Node(data);
+      return;
+    }
+    // all other cases
     const prevNode = this.getAt(index - 1);
     const node = new Node(data, prevNode.next);
     prevNode.next = node;
+    return;
   }
 }
+
+module.exports = { Node, LinkedList };
