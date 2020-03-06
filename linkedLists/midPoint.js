@@ -16,11 +16,15 @@ function midpoint(list) {
   let slow = list.head;
   let fast = list.head;
 
-  while (slow) {
-    if (!fast.next || !fast.next.next) {
-      return slow;
-    }
+  while (fast.next && fast.next.next) {
     slow = slow.next;
     fast = fast.next.next;
   }
+  return slow;
 }
+
+// LOGIC
+// if the fast node, moving two nodes at a time gets to a point where its at the end of the list
+// or one step behind the end of the list, then that means it's at or near the end of the list
+// and then the slow node must be at the mid point because it's moving at half the speed as
+// the fast node.
