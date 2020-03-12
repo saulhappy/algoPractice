@@ -24,6 +24,18 @@
 // expected result: 10
 // status: pass
 
+// test case 5
+// const s = "this is test";
+// const n = 1000;
+// expected result: 0
+// status: pass
+
+// test case 6
+// const s = "A";
+// const n = 10;
+// expected result: 0
+// status: pass
+
 // Complete the repeatedString function below.
 function repeatedString(s, n) {
   let counter = 0;
