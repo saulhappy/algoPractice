@@ -37,15 +37,24 @@
 // status: pass
 
 // Complete the repeatedString function below.
+
+const s = "abba";
+const n = 6;
+
 function repeatedString(s, n) {
+  let fullFittingAs = aCounter(s) * Math.floor(n / s.length);
+  let leftOverAs = aCounter(s.slice(0, n % s.length));
+
+  return leftOverAs + fullFittingAs;
+}
+
+function aCounter(s) {
   let counter = 0;
   for (let char of s) {
     if (char === "a") {
       counter++;
     }
   }
-  let result = Math.ceil(counter * (n / s.length));
-  return result;
+  return counter;
 }
-
 console.log(repeatedString(s, n));
