@@ -1,7 +1,7 @@
 const add = (a, b) => a + b;
 
 it("adds two numbers", () => {
-  const result = add(1, 2); // 3
+  const result = add(1, 2);
   const expectedResult = 3;
 
   expect(result).toEqual(expectedResult);
@@ -31,17 +31,6 @@ function it(description, fn) {
 //     }
 //   }
 // }
-
-function test() {
-  return {
-    fruit: "apple"
-  };
-}
-
-// const a = test();
-
-// console.log(a); // { fruit: 'apple' }
-// console.log(a.fruit); // -> 'apple'
 
 const expect = actual => ({
   toEqual: expected => {
