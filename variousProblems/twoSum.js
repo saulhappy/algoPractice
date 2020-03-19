@@ -9,18 +9,31 @@
 // Because nums[0] + nums[1] = 2 + 7 = 9,
 // return [0, 1].
 
-const nums = [2, 5, 5, 11];
+// case 2:
+const nums = [2, 5, 5, 15];
 const target = 10;
 
 function twoSum(nums, target) {
-  let result = [];
+  // using brute force- (O)n sq time:
+
+  //   let result = [];
+  //   for (let i = 0; i < nums.length; i++) {
+  //     for (let j = i + 1; j < nums.length; j++) {
+  //       if (nums[i] + nums[j] === target) {
+  //         result.push(i, j);
+  //         return result;
+  //       }
+  //     }
+  //   }
+
+  // one iteration and Hash Map O(n) time
+  let numObj = {};
   for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[i] + nums[j] === target) {
-        result.push(i, j);
-        return result;
-      }
+    let complement = target - nums[i];
+    if (numObj[complement] !== undefined) {
+      return [numObj[complement], i];
     }
+    numObj[nums[i]] = i;
   }
 }
 
