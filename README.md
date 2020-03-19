@@ -1,2 +1,2 @@
 # algoPractice
-Perssonal algorithms and data structures practice repo. 
+Personal algorithms and data structures practice repo. 
