@@ -3,6 +3,8 @@
 const s = ["U", "D", "D", "D", "U", "D", "U", "U"];
 const n = 8;
 
+// algorithm: count how many times you cross 0 (sea level) when the previous step was "U" (up)
+
 function countingValleys(n, s) {
   let valleyCounter = 0;
   let pathCounter = 0;
