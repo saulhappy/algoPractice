@@ -9,6 +9,7 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
+      "cwd": "${workspaceFolder}",
       "program": "${file}",
       "outputCapture": "std"
     }
