@@ -3,8 +3,14 @@
 const n = 25;
 // result = 15511210043330985984000000; 25x24x23x22...1
 
-//algorithm: while n, add the multiplication of n - 1 to the result
-
-function extraLongFactorials(n) {}
+function extraLongFactorials(n) {
+  let result = n;
+  if (n === 0 || n === 1) return 1;
+  while (n > 1) {
+    n--;
+    result *= n;
+  }
+  return result;
+}
 
 console.log(extraLongFactorials(n));
