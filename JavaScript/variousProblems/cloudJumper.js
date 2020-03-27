@@ -3,20 +3,16 @@
 const c = [0, 0, 1, 0, 0, 1, 0];
 // result: 4
 
-// algorithm: for each step of c, if i + 2 != 1, then jump by increment i to that spot,
-// and increment a jump counter.
-// if i + 2 = 1, then pass
-
 function jumpingOnClouds(c) {
   let jumps = 0;
-  for (let i = 0; i < c.length; i++) {
+  let i = 1;
+  while (i < c.length) {
     if (c[i + 2] != 1) {
-      jumps += 1;
       i += 2;
-    }
-    if (c[i + 1] != 1) {
-      jumps += 1;
+      jumps++;
+    } else {
       i += 1;
+      jumps++;
     }
   }
   return jumps;
