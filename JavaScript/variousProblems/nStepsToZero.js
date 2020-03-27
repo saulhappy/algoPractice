@@ -1,3 +1,5 @@
+// source: https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/
+
 // Given a non-negative integer num, return the number of steps to reduce it to zero.
 // If the current number is even, you have to divide it by 2,
 // otherwise, you have to subtract 1 from it.
@@ -12,7 +14,7 @@
 // Step 5) 2 is even; divide by 2 and obtain 1.
 // Step 6) 1 is odd; subtract 1 and obtain 0.
 
-const num = 14;
+const num = 123;
 function numberOfSteps(num) {
   let steps = 0;
 
@@ -31,6 +33,7 @@ function numberOfSteps(num) {
   }
   return steps;
 
+  // recursion solution:
   //   if (num <= 0) {
   //     return 0;
   //   }
