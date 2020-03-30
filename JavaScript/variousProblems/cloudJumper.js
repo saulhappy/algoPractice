@@ -13,7 +13,6 @@ function jumpingOnClouds(c) {
   let jumps = 0;
   let i = 0;
   while (i < c.length - 1) {
-    debugger;
     if (c[i + 2] != 1) {
       i += 2;
       jumps++;

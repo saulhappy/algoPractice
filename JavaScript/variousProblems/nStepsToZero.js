@@ -14,7 +14,7 @@
 // Step 5) 2 is even; divide by 2 and obtain 1.
 // Step 6) 1 is odd; subtract 1 and obtain 0.
 
-const num = 123;
+const num = 14;
 function numberOfSteps(num) {
   let steps = 0;
 
@@ -25,10 +25,6 @@ function numberOfSteps(num) {
     } else {
       num--;
       steps++;
-      if (num != 0) {
-        num /= 2;
-        steps++;
-      }
     }
   }
   return steps;
