@@ -14,22 +14,21 @@
 // Step 5) 2 is even; divide by 2 and obtain 1.
 // Step 6) 1 is odd; subtract 1 and obtain 0.
 
-const num = 14;
+const num = 3;
 function numberOfSteps(num) {
   let steps = 0;
 
   while (num > 0) {
     if (num % 2 === 0) {
       num /= 2;
-      steps++;
     } else {
       num--;
-      steps++;
     }
+    steps++;
   }
   return steps;
 
-  // recursion solution:
+  //   recursive solution:
   //   if (num <= 0) {
   //     return 0;
   //   }
