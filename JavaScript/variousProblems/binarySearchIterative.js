@@ -1,5 +1,5 @@
 const arr = [1, 2, 4, 5, 7, 8, 9];
-const n = 3;
+const n = 9;
 
 function iterativeBinarySearch(n, arr) {
   let start = 0;
