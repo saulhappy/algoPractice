@@ -14,13 +14,13 @@ function climbingLeaderboard(scores, alice) {
     } else if (score <= uniqueScores[uniqueScores.length - 1]) {
       result.push(uniqueScores.length + 1);
     } else {
-      result.push(indexBinarySearch(score, uniqueScores));
+      result.push(rankBinarySearch(score, uniqueScores));
     }
   }
   return result;
 }
 
-function indexBinarySearch(score, uniqueScores) {
+function rankBinarySearch(score, uniqueScores) {
   let start = 0;
   let end = uniqueScores.length - 1;
 
