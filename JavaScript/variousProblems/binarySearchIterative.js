@@ -1,5 +1,5 @@
 const arr = [1, 2, 4, 5, 7, 8, 9];
-const n = 9;
+const n = 7;
 
 function iterativeBinarySearch(n, arr) {
   let start = 0;
@@ -7,6 +7,7 @@ function iterativeBinarySearch(n, arr) {
 
   while (start <= end) {
     let mid = Math.floor(start + end / 2);
+    debugger;
 
     if (arr[mid] === n) {
       return true;
