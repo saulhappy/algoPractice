@@ -16,19 +16,23 @@
 const n = 19;
 
 function isHappy(n) {
-  let nArr = [...n];
+  let nStr = n.toString();
+  let nArr = [...nStr];
+  let sqrArr = [];
 
-  let result = 0;
-
-  while (result != 1) {
-    for (let i = 0; i < nArr.length; i++) {
-      result += squareN(nArr[i]);
+  for (let i = 0; i < nArr.length; i++) {
+    sqrArr.push(squareN(nArr[i]));
+    if (checkSum(sqrArr) === 1) {
+      return "i'm happy";
     }
   }
 }
 
 function squareN(n) {
   return n * n;
+}
+function checkSum(sqrArr) {
+  return sqrArr.reduce((a, b) => a + b, 0);
 }
 
 console.log(isHappy(n));
