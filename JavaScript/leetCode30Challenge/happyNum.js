@@ -1,3 +1,5 @@
+// NON-WORKING SOLUTION
+
 // Directions
 // Write an algorithm to determine if a number is "happy".
 // A happy number is a number defined by the following process:
@@ -13,8 +15,7 @@
 // 6^2 + 8^2 = 100
 // 1^2 + 0^2 + 0^2 = 1
 
-const n = 19;
-
+const n = 2;
 function isHappy(n) {
   let nStr = n.toString();
   let nArr = [...nStr];
@@ -22,10 +23,12 @@ function isHappy(n) {
 
   for (let i = 0; i < nArr.length; i++) {
     sqrArr.push(squareN(nArr[i]));
-    if (checkSum(sqrArr) === 1) {
-      return "i'm happy";
-    }
   }
+
+  if (checkSum(sqrArr) === 1 || checkSum(sqrArr) === 7) {
+    return true;
+  }
+  return isHappy(checkSum(sqrArr));
 }
 
 function squareN(n) {
