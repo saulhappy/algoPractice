@@ -1,5 +1,4 @@
 //source: https://www.hackerrank.com/challenges/climbing-the-leaderboard/problem
-
 const scores = [100, 90, 90, 80, 75, 60];
 const alice = [50, 65, 77, 90, 102];
 //expected result = [6,5,4,2,1]
