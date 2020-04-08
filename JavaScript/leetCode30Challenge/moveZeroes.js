@@ -8,6 +8,23 @@
 
 const nums = [0, 1, 0, 3, 12];
 
-function moveZeroes(nums) {}
+function moveZeroes(nums) {
+  let result = [];
+  let zeroes = [];
 
-console.log(moveZeroes(num));
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] != 0) {
+      result.push(nums[i]);
+    }
+    if (nums[i] === 0) {
+      zeroes.push(nums[i]);
+    }
+  }
+
+  for (let zero of zeroes) {
+    result.push(zero);
+  }
+  return result;
+}
+
+console.log(moveZeroes(nums));
