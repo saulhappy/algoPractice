@@ -6,25 +6,24 @@
 // Note: You must do this in-place without making a copy of the array.
 // Minimize the total number of operations.
 
-const nums = [0, 1, 0, 3, 12];
+const nums = [0, 0, 1];
+
+// console.log(nums.splice(3, 1).pop());
 
 function moveZeroes(nums) {
-  let result = [];
-  let zeroes = [];
+  let anchor = 0;
 
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] != 0) {
-      result.push(nums[i]);
-    }
-    if (nums[i] === 0) {
-      zeroes.push(nums[i]);
+  for (let explorer = 0; explorer < nums.length; explorer++) {
+    debugger;
+    if (nums[explorer] !== 0) {
+      let temp = nums[anchor];
+      nums[anchor] = nums[explorer];
+      nums[explorer] = temp;
+
+      anchor++;
     }
   }
-
-  for (let zero of zeroes) {
-    result.push(zero);
-  }
-  return result;
 }
 
-console.log(moveZeroes(nums));
+moveZeroes(nums);
+console.log(nums);
