@@ -10,8 +10,8 @@
 // return [0, 1].
 
 // case 2:
-const nums = [2, 5, 5, 15];
-const target = 10;
+const nums = [2, 7, 11, 15];
+const target = 26;
 
 function twoSum(nums, target) {
   // using brute force- (O)n sq time:
@@ -29,6 +29,7 @@ function twoSum(nums, target) {
   let numObj = {};
   for (let i = 0; i < nums.length; i++) {
     let complement = target - nums[i];
+    debugger;
     if (numObj[complement] !== undefined) {
       return [numObj[complement], i];
     }

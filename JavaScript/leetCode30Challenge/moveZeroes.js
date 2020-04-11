@@ -14,7 +14,6 @@ function moveZeroes(nums) {
   let anchor = 0;
 
   for (let explorer = 0; explorer < nums.length; explorer++) {
-    debugger;
     if (nums[explorer] !== 0) {
       let temp = nums[anchor];
       nums[anchor] = nums[explorer];
