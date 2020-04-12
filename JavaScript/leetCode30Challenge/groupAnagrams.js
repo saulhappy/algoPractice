@@ -9,6 +9,15 @@
 // ]
 // all inputs will be lower case and order does not matter.
 
+// algorithm: create an anagram function
+// for each i of strs,
+//    nest another loop with var J
+//      ask if next element is anagram of current element
+//        if it is, push into element's array.
+//        if it isn't move to next element, increment J.
+// at end, increment i of strs with new array.
+// then concat results of arrays.
+
 const strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
 
 function groupAnagrams(strs) {}
