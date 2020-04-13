@@ -20,6 +20,17 @@
 
 const strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
 
-function groupAnagrams(strs) {}
+function groupAnagrams(strs) {
+  let result = {};
 
-console.log(groupAnagrams(str));
+  for (let word of strs) {
+    let s = word.split("").sort().join("");
+    debugger;
+    console.log(result[s]);
+    !result[s] ? (result[s] = [word]) : result[s].push(word);
+  }
+
+  return Object.values(result);
+}
+
+console.log(groupAnagrams(strs));

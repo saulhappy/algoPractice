@@ -1,12 +1,7 @@
 const obj = {
-  "2": 0,
-  "7": 1,
-  "11": 2,
+  one: ["1", "uno"],
+  two: 1,
+  three: 2,
 };
 
-let x = obj["7"];
-
-for (let key in obj) {
-  debugger;
-  console.log(obj[key]);
-}
+console.log(obj[0]);
