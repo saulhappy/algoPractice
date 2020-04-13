@@ -4,11 +4,6 @@ const obj = {
   three: 2,
 };
 
-word1 = "listen";
-word2 = "silent";
+// obj.four = "cuatro!";
 
-console.log(word1.split("").sort().join(""));
-
-console.log(
-  word1.split("").sort().join("") === word2.split("").sort().join("")
-);
+console.log(obj["two"]);

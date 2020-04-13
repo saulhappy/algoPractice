@@ -15,14 +15,13 @@ function groupAnagrams(strs) {
   let result = {};
 
   for (let word of strs) {
-    let currentWord = word.split("").sort().join("");
-    if (result[currentWord]) {
-      result[currentWord].push(word);
+    let cleansed = word.split("").sort().join("");
+    if (result[cleansed]) {
+      result[cleansed].push(word);
     } else {
-      result[currentWord] = [word];
+      result[cleansed] = [word];
     }
   }
-
   return Object.values(result);
 }
 
