@@ -3,19 +3,21 @@
 const s1 = "hello";
 const s2 = "world";
 function twoStrings(s1, s2) {
-  let s1hash = {};
-  let s2hash = {};
+  let s1Arr = s1.split("");
+  let s2Arr = s2.split("");
+  let matchCounter = 0;
 
-  for (let char of s1) {
-    s1hash[char] = s1hash[char] + 1 || 1;
+  for (let char of s1Arr) {
+    if (s2Arr.includes(char)) {
+      matchCounter++;
+    }
   }
 
-  for (let char of s2) {
-    s2hash[char] = s2hash[char] + 1 || 1;
+  if (matchCounter > 0) {
+    return "YES";
+  } else {
+    return "NO";
   }
-
-  // create a counter. loop through one of the hashes. for every match, increment counter. if at the end of the loop, counter
-  // is at 0, then return No, else yes.
 }
 
 console.log(twoStrings(s1, s2));
