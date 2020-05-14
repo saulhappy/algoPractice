@@ -6,9 +6,8 @@ function iterativeBinarySearch(n, arr) {
   let end = arr.length - 1;
 
   while (start <= end) {
-    let mid = Math.floor(start + end / 2);
+    let mid = Math.floor((start + end) / 2);
     debugger;
-
     if (arr[mid] === n) {
       return true;
     } else if (arr[mid] < n) {
