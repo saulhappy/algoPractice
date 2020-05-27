@@ -1,5 +1,5 @@
-const nums = [1, 0, 0, 1, 0, 1];
-const k = 2;
+const nums = [0, 1, 0, 1];
+const k = 1;
 
 function checkOnes(nums, k) {
   let onesPositions = [];
@@ -27,9 +27,7 @@ function checkOnes(nums, k) {
     }
   }
 
-  results.every((val, i, arr) => val === arr[0]);
+  return results.every((val) => val === true);
 }
 
 console.log(checkOnes(nums, k));
-
-// [1,1,1,1].every( (val, i, arr) => val === arr[0] )   // true
