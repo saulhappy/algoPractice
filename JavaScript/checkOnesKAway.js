@@ -1,9 +1,9 @@
-const nums = [0, 1, 0, 1];
-const k = 1;
+const nums = [1, 0, 0, 0, 1, 0, 0, 1];
+const k = 2;
 
 function checkOnes(nums, k) {
   let onesPositions = [];
-  let results = [];
+  let results = [1];
 
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] === 1) {
@@ -11,7 +11,7 @@ function checkOnes(nums, k) {
     }
   }
 
-  // check first vs last position
+  // variable to check first vs last position
 
   const largestDistance =
     Math.abs(onesPositions[0] - onesPositions[onesPositions.length - 1]) - 1;
