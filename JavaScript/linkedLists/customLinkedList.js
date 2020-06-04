@@ -189,18 +189,20 @@ class LinkedList {
 
   // prints the list items
   printList() {
-    const curr = this.head;
-    const str = "";
-    while (curr) {
-      str += curr.element + " ";
-      curr = curr.next;
+    if (!this.head) {
+      return;
     }
-    console.log(str);
+
+    let node = this.head;
+    let str = "";
+
+    while (node) {
+      str += node.data + " ";
+      node = node.next;
+    }
+
+    return str;
   }
 }
 
 module.exports = { Node, LinkedList };
-
-// git add .
-// git commit -m "added printList function to LinkedList implementation"
-// git push origin master
