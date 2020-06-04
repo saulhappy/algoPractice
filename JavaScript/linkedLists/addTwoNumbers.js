@@ -6,8 +6,10 @@ const Node = L.Node;
 
 const l = new List();
 
-l.insertFirst(3);
-l.insertFirst(2);
-l.insertFirst(1);
+l.insertLast(1);
+l.insertLast(2);
+l.insertLast(3);
+l.insertLast(4);
+l.insertLast(5);
 
 console.log(l.printList());
