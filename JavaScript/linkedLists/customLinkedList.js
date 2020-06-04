@@ -186,6 +186,21 @@ class LinkedList {
     prevNode.next = node;
     return;
   }
+
+  // prints the list items
+  printList() {
+    const curr = this.head;
+    const str = "";
+    while (curr) {
+      str += curr.element + " ";
+      curr = curr.next;
+    }
+    console.log(str);
+  }
 }
 
 module.exports = { Node, LinkedList };
+
+// git add .
+// git commit -m "added printList function to LinkedList implementation"
+// git push origin master
