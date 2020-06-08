@@ -7,41 +7,51 @@
 // Input: 1->2->4, 1->3->4
 // Output: 1->1->2->3->4->4
 
-// const L = require("./customLinkedList");
-// const List = L.LinkedList;
-// const Node = L.Node;
-
-// const l1 = new List();
-// const l2 = new List();
-
-// l1.insertLast(1);
-// l1.insertLast(2);
-// l1.insertLast(4);
-// l2.insertLast(1);
-// l2.insertLast(3);
-// l2.insertLast(4);
-
-// console.log(l1.printList(), l2.printList());
-
-// function mergeTwoLists(l1, l2) {
-// }
-
-// console.log(mergeTwoLists(l1, l2));
-
-function listNode(val, next) {
+function ListNode(val, next) {
   this.val = val === undefined ? 0 : val;
   this.next = next === undefined ? null : next;
 }
 
-let l1 = new listNode(1);
+let l1 = new ListNode(1);
 const l1Head = l1;
+l1.next = new ListNode(2);
+l1.next.next = new ListNode(4);
+l1.next.next.next = new ListNode(6);
 
-l1.next = new listNode(2);
-l1.next.next = new listNode(3);
+let l2 = new ListNode(1);
+const l2Head = l2;
+l2.next = new ListNode(3);
+l2.next.next = new ListNode(4);
+l2.next.next.next = new ListNode(7);
 
-while (l1) {
-  console.log(l1.val);
-  l1 = l1.next;
+// while (l1 || l2) {
+//   console.log(l1.val, l2.val);
+//   l1 = l1.next;
+//   l2 = l2.next;
+// }
+
+function mergeTwoLists(l1, l2) {
+  let dummy = new ListNode(-1);
+  let head = dummy;
+
+  while (l1 && l2) {
+    if (l1.val <= l2.val) {
+      dummy.next = l1;
+      l1 = l1.next;
+    } else {
+      dummy.next = l2;
+      l2 = l2.next;
+    }
+    dummy = dummy.next;
+  }
+
+  if (l1) {
+    dummy.next = l1;
+  } else {
+    dummy.next = l2;
+  }
+
+  return head.next;
 }
 
-console.log(l1Head);
+console.log(mergeTwoLists(l1, l2));
