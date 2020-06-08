@@ -1,17 +1,25 @@
-const arr1 = [1, 2, 3];
-const arr2 = [3, 2, 1];
+const assert = require("assert").strict;
 
-console.log(arr2);
-console.log(arr2.sort());
-console.log(arr2 === arr2.sort());
-console.log(arr1 == arr2.sort());
+function doubleArr(arr) {
+  return arr.map((element) => element * 2);
+}
 
-// console.log(
-//   arr1.sort() === arr1,
-//   arr2.sort() == arr2,
-//   arr1,
-//   arr2,
-//   arr2
-//   arr2.sort()
-//   arr1.sort() === arr2.sort()
+// function doubleNum(num) {
+//   return num * 2;
+// }
+
+// const str = "test string";
+
+// assert(
+//   doubleNum(2) === 4,
+//   "Testing doubleNum function with an input of 2 should return 4."
 // );
+
+assert(
+  JSON.stringify(doubleArr([1, 2, 3])) === JSON.stringify([2, 4, 8]),
+  "Testing doubleArr function with an input of [1, 2, 3] returns [2, 4, 6]."
+);
+
+// assert(str === "tests string", "Testing that str should be 'test string'");
+
+// console.log(doubleArr([1, 2, 3]));
