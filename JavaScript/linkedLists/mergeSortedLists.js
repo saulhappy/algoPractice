@@ -16,13 +16,11 @@ let l1 = new ListNode(1);
 const l1Head = l1;
 l1.next = new ListNode(2);
 l1.next.next = new ListNode(4);
-l1.next.next.next = new ListNode(6);
 
 let l2 = new ListNode(1);
 const l2Head = l2;
 l2.next = new ListNode(3);
 l2.next.next = new ListNode(4);
-l2.next.next.next = new ListNode(7);
 
 // while (l1 || l2) {
 //   console.log(l1.val, l2.val);
@@ -31,7 +29,7 @@ l2.next.next.next = new ListNode(7);
 // }
 
 function mergeTwoLists(l1, l2) {
-  let dummy = new ListNode(-1);
+  let dummy = new ListNode(0);
   let head = dummy;
 
   while (l1 && l2) {
@@ -50,6 +48,11 @@ function mergeTwoLists(l1, l2) {
   } else {
     dummy.next = l2;
   }
+
+  //   while (head) {
+  //     console.log(head.val);
+  //     head = head.next;
+  //   }
 
   return head.next;
 }
