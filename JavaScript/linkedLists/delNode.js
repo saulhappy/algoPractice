@@ -22,6 +22,31 @@
 // The given node will not be the tail and it will always be a valid node of the linked list.
 // Do not return anything from your function
 
-function deleteNode(node) {}
+const L = require("./customLinkedList");
+const List = L.LinkedList;
+const Node = L.Node;
 
-console.log(deleteNode(node));
+const l = new List();
+
+const a = new Node(1);
+const b = new Node(2);
+const c = new Node(3);
+const d = new Node(4);
+
+a.next = b;
+b.next = c;
+c.next = d;
+
+l.head = a;
+
+console.log(l.size());
+console.log(l.printList());
+
+l.deleteNode(c);
+
+console.log(l.size());
+console.log(l.printList());
+
+
+
+git push origin

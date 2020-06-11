@@ -203,6 +203,12 @@ class LinkedList {
 
     return str;
   }
+
+  // delete node
+  deleteNode(node) {
+    node.data = node.next.data;
+    node.next = node.next.next;
+  }
 }
 
 module.exports = { Node, LinkedList };
