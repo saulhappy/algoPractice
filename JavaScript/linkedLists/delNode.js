@@ -46,7 +46,3 @@ l.deleteNode(c);
 
 console.log(l.size());
 console.log(l.printList());
-
-
-
-git push origin
