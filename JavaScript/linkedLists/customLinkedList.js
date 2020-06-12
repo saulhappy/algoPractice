@@ -209,6 +209,32 @@ class LinkedList {
     node.data = node.next.data;
     node.next = node.next.next;
   }
+
+  // reverse the list
+  reverseList(head) {
+    if (!head) {
+      return head;
+    }
+
+    let stack = [];
+
+    while (head) {
+      stack.push(head);
+      head = head.next;
+    }
+
+    let node = stack.pop();
+    head = node;
+
+    while (stack) {
+      node.next = stack.pop();
+      node = node.next;
+    }
+
+    node.next = null;
+
+    return head;
+  }
 }
 
 module.exports = { Node, LinkedList };
