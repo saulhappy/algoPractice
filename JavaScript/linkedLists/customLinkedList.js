@@ -223,16 +223,15 @@ class LinkedList {
       head = head.next;
     }
 
-    let node = stack.pop();
-    head = node;
+    let current = stack.pop();
+    head = current;
 
-    while (stack) {
-      node.next = stack.pop();
-      node = node.next;
+    while (stack.length > 0) {
+      current.next = stack.pop();
+      current = current.next;
     }
 
-    node.next = null;
-
+    current.next = null;
     return head;
   }
 }
