@@ -49,5 +49,5 @@ a.next = b;
 b.next = c;
 c.next = d;
 
-console.log(l.size());
 console.log(l.printList());
+console.log(l.size());
