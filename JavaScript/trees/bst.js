@@ -18,9 +18,15 @@ class bst {
     this.count = 0;
   }
 
-  size() {}
+  size() {
+    return this.count;
+  }
 
-  insert() {}
+  insert(data) {
+    this.count++;
+
+    let newNode = new Node(data);
+  }
 
   min() {}
 
