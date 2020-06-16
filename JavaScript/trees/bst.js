@@ -9,3 +9,12 @@ class Node {
     this.right = null;
   }
 }
+
+// create a bst class
+
+class bst {
+  constructor(data) {
+    this.root = new Node(data);
+    this.count = 0;
+  }
+}
