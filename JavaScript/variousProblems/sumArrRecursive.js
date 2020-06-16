@@ -1,3 +1,5 @@
+// sum the elements of an array of integers  recursively
+
 const arr = [1, 2, 3];
 
 function sumArr(arr) {
