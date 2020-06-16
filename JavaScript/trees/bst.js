@@ -27,4 +27,17 @@ class bst {
   max() {}
 
   contains() {}
+
+  // search algorithms
+
+  // DFS
+
+  dfsInOrder() {}
+
+  dfsPreOrder() {}
+
+  dfsPostOrder() {}
+
+  // BFS
+  bfs() {}
 }
