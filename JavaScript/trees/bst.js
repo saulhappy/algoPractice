@@ -17,4 +17,14 @@ class bst {
     this.root = new Node(data);
     this.count = 0;
   }
+
+  size() {}
+
+  insert() {}
+
+  min() {}
+
+  max() {}
+
+  contains() {}
 }
