@@ -15,7 +15,7 @@ class Node {
 class bst {
   constructor(data) {
     this.root = new Node(data);
-    this.count = 0;
+    this.count = 1;
   }
 
   size() {
@@ -73,11 +73,24 @@ class bst {
     return currentNode.data;
   }
 
-  contains() {}
+  contains(data) {
+    let currentNode = this.root;
+
+    while (currentNode) {
+      if (data === currentNode.data) return true;
+
+      if (data < currentNode.data) {
+        currentNode = currentNode.left;
+      } else {
+        currentNode = currentNode.right;
+      }
+    }
+    return false;
+  }
 
   // search algorithms
 
-  // DFS
+  // DFS: search branch-by-branch
 
   dfsInOrder() {}
 
@@ -85,6 +98,22 @@ class bst {
 
   dfsPostOrder() {}
 
-  // BFS
+  // BFS: search level-by-level
   bfs() {}
 }
+
+let t = new bst(15);
+
+t.insert(10);
+t.insert(17);
+t.insert(22);
+t.insert(12);
+t.insert(10);
+t.insert(3);
+
+bst;
+
+console.log(t.size());
+console.log(t.min());
+console.log(t.max());
+console.log(t.contains(10));
