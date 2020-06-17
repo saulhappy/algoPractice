@@ -51,9 +51,27 @@ class bst {
     searchTree(this.root);
   }
 
-  min() {}
+  // traverse the left side until it finds the last leaf
+  min() {
+    let currentNode = this.root;
 
-  max() {}
+    while (currentNode.left) {
+      currentNode = currentNode.left;
+    }
+
+    return currentNode.data;
+  }
+
+  // traverse the right side until it finds the last leaf
+
+  max() {
+    let currentNode = this.root;
+
+    while (currentNode.right) {
+      currentNode = currentNode.right;
+    }
+    return currentNode.data;
+  }
 
   contains() {}
 
