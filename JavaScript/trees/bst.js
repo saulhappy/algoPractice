@@ -92,11 +92,24 @@ class bst {
 
   // DFS: search branch-by-branch
 
-  dfsInOrder() {}
+  // process order: left, root, right
+  dfsInOrder() {
+    let result = [];
 
-  dfsPreOrder() {}
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      result.push(node.data);
+      if (node.right) traverse(node.right);
+    }
 
-  dfsPostOrder() {}
+    traverse(this.root);
+
+    return result;
+  }
+
+  dfsPreOrder() {} // process order: root, left, right
+
+  dfsPostOrder() {} // process order: left, right, root
 
   // BFS: search level-by-level
   bfs() {}
@@ -106,14 +119,12 @@ let t = new bst(15);
 
 t.insert(10);
 t.insert(17);
-t.insert(22);
-t.insert(12);
-t.insert(10);
 t.insert(3);
-
-bst;
+t.insert(16);
+t.insert(22);
 
 console.log(t.size());
 console.log(t.min());
 console.log(t.max());
-console.log(t.contains(10));
+console.log(t.contains(22));
+console.log(t.dfsInOrder());

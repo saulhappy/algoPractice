@@ -3,7 +3,7 @@
 // consecutively appears
 // Example:  a1b2c2a1
 
-const array = ["a", "b", "b", "c", "c", "a"];
+const array = ["a", "b", "b", "b", "c", "b", "c", "c", "a"];
 
 function cntConsecutiveElements(array) {
   let resultStr = "";
@@ -12,9 +12,9 @@ function cntConsecutiveElements(array) {
     let counter = 1;
     for (let j = i + 1; j < array.length; j++) {
       if (array[i] === array[j]) {
+        debugger;
         counter++;
       }
-      break;
     }
 
     resultStr += array[i] + counter;
