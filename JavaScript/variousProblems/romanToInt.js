@@ -10,12 +10,11 @@ const romanHash = {
   M: 1000,
 };
 
-const s = "IX";
-// 1994
+const s = "MCMLXXXIX";
+// 1989
 
 function romanToInt(s) {
   let accumulator = 0;
-  s = [...s];
 
   for (let i = 0; i < s.length; i++) {
     if (s[i] === "I" && s[i + 1] === "V") {
