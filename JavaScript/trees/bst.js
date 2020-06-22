@@ -92,8 +92,8 @@ class bst {
 
   // DFS: search branch-by-branch
 
-  // process order: left, root, right
   dfsInOrder() {
+    // process order: left, root, right
     let result = [];
 
     function traverse(node) {
@@ -107,7 +107,20 @@ class bst {
     return result;
   }
 
-  dfsPreOrder() {} // process order: root, left, right
+  dfsPreOrder() {
+    // process order: root, left, right
+    let result = [];
+    function traverse(node) {
+      result.push(node.data);
+
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+
+    traverse(this.root);
+
+    return result;
+  }
 
   dfsPostOrder() {} // process order: left, right, root
 
@@ -128,3 +141,4 @@ console.log(t.min());
 console.log(t.max());
 console.log(t.contains(22));
 console.log(t.dfsInOrder());
+console.log(t.dfsPreOrder());
