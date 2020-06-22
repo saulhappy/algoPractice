@@ -122,7 +122,19 @@ class bst {
     return result;
   }
 
-  dfsPostOrder() {} // process order: left, right, root
+  dfsPostOrder() {
+    // process order: left, right, root
+    let result = [];
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      result.push(node.data);
+    }
+
+    traverse(this.root);
+
+    return result;
+  }
 
   // BFS: search level-by-level
   bfs() {}
@@ -142,3 +154,4 @@ console.log(t.max());
 console.log(t.contains(22));
 console.log(t.dfsInOrder());
 console.log(t.dfsPreOrder());
+console.log(t.dfsPostOrder());
