@@ -137,7 +137,28 @@ class bst {
   }
 
   // BFS: search level-by-level
-  bfs() {}
+  bfs() {
+    let result = [];
+    let queue = [];
+
+    queue.push(this.root);
+    debugger;
+
+    while (queue.length) {
+      let currentNode = queue.shift();
+      result.push(currentNode.data);
+
+      if (currentNode.left) {
+        queue.push(currentNode.left);
+      }
+
+      if (currentNode.right) {
+        queue.push(currentNode.right);
+      }
+    }
+
+    return result;
+  }
 }
 
 let t = new bst(15);
@@ -155,3 +176,4 @@ console.log(t.contains(22));
 console.log(t.dfsInOrder());
 console.log(t.dfsPreOrder());
 console.log(t.dfsPostOrder());
+console.log(t.bfs());
