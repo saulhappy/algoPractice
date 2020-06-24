@@ -1,32 +1,22 @@
 // Given an array of characters ["a", "b", "b", "b", "c", "c", "a"] return a string
-// that counts the number of times a character
-// consecutively appears
+// that counts the number of each consecutive letter non-uniquely.
 // Example:  a1b3c2a1
 
-// const array = ["a", "b", "b", "b", "c", "b", "c", "c", "a"];
-const array = ["a", "b", "b", "b", "c", "c", "a"];
+const array = ["z", "z", "z", "a", "z", "b", "b", "b", "c", "c", "a"];
 
 function cntConsecutiveElements(array) {
-  let resultStr = "";
+  let result = "";
+  let counter = 1;
 
   for (let i = 0; i < array.length; i++) {
-    let counter = 1;
-    for (let j = i + 1; j < array.length; j++) {
-      //   debugger;
-      if (array[i] === array[j]) {
-        counter++;
-      }
-      if (array[i] != array[j]) {
-        resultStr += array[i] + counter;
-        i = j;
-        counter = 1;
-      }
-
-      //   break;
+    if (array[i] === array[i + 1]) {
+      counter++;
+    } else {
+      result += array[i] + counter;
+      counter = 1;
     }
   }
-
-  return resultStr;
+  return result;
 }
 
 console.log(cntConsecutiveElements(array));
