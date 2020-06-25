@@ -8,6 +8,19 @@
 // Output: [1,3,6,10]
 // Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].
 
-function runningSum(nums) {}
+const nums = [1, 2, 3, 4];
+
+function runningSum(nums) {
+  let result = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    if (i === 0) {
+      result.push(nums[i]);
+    } else {
+      result.push(result[i - 1] + nums[i]);
+    }
+  }
+  return result;
+}
 
 console.log(runningSum(nums));
