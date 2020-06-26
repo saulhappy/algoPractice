@@ -12,7 +12,7 @@ class Node {
 
 // create a bst class
 
-class bst {
+class BST {
   constructor(data) {
     this.root = new Node(data);
     this.count = 1;
@@ -142,7 +142,6 @@ class bst {
     let queue = [];
 
     queue.push(this.root);
-    debugger;
 
     while (queue.length) {
       let currentNode = queue.shift();
@@ -161,19 +160,21 @@ class bst {
   }
 }
 
-let t = new bst(15);
+module.exports = { Node, BST };
 
-t.insert(10);
-t.insert(17);
-t.insert(3);
-t.insert(16);
-t.insert(22);
+let t = new BST(15);
 
-console.log(t.size());
-console.log(t.min());
-console.log(t.max());
-console.log(t.contains(22));
-console.log(t.dfsInOrder());
-console.log(t.dfsPreOrder());
-console.log(t.dfsPostOrder());
-console.log(t.bfs());
+// t.insert(10);
+// t.insert(17);
+// t.insert(3);
+// t.insert(16);
+// t.insert(22);
+
+// console.log(t.size());
+// console.log(t.min());
+// console.log(t.max());
+// console.log(t.contains(22));
+// console.log(t.dfsInOrder());
+// console.log(t.dfsPreOrder());
+// console.log(t.dfsPostOrder());
+// console.log(t.bfs());
