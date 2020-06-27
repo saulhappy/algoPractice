@@ -1,8 +1,7 @@
-// Given an array of characters ["a", "b", "b", "b", "c", "c", "a"] return a string
-// that counts the number of each consecutive letter non-uniquely.
-// Example:  a1b3c2a1
+// Given an array of characters return a string that counts the number of each consecutive letter.
+// Example: ["a", "b", "b", "a"] should return "a1b2a1"
 
-const array = ["z", "z", "z", "a", "z", "b", "b", "b", "c", "c", "a"];
+const array = ["a", "b", "b", "a"];
 
 function cntConsecutiveElements(array) {
   let result = "";
@@ -20,3 +19,4 @@ function cntConsecutiveElements(array) {
 }
 
 console.log(cntConsecutiveElements(array));
+console.log(array[4]);
