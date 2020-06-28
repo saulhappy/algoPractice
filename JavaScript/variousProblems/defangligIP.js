@@ -1,4 +1,4 @@
-source: //leetcode.com/problems/defanging-an-ip-address/
+//leetcode.com/problems/defanging-an-ip-address/
 
 // Given a valid (IPv4) IP address, return a defanged version of that IP address.
 
@@ -13,6 +13,21 @@ source: //leetcode.com/problems/defanging-an-ip-address/
 // Input: address = "255.100.50.0"
 // Output: "255[.]100[.]50[.]0"
 
-https: function defangIPaddr(address) {}
+const address = "1.1.1.1";
+
+function defangIPaddr(address) {
+  //   one liner: return address.split(".").join("[.]");
+
+  let result = "";
+
+  for (let i = 0; i < address.length; i++) {
+    if (address[i] != ".") {
+      result += address[i];
+    } else {
+      result += "[.]";
+    }
+  }
+  return result;
+}
 
 console.log(defangIPaddr(address));
