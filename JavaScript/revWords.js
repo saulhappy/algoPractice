@@ -20,8 +20,19 @@
 // Input string may contain leading or trailing spaces. However, your reversed string should not contain leading or trailing spaces.
 // You need to reduce multiple spaces between two words to a single space in the reversed string.
 
-const s = "  hello world!  ";
+const s = "a good   example";
 
-function reverseWords(s) {}
+function reverseWords(s) {
+  let arr = s.trim().split(" ");
+  let l = arr.length;
+  let revArr = [];
+
+  for (let i = 0; i < l; i++) {
+    revArr.push(arr.pop());
+  }
+
+  let revString = revArr.join(" ");
+  return revString.replace(/\s\s+/g, " ");
+}
 
 console.log(reverseWords(s));
