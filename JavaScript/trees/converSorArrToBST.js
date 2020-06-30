@@ -17,6 +17,7 @@
 //  -10  5
 
 const T = require("./bst");
+const Node = T.Node;
 const BST = T.BST;
 
 const nums = [-10, -3, 0, 5, 9];
@@ -28,13 +29,11 @@ function sortedArrayToBST(nums) {
 
   let mid = Math.floor(nums.length / 2);
 
-  let node = new BST(nums[mid]);
+  let node = new Node(nums[mid]);
 
   node.left = sortedArrayToBST(nums.slice(0, mid));
-  console.log(nums);
+
   node.right = sortedArrayToBST(nums.slice(mid + 1, nums.length));
-  console.log(nums);
+
   return node;
 }
-
-console.log(sortedArrayToBST(nums).root);

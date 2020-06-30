@@ -1,3 +1,3 @@
-let arr = [1, 2, 3, 4];
+const nums = [-10, -3, 0, 5, 9];
 
-console.log(arr.slice(0, 2));
+console.log(nums.slice(1, 5));
