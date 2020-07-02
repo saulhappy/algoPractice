@@ -13,16 +13,16 @@
 
 // Complete the rotLeft function below.
 
-const a = [1, 2, 3, 4, 5];
+const a = [1, 2, 3, 4];
 const d = 2;
 
 function rotLeft(a, d) {
+  if (d % a.length == 0) return a;
   while (d) {
     a.push(a.shift());
     d--;
   }
-  console.log(a);
   return a;
 }
 
-rotLeft(a, d);
+console.log(rotLeft(a, d));

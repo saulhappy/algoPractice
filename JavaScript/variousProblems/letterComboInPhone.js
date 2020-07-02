@@ -12,34 +12,26 @@
 const digits = "23";
 
 function letterCombinations(digits) {
-  if (!digits) return [];
+  if (digits.length === 0) return [];
 
-  const map = {
-    1: [],
-    2: ["a", "b", "c"],
-    3: ["d", "e", "f"],
-    4: ["g", "h", "i"],
-    5: ["j", "k", "l"],
-    6: ["m", "n", "o"],
-    7: ["p", "q", "r", "s"],
-    8: ["t", "u", "v"],
-    9: ["w", "x", "y", "z"],
+  let digitMap = {
+    "2": "abc",
+    "3": "def",
+    "4": "ghi",
+    "5": "jkl",
+    "6": "mno",
+    "7": "pqrs",
+    "8": "tuv",
+    "9": "wxyz",
   };
 
-  let combinations = [...map[digits[0]]];
+  let result = [];
 
-  for (let i = 1; i < digits.length; i++) {
-    debugger;
-    const updatedCombinations = [];
-
-    combinations.forEach((combination) => {
-      map[digits[i]].forEach((letter) => {
-        updatedCombinations.push(combination + letter);
-      });
-    });
-    combinations = updatedCombinations;
+  for (let i = 0; i < digits.length; i++) {
+    let char = digits[i];
   }
-  return combinations;
+
+  function charComboMaker(char, i) {}
 }
 
 console.log(letterCombinations(digits));
