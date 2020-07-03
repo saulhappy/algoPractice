@@ -14,7 +14,6 @@ function arrMergeSort(a, b) {
   let k = 0;
 
   while (i < a.length && j < b.length) {
-    debugger;
     if (a[i] < b[j]) {
       result[k] = a[i];
       i++;
