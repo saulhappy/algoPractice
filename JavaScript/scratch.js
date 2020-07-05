@@ -1,8 +1,4 @@
-function foo() {
-  function bar() {
-    setTimeout(
-      () => console.log('Curly'), 1000)
-    )
-  }
-  console.log(='Larry')
-}
+const str = "saul";
+
+console.log([str]);
+// console.log(str.slice(0, 1) + str.slice(2));
