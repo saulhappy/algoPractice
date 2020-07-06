@@ -1,8 +1,8 @@
-const str = "dog";
+const str = "DOG";
 
 function findPerms(str) {
   if (str.length === 0) return "";
-  if (str.length === 1) return [str];
+  if (str.length === 1) return str;
 
   let result = [];
 
@@ -10,8 +10,8 @@ function findPerms(str) {
     const currentChar = str[i];
     const remainingChars = str.slice(0, i) + str.slice(i + 1);
 
-    for (let permutation of findPerms(remainingChars)) {
-      result.push(currentChar + permutation);
+    for (let j = 0; j < remainingChars.length; j++) {
+      result.push(currentChar + findPerms(remainingChars)[j]);
     }
   }
   return result;
