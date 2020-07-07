@@ -1,9 +1,14 @@
-const str = "saul";
+const items = [1, 2, 3];
 
-for (let char in str) {
-  console.log(str[char]);
-}
+const i = 1;
 
-for (let i = 0; i < str.length; i++) {
-  console.log(str[i]);
-}
+console.log(items.slice(0, i));
+console.log(items.slice(i + 1));
+
+const x = [items.slice(0, i)] + [items.slice(i + 1)];
+
+const y = [];
+
+y.push(parseInt(x[0]));
+
+console.log(y);
