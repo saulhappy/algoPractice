@@ -19,21 +19,21 @@
 const nums = [1, 2, 3];
 
 function permute(nums) {
-  if (nums.length === 1) return nums;
+  if (nums.length === 0) return [];
+  if (nums.length === 1) return nums[0];
 
   let result = [];
 
   for (let i = 0; i < nums.length; i++) {
-    let numsCopy = [...nums];
-
     const currentNum = nums[i];
-    const remainingNums = numsCopy.slice(0, i).concat(numsCopy.slice(i + 1));
+    const remainingNums = nums.slice(0, i).concat(nums.slice(i + 1));
     debugger;
 
     for (let j = 0; j < remainingNums.length; j++) {
-      result.push(currentNum + permute(remainingNums)[j]);
+      result.push(currentNum, ...permute(remainingNums)[j]);
     }
   }
+  return result;
 }
 
 console.log(permute(nums));
