@@ -1,4 +1,5 @@
 // source: https://leetcode.com/problems/permutations/
+// close approach: https://leetcode.com/problems/permutations/discuss/276363/JavaScript-Solution
 
 // Directions:
 // Given a collection of distinct integers, return all possible permutations.
@@ -20,20 +21,21 @@ const nums = [1, 2, 3];
 
 function permute(nums) {
   if (nums.length === 0) return [];
-  if (nums.length === 1) return nums[0];
+  if (nums.length === 1) return [nums];
 
   let result = [];
 
   for (let i = 0; i < nums.length; i++) {
     const currentNum = nums[i];
     const remainingNums = nums.slice(0, i).concat(nums.slice(i + 1));
-    debugger;
+    const remainingNumsPermuted = permute(remainingNums);
 
-    for (let j = 0; j < remainingNums.length; j++) {
-      result.push(currentNum, ...permute(remainingNums)[j]);
+    for (let j = 0; j < remainingNumsPermuted.length; j++) {
+      const permutedArray = [currentNum].concat(remainingNumsPermuted[j]);
+      result.push(permutedArray);
     }
   }
   return result;
 }
 
-console.log(permute(nums));
+console.log(...permute(nums));
