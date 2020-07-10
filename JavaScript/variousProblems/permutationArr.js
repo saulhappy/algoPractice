@@ -20,10 +20,10 @@
 const nums = [1, 2, 3];
 
 function permute(nums) {
+  let result = [];
+
   if (nums.length === 0) return [];
   if (nums.length === 1) return [nums];
-
-  let result = [];
 
   for (let i = 0; i < nums.length; i++) {
     const currentNum = nums[i];
