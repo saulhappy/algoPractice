@@ -3,7 +3,7 @@
 // example 1: "a3c9b2c1" =>  "a3b2c10"
 // example 2: "a12b56c1" => "a12b56c1"
 
-const s = "a3c9b2c1";
+const s = "a12b56c1";
 
 function betterCompression(s) {
   const sSplit = s.match(/[a-z]+|[^a-z]+/gi);
@@ -20,18 +20,14 @@ function betterCompression(s) {
   }
 
   const sObj = objBuilder(nums, chars);
+  const sObjSorted = sortObj(sObj);
 
-  for (let char in sObj) {
-    result += char + sObj[char];
+  for (let char in sObjSorted) {
+    result += char + sObjSorted[char];
   }
 
   return result;
-
-  // still need to sort.
 }
-
-const chars = ["a", "c", "b", "c"];
-const nums = ["3", "9", "2", "1"];
 
 function objBuilder(nums, chars) {
   let obj = {};
@@ -48,4 +44,15 @@ function objBuilder(nums, chars) {
   return obj;
 }
 
-betterCompression(s);
+function sortObj(obj) {
+  const sorted = {};
+
+  Object.keys(obj)
+    .sort()
+    .forEach(function (key) {
+      sorted[key] = obj[key];
+    });
+  return sorted;
+}
+
+console.log(betterCompression(s));
