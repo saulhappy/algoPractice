@@ -22,3 +22,5 @@ const nums = [3, 4, 5, 2];
 function maxProduct(nums) {}
 
 console.log(maxProduct(nums));
+
+// need to find max, then filter out that number to find second max, then multiply.
