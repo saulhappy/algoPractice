@@ -164,17 +164,17 @@ module.exports = { Node, BST };
 
 let t = new BST(15);
 
-// t.insert(10);
-// t.insert(17);
-// t.insert(3);
-// t.insert(16);
-// t.insert(22);
+t.insert(10);
+t.insert(17);
+t.insert(3);
+t.insert(16);
+t.insert(22);
 
 // console.log(t.size());
 // console.log(t.min());
 // console.log(t.max());
 // console.log(t.contains(22));
-// console.log(t.dfsInOrder());
+console.log(t.dfsInOrder());
 // console.log(t.dfsPreOrder());
 // console.log(t.dfsPostOrder());
 // console.log(t.bfs());
