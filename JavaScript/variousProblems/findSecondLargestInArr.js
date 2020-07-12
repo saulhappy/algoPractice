@@ -1,7 +1,7 @@
 // find the second largest element of an array
-// example: arr = [1, 2, 3, 4, 5] => 4.
+// example: arr = [1, 2, 3, 3, 2, 4, 5, 5, 1] => 4.
 
-const arr = [1, 2, 3, 4, 5];
+const arr = [1, 2, 3, 3, 2, 4, 5, 5, 1];
 
 function findSecondLargest(arr) {
   const distinct = [...new Set(arr)];
