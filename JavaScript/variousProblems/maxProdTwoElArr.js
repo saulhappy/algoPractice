@@ -17,10 +17,13 @@
 // Input: nums = [3,7]
 // Output: 12
 
-const nums = [3, 4, 5, 2];
+const nums = [3, 7];
 
-function maxProduct(nums) {}
+function maxProduct(nums) {
+  const sorted = nums.sort((a, b) => a - b);
+  const max = sorted[sorted.length - 1];
+  const secondMax = sorted[sorted.length - 2];
+  return (max - 1) * (secondMax - 1);
+}
 
 console.log(maxProduct(nums));
-
-// need to find max, then filter out that number to find second max, then multiply.
