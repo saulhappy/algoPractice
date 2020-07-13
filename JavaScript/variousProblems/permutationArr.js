@@ -31,6 +31,7 @@ function permute(nums) {
     const remainingNumsPermuted = permute(remainingNums);
 
     for (let j = 0; j < remainingNumsPermuted.length; j++) {
+      debugger;
       const permutedArray = [currentNum].concat(remainingNumsPermuted[j]);
       result.push(permutedArray);
     }

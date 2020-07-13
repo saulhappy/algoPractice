@@ -3,7 +3,7 @@
 // example 1: "a3c9b2c1" =>  "a3b2c10"
 // example 2: "a12b56c1" => "a12b56c1"
 
-const s = "a12b56c1";
+const s = "a3c9b2c1";
 
 function betterCompression(s) {
   const sSplit = s.match(/[a-z]+|[^a-z]+/gi);
@@ -18,7 +18,6 @@ function betterCompression(s) {
       chars.push(sSplit[i]);
     }
   }
-
   const sObj = objBuilder(nums, chars);
   const sObjSorted = sortObj(sObj);
 
@@ -30,6 +29,7 @@ function betterCompression(s) {
 }
 
 function objBuilder(nums, chars) {
+  debugger;
   let obj = {};
   let i = 0;
 
