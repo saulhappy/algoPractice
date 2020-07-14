@@ -1,16 +1,6 @@
-const l = 2;
-const r = 5;
-
-function printNums(l, r) {
-  results = [];
-
-  for (let i = l; i < r + 1; i++) {
-    if (i % 2 != 0) {
-      results.push(i);
-    }
-  }
-
-  return results;
+const arr = [1, 2, 3];
+function findSecondLargest(arr) {
+  return arr[arr.length - 2];
 }
 
-console.log(printNums(l, r));
+console.log(findSecondLargest(arr));
