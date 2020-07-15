@@ -9,8 +9,26 @@
 
 // Insertion, deletion or replace of any one character are all considered as one change.
 
-const s = "saul23!";
+const s = "uuasdftttaaal!";
+// const sSplit = s.match(/[a-z]+|[^a-z]+/gi);
 
-function strongPasswordChecker(s) {}
+function strongPasswordChecker(s) {
+  let lengthErrorCount = 0;
+  let upperCount = (s.match(/[A-Z]/g) || []).length;
+  let lowerCount = (s.match(/[a-z]/g) || []).length;
+  let numCount = s.replace(/\D/g, "").length;
+  let repeatCount = 0;
+  let totalErrorCount = 0;
 
-console.log(strongPassword(s));
+  if (s.length < 6 || s.length > 20) lengthErrorCount++;
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === s[i + 1] && s[i] === s[i + 2] && s[i]) {
+      repeatCount++;
+    }
+  }
+
+  totalErrorCount = lengthErrorCount + upperCount;
+}
+
+console.log(strongPasswordChecker(s));
