@@ -21,6 +21,7 @@ function strongPasswordChecker(s) {
   let lowerErrorCount = 0;
   let numCount = s.replace(/\D/g, "").length;
   let numErrorCount = 0;
+  let sObj = {};
   let repeatCountError = 0;
   let totalErrorCount = 0;
 
@@ -34,6 +35,10 @@ function strongPasswordChecker(s) {
 
   // make histogram of string char count. filter out all chars of 3+ subtract how many need to go to comply.
 
+  for (let char of s) {
+    sObj[char] = sObj[char] + 1 || 1;
+  }
+
   if (upperCount < 1) upperErrorCount++;
   if (lowerCount < 1) lowerErrorCount++;
   if (numCount < 1) numErrorCount++;
@@ -45,7 +50,7 @@ function strongPasswordChecker(s) {
     lowerErrorCount +
     numErrorCount;
 
-  return totalErrorCount;
+  return sObj;
 }
 
 console.log(strongPasswordChecker(s));
