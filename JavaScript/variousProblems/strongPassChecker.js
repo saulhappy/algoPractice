@@ -9,7 +9,7 @@
 
 // Insertion, deletion or replace of any one character are all considered as one change.
 
-const s = "jfjdnsnfjdjsasertrf32";
+const s = "saulfeliZ5aaa";
 // const sSplit = s.match(/[a-z]+|[^a-z]+/gi);
 
 function strongPasswordChecker(s) {
@@ -21,7 +21,7 @@ function strongPasswordChecker(s) {
   let lowerErrorCount = 0;
   let numCount = s.replace(/\D/g, "").length;
   let numErrorCount = 0;
-  let repeatCount = 0;
+  let repeatCountError = 0;
   let totalErrorCount = 0;
 
   if (s.length < 6) {
@@ -32,11 +32,7 @@ function strongPasswordChecker(s) {
     lengthMaxErrors = s.length - 20;
   }
 
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === s[i + 1] && s[i] === s[i + 2] && s[i]) {
-      repeatCount++;
-    }
-  }
+  // make histogram of string char count. filter out all chars of 3+ subtract how many need to go to comply.
 
   if (upperCount < 1) upperErrorCount++;
   if (lowerCount < 1) lowerErrorCount++;
@@ -49,7 +45,7 @@ function strongPasswordChecker(s) {
     lowerErrorCount +
     numErrorCount;
 
-  return lengthMaxErrors;
+  return totalErrorCount;
 }
 
 console.log(strongPasswordChecker(s));
