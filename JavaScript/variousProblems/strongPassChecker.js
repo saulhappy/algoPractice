@@ -9,7 +9,7 @@
 
 // Insertion, deletion or replace of any one character are all considered as one change.
 
-const s = "helloooooworldddd";
+const s = "1au";
 // const sSplit = s.match(/[a-z]+|[^a-z]+/gi);
 
 function strongPasswordChecker(s) {
@@ -24,16 +24,16 @@ function strongPasswordChecker(s) {
   let numErrorCount = 0;
   let totalErrorCount = 0;
 
-  consecCharToRemove = consecCharToRemoveFinder(s);
-
-  console.log(consecCharToRemove);
+  consecCharToRemove = consecCharToRemoveFinder(s) || 0;
 
   if (s.length < 6) {
     lengthMinErrors = 6 - s.length;
+    return lengthMinErrors;
   }
 
   if (s.length > 20) {
     lengthMaxErrors = s.length - 20;
+    return lengthMaxErrors;
   }
 
   if (upperCount < 1) upperErrorCount++;
@@ -41,6 +41,7 @@ function strongPasswordChecker(s) {
   if (numCount < 1) numErrorCount++;
 
   totalErrorCount =
+    consecCharToRemove +
     lengthMinErrors +
     lengthMaxErrors +
     upperErrorCount +
@@ -78,9 +79,8 @@ function strongPasswordChecker(s) {
     for (let i = 0; i < nConsecChars.length; i++) {
       nCharsToRemove += nConsecChars[i] - 2;
     }
-
-    return nCharsToRemove;
   }
+  return totalErrorCount;
 }
 
-strongPasswordChecker(s);
+console.log(strongPasswordChecker(s));
