@@ -13,7 +13,7 @@ const s = "helloooooworldddd";
 // const sSplit = s.match(/[a-z]+|[^a-z]+/gi);
 
 function strongPasswordChecker(s) {
-  let charCount = "";
+  let charCountTwoPlus = "";
   let lengthMinErrors = 0;
   let lengthMaxErrors = 0;
   let upperCount = (s.match(/[A-Z]/g) || []).length;
@@ -24,7 +24,9 @@ function strongPasswordChecker(s) {
   let numErrorCount = 0;
   let totalErrorCount = 0;
 
-  charCount = consecCounter(s);
+  charCountTwoPlus = consecCounter(s);
+
+  console.log(charCountTwoPlus);
 
   if (s.length < 6) {
     lengthMinErrors = 6 - s.length;
@@ -50,6 +52,7 @@ function strongPasswordChecker(s) {
   function consecCounter(s) {
     let result = "";
     let counter = 1;
+    let resultFiltered = "";
 
     for (let i = 0; i < s.length; i++) {
       if (s[i] === s[i + 1]) {
@@ -59,10 +62,14 @@ function strongPasswordChecker(s) {
         counter = 1;
       }
     }
-    return result;
-  }
 
-  return charCount;
+    for (let i = 0; i < result.length; i++) {
+      if (parseInt(result[i + 1]) > 2) {
+        resultFiltered += result[i] + result[i + 1];
+      }
+    }
+    return resultFiltered;
+  }
 }
 
-console.log(strongPasswordChecker(s));
+strongPasswordChecker(s);
