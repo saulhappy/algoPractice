@@ -13,7 +13,7 @@ const s = "helloooooworldddd";
 // const sSplit = s.match(/[a-z]+|[^a-z]+/gi);
 
 function strongPasswordChecker(s) {
-  let charCountTwoPlus = "";
+  let consecCharToRemove = 0;
   let lengthMinErrors = 0;
   let lengthMaxErrors = 0;
   let upperCount = (s.match(/[A-Z]/g) || []).length;
@@ -24,9 +24,9 @@ function strongPasswordChecker(s) {
   let numErrorCount = 0;
   let totalErrorCount = 0;
 
-  charCountTwoPlus = consecCounter(s);
+  consecCharToRemove = consecCharToRemoveFinder(s);
 
-  console.log(charCountTwoPlus);
+  console.log(consecCharToRemove);
 
   if (s.length < 6) {
     lengthMinErrors = 6 - s.length;
@@ -49,10 +49,12 @@ function strongPasswordChecker(s) {
 
   // helper functions:
 
-  function consecCounter(s) {
+  function consecCharToRemoveFinder(s) {
     let result = "";
     let counter = 1;
     let resultFiltered = "";
+    let nConsecChars = [];
+    let nCharsToRemove = 0;
 
     for (let i = 0; i < s.length; i++) {
       if (s[i] === s[i + 1]) {
@@ -68,7 +70,16 @@ function strongPasswordChecker(s) {
         resultFiltered += result[i] + result[i + 1];
       }
     }
-    return resultFiltered;
+
+    for (let i = 1; i < resultFiltered.length; i += 2) {
+      nConsecChars.push(parseInt(resultFiltered[i]));
+    }
+
+    for (let i = 0; i < nConsecChars.length; i++) {
+      nCharsToRemove += nConsecChars[i] - 2;
+    }
+
+    return nCharsToRemove;
   }
 }
 
