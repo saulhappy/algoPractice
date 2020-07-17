@@ -9,8 +9,7 @@
 
 // Insertion, deletion or replace of any one character are all considered as one change.
 
-const s = "1au";
-// const sSplit = s.match(/[a-z]+|[^a-z]+/gi);
+const s = "aaA123";
 
 function strongPasswordChecker(s) {
   let consecCharToRemove = 0;
@@ -48,39 +47,42 @@ function strongPasswordChecker(s) {
     lowerErrorCount +
     numErrorCount;
 
-  // helper functions:
+  return totalErrorCount;
+
+  // helper function:
 
   function consecCharToRemoveFinder(s) {
-    let result = "";
+    let consecChars = "";
+    let consecCharsObj = {};
     let counter = 1;
-    let resultFiltered = "";
-    let nConsecChars = [];
     let nCharsToRemove = 0;
 
     for (let i = 0; i < s.length; i++) {
       if (s[i] === s[i + 1]) {
         counter++;
       } else {
-        result += s[i] + counter;
+        consecChars += s[i] + counter;
         counter = 1;
       }
     }
 
-    for (let i = 0; i < result.length; i++) {
-      if (parseInt(result[i + 1]) > 2) {
-        resultFiltered += result[i] + result[i + 1];
-      }
+    for (let i = 0; i < consecChars.length; i += 2) {
+      consecCharsObj[consecChars[i]] = parseInt(consecChars[i + 1]);
     }
 
-    for (let i = 1; i < resultFiltered.length; i += 2) {
-      nConsecChars.push(parseInt(resultFiltered[i]));
-    }
+    let consecCharsFiltered = Object.keys(consecCharsObj)
+      .filter(function (char) {
+        return consecCharsObj[char] > 2;
+      })
+      .map(function (char) {
+        return consecCharsObj[char];
+      });
 
-    for (let i = 0; i < nConsecChars.length; i++) {
-      nCharsToRemove += nConsecChars[i] - 2;
+    for (let i = 0; i < consecCharsFiltered.length; i++) {
+      nCharsToRemove += consecCharsFiltered[i] - 2;
     }
+    return nCharsToRemove;
   }
-  return totalErrorCount;
 }
 
 console.log(strongPasswordChecker(s));

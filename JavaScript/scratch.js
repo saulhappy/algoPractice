@@ -1,18 +1,8 @@
-const s = "helloooooworldddd";
+const s = "a3112131";
+let sObj = {};
 
-function consecCounter(s) {
-  let result = "";
-  let counter = 1;
-
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === s[i + 1]) {
-      counter++;
-    } else {
-      result += s[i] + counter;
-      counter = 1;
-    }
-  }
-  return result;
+for (let i = 0; i < s.length; i += 2) {
+  sObj[s[i]] = parseInt(s[i + 1]);
 }
 
-console.log(consecCounter(s));
+console.log(sObj);
