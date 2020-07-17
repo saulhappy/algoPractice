@@ -9,7 +9,7 @@
 
 // Insertion, deletion or replace of any one character are all considered as one change.
 
-const s = "aaA123";
+const s = "aaa123";
 
 function strongPasswordChecker(s) {
   let consecCharToRemove = 0;
@@ -48,8 +48,6 @@ function strongPasswordChecker(s) {
     numErrorCount;
 
   return totalErrorCount;
-
-  // helper function:
 
   function consecCharToRemoveFinder(s) {
     let consecChars = "";
