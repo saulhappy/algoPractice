@@ -1,23 +1,15 @@
-const n = 128;
+let array = [1, 2, 3];
 
-function checkDivNum(n) {
-  let nString = n.toString();
-  let nArray = [...nString];
-  nArray = nArray.map((num) => parseInt(num));
+function test(arr) {
+  let result = [];
 
-  let divisibleNums = [];
-
-  for (let i = 0; i < nArray.length; i++) {
-    if (nArray[i] === 0) return;
-
-    if (n % nArray[i] === 0) {
-      divisibleNums.push(nArray[i]);
-    } else {
-      continue;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      result.push(`(${i}, ${j})`);
     }
   }
 
-  if (nArray.length === divisibleNums.length) return n;
+  return result;
 }
 
-console.log(checkDivNum(n));
+console.log(test(array).length);
