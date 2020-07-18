@@ -14,36 +14,33 @@ function selfDividingNumbers(left, right) {
     } else {
       result.push(checkDivNum(i));
     }
+  }
 
-    result = result.filter(function (element) {
-      return element !== undefined;
-    });
+  result = result.filter(function (element) {
+    return element !== undefined;
+  });
 
-    result = result.filter(function (element) {
-      return element !== undefined;
-    });
+  return result;
 
-    console.log(result);
+  function checkDivNum(n) {
+    let nString = n.toString();
+    let nArray = [...nString];
+    nArray = nArray.map((num) => parseInt(num));
 
-    function checkDivNum(n) {
-        let nString = n.toString();
-        let nArray = [...nString];
-        nArray = nArray.map((num) => parseInt(num));
-      
-        let divisibleNums = [];
-      
-        for (let i = 0; i < nArray.length; i++) {
-          if (nArray[i] === 0) return;
-      
-          if (n % nArray[i] === 0) {
-            divisibleNums.push(nArray[i]);
-          } else {
-            continue;
-          }
-        }
-      
-        if (nArray.length === divisibleNums.length) return n;
+    let divisibleNums = [];
+
+    for (let i = 0; i < nArray.length; i++) {
+      if (nArray[i] === 0) return;
+
+      if (n % nArray[i] === 0) {
+        divisibleNums.push(nArray[i]);
+      } else {
+        continue;
       }
+    }
+
+    if (nArray.length === divisibleNums.length) return n;
+  }
 }
 
-selfDividingNumbers(left, right);
+console.log(selfDividingNumbers(left, right));
