@@ -12,22 +12,38 @@ function selfDividingNumbers(left, right) {
     if (i > 0 && i < 10) {
       result.push(i);
     } else {
-      checkDivNum(i);
+      result.push(checkDivNum(i));
     }
+
+    result = result.filter(function (element) {
+      return element !== undefined;
+    });
+
+    result = result.filter(function (element) {
+      return element !== undefined;
+    });
+
+    console.log(result);
 
     function checkDivNum(n) {
-      let ints = [];
-      let str = n.toString();
-
-      for (let char of str) {
-        if (parseInt(str[char]) === 0) {
-          return;
-        } else {
-          ints.push(parseInt(str[char]));
+        let nString = n.toString();
+        let nArray = [...nString];
+        nArray = nArray.map((num) => parseInt(num));
+      
+        let divisibleNums = [];
+      
+        for (let i = 0; i < nArray.length; i++) {
+          if (nArray[i] === 0) return;
+      
+          if (n % nArray[i] === 0) {
+            divisibleNums.push(nArray[i]);
+          } else {
+            continue;
+          }
         }
+      
+        if (nArray.length === divisibleNums.length) return n;
       }
-    }
-  }
 }
 
 selfDividingNumbers(left, right);
