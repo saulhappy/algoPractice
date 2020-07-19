@@ -1,4 +1,4 @@
-source: //leetcode.com/problems/the-kth-factor-of-n/
+//source: leetcode.com/problems/the-kth-factor-of-n/
 
 // Given two positive integers n and k.
 
@@ -12,9 +12,17 @@ source: //leetcode.com/problems/the-kth-factor-of-n/
 // Output: 3
 // Explanation: Factors list is [1, 2, 3, 4, 6, 12], the 3rd factor is 3.
 
-https: const n = 12;
-const k = 3;
+const n = 4;
+const k = 4;
 
-function kthFactor(n, k) {}
+function kthFactor(n, k) {
+  let factors = [];
+
+  for (let i = 1; i <= n; i++) {
+    if (n % i === 0) factors.push(i);
+    if (factors.length === k) return factors[k - 1];
+  }
+  return -1;
+}
 
 console.log(kthFactor(n, k));
