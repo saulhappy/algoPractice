@@ -10,9 +10,30 @@
 // Output: [1,2,3,4]
 // Explanation: 1200 + 34 = 1234
 
-const A = [1, 2, 0, 0];
+// Example 2: A = [1,2,6,3,0,7,1,7,1,9,7,5,6,6,4,4,0,0,6,3], K = 516
+// Output: [1,2,6,3,0,7,1,7,1,9,7,5,6,6,4,4,0,0,0,0]
+
+const A = [1, 2, 6, 3, 0, 7, 1, 7, 1, 9, 7, 5, 6, 6, 4, 4, 0, 0, 6, 3];
 const K = 34;
 
-function addToArrayForm(A, K) {}
+function addToArrayForm(A, K) {
+  let AStr = "";
+  let sum = 0;
+  let result = [];
 
-addToArrayForm(A, K);
+  for (let i = 0; i < A.length; i++) {
+    AStr += A[i];
+  }
+
+  sum = BigInt(AStr) + BigInt(K);
+
+  sum = sum.toString();
+
+  for (let i = 0; i < sum.length; i++) {
+    result.push(Number(sum[i]));
+  }
+
+  return result;
+}
+
+console.log(addToArrayForm(A, K));
