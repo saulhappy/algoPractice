@@ -1,6 +1,10 @@
 // max trailing record
 
-levels = [5, 3, 6, 7, 4];
+// levels = [5, 3, 6, 7, 4];
+//4
+
+levels = [1, 2, 3, 4, 5];
+// 0
 
 function maxTrailing(levels) {
   let maxTrail = -1;
