@@ -1,5 +1,5 @@
-const arr = [1, 2, 4, 5, 7, 8, 9];
-const n = 7;
+const arr = [-1, 0, 3, 5, 9, 12];
+const n = 9;
 
 function recursiveBinarySearch(n, arr) {
   let mid = Math.floor(arr.length / 2);
