@@ -7,11 +7,26 @@
 // Input: A = "ab", B = "ba"
 // Output: true
 
-const A = "ab";
-const B = "ba";
+const A = "abab";
+const B = "abab";
+// true
 
 function buddyStrings(A, B) {
   let validSwaps = 0;
+  let isSame = true;
+
+  let arrA = A.split("");
+  let arrB = B.split("");
+
+  const isSameChar = (currentChar) => currentChar === A[0];
+
+  if (A.length != B.length) return false;
+  if (A.length === 0 && B.length === 0) return false;
+
+  isSame = arrA.every(isSameChar);
+  isSame = arrB.every(isSameChar);
+
+  if (isSame === true) return true;
 
   for (let i = 0; i < A.length; i++) {
     if (A[i] != B[i]) {
@@ -20,6 +35,7 @@ function buddyStrings(A, B) {
       }
     }
   }
+
   return validSwaps === 1;
 }
 
