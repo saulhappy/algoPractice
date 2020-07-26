@@ -7,11 +7,20 @@
 // Input: A = "ab", B = "ba"
 // Output: true
 
-const A = "";
-const B = "aa";
+const A = "ab";
+const B = "ba";
 
 function buddyStrings(A, B) {
-  return A.split("").sort().join("") === B.split("").sort().join("");
+  let validSwaps = 0;
+
+  for (let i = 0; i < A.length; i++) {
+    if (A[i] != B[i]) {
+      if (A[i] === B[i + 1] && A[i + 1] === B[i]) {
+        validSwaps++;
+      }
+    }
+  }
+  return validSwaps === 1;
 }
 
 console.log(buddyStrings(A, B));
