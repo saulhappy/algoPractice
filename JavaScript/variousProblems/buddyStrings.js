@@ -7,9 +7,11 @@
 // Input: A = "ab", B = "ba"
 // Output: true
 
-const A = "ab";
-const B = "ba";
+const A = "";
+const B = "aa";
 
-function buddyStrings(A, B) {}
+function buddyStrings(A, B) {
+  return A.split("").sort().join("") === B.split("").sort().join("");
+}
 
 console.log(buddyStrings(A, B));
