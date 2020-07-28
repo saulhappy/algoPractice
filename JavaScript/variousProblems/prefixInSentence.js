@@ -16,15 +16,23 @@
 // Output: 4
 // Explanation: "burg" is prefix of "burger" which is the 4th word in the sentence.
 
-const sentence = "i love eating burger";
-const searchWord = "burg";
+const sentence = "hello from the other side";
+const searchWord = "they";
 
 function isPrefixOfWord(sentence, searchWord) {
-  function prefixTest(sentWord, prefix) {
-    for (let i = 0; i < prefix.length; i++) {
-      if (prefix[i] != sentWord[i]) return -1;
+  let sentSplit = sentence.split(" ");
+
+  for (let i = 0; i < sentSplit.length; i++) {
+    if (prefixTest(sentSplit[i], searchWord)) return i + 1;
+  }
+
+  return -1;
+
+  function prefixTest(sentWord, searchWord) {
+    for (let i = 0; i < searchWord.length; i++) {
+      if (searchWord[i] != sentWord[i]) return false;
     }
-    return 1;
+    return true;
   }
 }
 
