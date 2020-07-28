@@ -19,6 +19,13 @@
 const sentence = "i love eating burger";
 const searchWord = "burg";
 
-function isPrefixOfWord(sentence, searchWord) {}
+function isPrefixOfWord(sentence, searchWord) {
+  function prefixTest(sentWord, prefix) {
+    for (let i = 0; i < prefix.length; i++) {
+      if (prefix[i] != sentWord[i]) return -1;
+    }
+    return 1;
+  }
+}
 
 console.log(isPrefixOfWord(sentence, searchWord));

@@ -1,5 +1,11 @@
-const A = ["a", "b"];
+const sentWord = "east";
+const prefix = "burg";
 
-const isSameChar = (currentChar) => currentChar === A[0];
+function prefixTest(sentWord, prefix) {
+  for (let i = 0; i < prefix.length; i++) {
+    if (prefix[i] != sentWord[i]) return -1;
+  }
+  return 1;
+}
 
-console.log(A.every(isSameChar));
+console.log(prefixTest(sentWord, prefix));
