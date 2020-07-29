@@ -1,1 +1,2 @@
-print("this is a 'test' string")
+print(12/5)
+print(12//5)
