@@ -1,36 +1,25 @@
-answer = 3
+import random
 
-print("Guess a number between 1 and 10: ")
-guess = int(input())
+lowerBound = 0
+upperBound = 100
 
-# if guess < answer:
-#     print("Guess a little higher ")
-#     guess = int(input())
-#     if guess == answer:
-#         print("You got it!")
-#     else:
-#         print("Wrong again")
-# elif guess > answer:
-#     print("Guess a little lower ")
-#     guess = int(input())
-#     if guess == answer:
-#         print("You got it!")
-#     else:
-#         print("Wrong again")
-# else:
-#     print("You nailed it right away!"
+print(f"Guess a number between {lowerBound} and {upperBound}: ")
+guess = 0
 
-# REFACTOR
+answer = random.randint(lowerBound, upperBound)
+print(f"(the correct answer is {answer}. Type 0 to exit the game.)")
 
-if guess == answer:
-    print("You nailed it right away!")
-else:
-    if guess < answer:
+while guess != answer:
+    guess = int(input())
+
+    if guess == 0:
+        break
+    if guess == answer:
+        print("you guessed it!")
+        break
+    elif guess < answer:
         print("Guess a little higher")
     else:
         print("Guess a bit lower")
-    guess = int(input())
-    if guess == answer:
-        print("you got it!")
-    else:
-        print("sorry, you didn't get it")
+
+print("Game exited")

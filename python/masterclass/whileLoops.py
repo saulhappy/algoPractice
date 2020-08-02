@@ -6,11 +6,13 @@
 #     print(f"i is now {i}")
 #     i += 1
 
-exits = ["north", "east"]
+# directions game:
 
-choice = ""
+# exits = ["north", "east"]
 
-while choice not in exits:
-    choice = input("pick a direction: ")
+# choice = ""
 
-print("you're out!")
+# while choice not in exits:
+#     choice = input("pick a direction: ")
+
+# print("you're out!")
