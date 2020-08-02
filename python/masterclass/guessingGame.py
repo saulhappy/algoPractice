@@ -1,7 +1,11 @@
 import random
-
-lowerBound = 0
-upperBound = 100
+print(" ")
+print("Welcome to the guessing game!")
+print(" ")
+print("Pick the low end of a range of numbers to guess between: ")
+lowerBound = int(input())
+print("Pick the high end of a range of numbers to guess between: ")
+upperBound = int(input())
 
 print(f"Guess a number between {lowerBound} and {upperBound}: ")
 guess = 0
