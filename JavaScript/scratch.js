@@ -1,11 +1,7 @@
-const sentWord = "east";
-const prefix = "burg";
+let testObj = {
+  a: 4,
+  b: 5,
+  c: 1,
+};
 
-function prefixTest(sentWord, prefix) {
-  for (let i = 0; i < prefix.length; i++) {
-    if (prefix[i] != sentWord[i]) return -1;
-  }
-  return 1;
-}
-
-console.log(prefixTest(sentWord, prefix));
+console.log(testObj[0]);
