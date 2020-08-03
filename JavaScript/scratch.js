@@ -1,7 +1,3 @@
-let testObj = {
-  a: 4,
-  b: 5,
-  c: 1,
-};
+const fives = 1;
 
-console.log(testObj[0]);
+console.log(fives > 0 ? true : false);

@@ -1,37 +1,40 @@
 // source: https://leetcode.com/problems/lemonade-change/
 
-const bills = [5, 5, 5, 10, 20];
+const bills = [5, 5, 10, 20, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 5, 5, 20, 5, 20, 5];
 
 function lemonadeChange(bills) {
-  let billsObj = {};
-  let changeDue = 0;
+  let fives = 0;
+  let tens = 0;
 
   for (let i = 0; i < bills.length; i++) {
-    billsObj[bills[i]] = billsObj[bills[i]] + 1 || 1;
-    changeDue = bills[i] - 5;
-
-    if (changeDue > 0) {
-      let cashOnHand = 0;
-      let changeGiven = 0;
-
-      for (let bill in billsObj) {
-        cashOnHand += billsObj[bill] * bill;
-        if (cashOnHand < changeDue) return false;
+    // debugger;
+    if (bills[i] === 5) {
+      fives++;
+    }
+    if (bills[i] === 10) {
+      if (fives < 1) {
+        return false;
+      } else {
+        tens++;
+        fives--;
       }
-
-      while (changeGiven != changeDue) {
-        for (let cash in billsObj) {
-          changeGiven += cash * 1;
-          billsObj[cash] = billsObj[cash] - 1;
-
-          if (changeGiven === changeDue) break;
-          if (changeGiven > changeGiven) break;
-        }
+    }
+    if (bills[i] === 20) {
+      if (fives && tens) {
+        fives -= 1;
+        tens -= 1;
+      } else if (fives && tens) {
+        fives -= 1;
+        tens -= 1;
+      } else if (fives >= 3) {
+        fives -= 3;
+      } else {
+        return false;
       }
     }
   }
 
-  changeDue === 0 ? true : false;
+  return true;
 }
 
 console.log(lemonadeChange(bills));
