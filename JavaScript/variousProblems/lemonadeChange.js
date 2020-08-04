@@ -7,7 +7,6 @@ function lemonadeChange(bills) {
   let tens = 0;
 
   for (let i = 0; i < bills.length; i++) {
-    // debugger;
     if (bills[i] === 5) {
       fives++;
     }
