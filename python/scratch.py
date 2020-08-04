@@ -1,4 +1,10 @@
-for x in range(30):
-    if x % 3 == 0 or x % 5 == 0:
-        continue
-    print(x)
+a = True
+b = a
+print(id(a))
+print(id(b))
+
+a = False
+c = True
+
+print(id(a))
+print(id(c))

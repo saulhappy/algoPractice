@@ -1,3 +1,5 @@
-const fives = 1;
+let arr = ["pizza", "hamburgers"];
 
-console.log(fives > 0 ? true : false);
+arr += ["hot dogs"];
+
+console.log(arr);
