@@ -1,10 +1,5 @@
-a = True
-b = a
-print(id(a))
-print(id(b))
+even = [2, 4, 6, 8]
+odd = [1, 3, 5, 7, 9]
 
-a = False
-c = True
-
-print(id(a))
-print(id(c))
+even.extend(odd)
+print(even)

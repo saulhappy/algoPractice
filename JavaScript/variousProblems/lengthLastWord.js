@@ -12,12 +12,14 @@
 // Input: "Hello World"
 // Output: 5
 
-const s = "lastof ";
+const s = "This is a Leetcode problem explanation  ";
 
 function lengthOfLastWord(s) {
   let newInput = s.trim();
+  let sArr = newInput.split("");
   let counter = 0;
-  let sArr = [...newInput];
+
+  console.log(sArr);
 
   if (newInput.length === 0) return counter;
 
