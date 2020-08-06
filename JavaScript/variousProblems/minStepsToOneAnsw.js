@@ -48,7 +48,7 @@ console.time("RECURSION :");
 console.log(minStepsToOne(400));
 console.timeEnd("RECURSION :");
 
-// MEMOIZED RECURSIVE SOLUTION
+// CORRECT, BUT EXPONENTIAL RECURSIVE SOLUTION
 
 function minStepsToOne(n) {
   function traverse(current) {
@@ -76,6 +76,8 @@ function minStepsToOne(n) {
 
   return traverse(n);
 }
+
+//  OPTIMIZED MEMOIZED RECURSIVE SOLUTION
 
 // 1) Create cache
 // 2) Check cache
@@ -112,6 +114,8 @@ function minStepsToOneMemo(n) {
 
   return traverse(n);
 }
+
+// ITERATIVE TABULATION SOLUTION
 
 function minStepsToOneTab(n) {
   const table = new Array(n + 1);
