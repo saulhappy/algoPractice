@@ -1,25 +1,23 @@
-const num = 11;
+const num = 10;
 
 function minimumStepsToOne(num) {
   let counter = 0;
 
   while (num != 1) {
-    debugger;
     if (num % 3 === 0) {
       num /= 3;
-      minimumStepsToOne(num);
       counter++;
+      minimumStepsToOne(num);
     } else if (num % 2 === 0) {
       num /= 2;
-      minimumStepsToOne(num);
       counter++;
+      minimumStepsToOne(num);
     } else {
       num--;
-      minimumStepsToOne(num);
       counter++;
+      minimumStepsToOne(num);
     }
   }
-
   return counter;
 }
 
