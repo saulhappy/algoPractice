@@ -1,5 +1,7 @@
-let arr = ["pizza", "hamburgers"];
+const s = ["h", "e", "l", "l", "o"];
 
-arr += ["hot dogs"];
+var reverseString = function (s) {
+  return [...s].reverse();
+};
 
-console.log(arr);
+console.log(reverseString(s));

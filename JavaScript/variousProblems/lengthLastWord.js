@@ -19,8 +19,6 @@ function lengthOfLastWord(s) {
   let sArr = newInput.split("");
   let counter = 0;
 
-  console.log(sArr);
-
   if (newInput.length === 0) return counter;
 
   if (!sArr.includes(" ")) return newInput.length;
