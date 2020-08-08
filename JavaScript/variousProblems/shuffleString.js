@@ -3,6 +3,13 @@
 const s = "aiohn";
 const indeces = [3, 1, 4, 2, 0];
 
-function restoreString(s, indeces) {}
+function restoreString(s, indeces) {
+  let newStrArr = [];
 
-console.log(s, indeces);
+  for (let i = 0; i < indeces.length; i++) {
+    newStrArr[indeces[i]] = s[i];
+  }
+  return newStrArr.join("");
+}
+
+console.log(restoreString(s, indeces));
