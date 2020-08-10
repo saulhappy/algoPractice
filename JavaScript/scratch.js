@@ -1,7 +1,4 @@
-const s = ["h", "e", "l", "l", "o"];
+let s = "saul";
+s += s;
 
-var reverseString = function (s) {
-  return [...s].reverse();
-};
-
-console.log(reverseString(s));
+console.log(s[1]);

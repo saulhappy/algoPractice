@@ -1,15 +1,15 @@
 // source: https://leetcode.com/problems/shuffle-string/
 
-const s = "aiohn";
-const indeces = [3, 1, 4, 2, 0];
+const s = "art";
+const indices = [1, 0, 2];
 
-function restoreString(s, indeces) {
+function restoreString(s, indices) {
   let newStrArr = [];
 
-  for (let i = 0; i < indeces.length; i++) {
-    newStrArr[indeces[i]] = s[i];
+  for (let i = 0; i < indices.length; i++) {
+    newStrArr[indices[i]] = s[i];
   }
   return newStrArr.join("");
 }
 
-console.log(restoreString(s, indeces));
+console.log(restoreString(s, indices));
