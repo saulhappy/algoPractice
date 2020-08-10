@@ -1,5 +1,4 @@
-even = [2, 4, 6, 8]
-odd = [1, 3, 5, 7, 9]
+meals = ["pizza", "burgers"]
+meals[2:] = ["pasta"]
 
-even.extend(odd)
-print(even)
+print(meals)

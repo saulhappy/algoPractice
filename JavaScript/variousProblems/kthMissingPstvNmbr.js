@@ -8,8 +8,17 @@
 // Output: 9
 // Explanation: The missing positive integers are [1,5,6,8,9,10,12,13,...]. The 5th missing positive integer is 9.
 
-const arr = [2, 3, 4, 7, 11];
-const k = 5;
-// 9
+const arr = [1, 2, 3, 4];
+const k = 2;
+// 2
 
-function findKthPositive(arr, k) {}
+function findKthPositive(arr, k) {
+  let missingCounter = 0;
+
+  for (let i = 1; missingCounter != k; i++) {
+    if (!arr.includes(i)) missingCounter++;
+    if (missingCounter === k) return i;
+  }
+}
+
+console.log(findKthPositive(arr, k));
