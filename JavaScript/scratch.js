@@ -1,4 +1,9 @@
-let s = "saul";
-s += s;
+let map = {
+  a: 1,
+  b: 2,
+  c: 3,
+};
 
-console.log(s[1]);
+map["d"] = 4;
+
+console.log(map["d"]);
