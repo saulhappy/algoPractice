@@ -1,7 +1,5 @@
 // simple recursion
 
-const n = 5;
-
 function minStepsToOneRecursion(n) {
   if (n === 1) {
     return 0;
@@ -20,4 +18,6 @@ function minStepsToOneRecursion(n) {
   return result + 1;
 }
 
-console.log(minStepsToOneRecursion(n));
+console.time("RECURSION :");
+console.log(minStepsToOneRecursion(500));
+console.timeEnd("RECURSION :");
