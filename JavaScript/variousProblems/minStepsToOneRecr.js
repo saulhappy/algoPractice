@@ -18,6 +18,6 @@ function minStepsToOneRecursion(n) {
   return result + 1;
 }
 
-console.time("RECURSION :");
-console.log(minStepsToOneRecursion(500));
-console.timeEnd("RECURSION :");
+console.time("RECURSION TIME:");
+console.log(minStepsToOneRecursion(700));
+console.timeEnd("RECURSION TIME:");

@@ -25,6 +25,6 @@ function minStepsToOneRecursionMemo(n) {
   return result + 1;
 }
 
-console.time("RECURSION :");
-console.log(minStepsToOneRecursionMemo(500));
-console.timeEnd("RECURSION :");
+console.time("RECURSION WITH MEMOIZATION:");
+console.log(minStepsToOneRecursionMemo(700));
+console.timeEnd("RECURSION WITH MEMOIZATION:");
