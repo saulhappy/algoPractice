@@ -19,5 +19,5 @@ function minStepsToOneRecursion(n) {
 }
 
 console.time("RECURSION TIME:");
-console.log(minStepsToOneRecursion(700));
+console.log(minStepsToOneRecursion(800));
 console.timeEnd("RECURSION TIME:");
