@@ -19,6 +19,20 @@
 // Output: 9999
 // Explanation: Changing the last digit 6 to 9 results in the maximum number.
 
-function maximum69Number(num) {}
+const num = 9669;
+
+function maximum69Number(num) {
+  let numArr = [...num.toString()];
+  let result = 0;
+
+  for (let i = 0; i < numArr.length; i++) {
+    if (numArr[i] == 6) {
+      numArr[i] = 9;
+      result = parseInt(numArr.join(""));
+      return result;
+    }
+  }
+  return num;
+}
 
 console.log(maximum69Number(num));
