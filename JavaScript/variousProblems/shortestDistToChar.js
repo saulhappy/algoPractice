@@ -10,6 +10,22 @@
 const S = "loveleetcode";
 const C = "e";
 
-function shortestToChar(S, C) {}
+function shortestToChar(S, C) {
+  let cIndices = [];
+  let result = [];
+
+  for (let i = 0; i < S.length; i++) {
+    if (S[i] === C) {
+      cIndices.push(i);
+    }
+  }
+
+  for (let j = 0; j < S.length; j++) {
+    debugger;
+    result.push(Math.min(Math.abs(j)));
+  }
+  debugger;
+  return result;
+}
 
 console.log(shortestToChar(S, C));
