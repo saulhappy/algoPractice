@@ -1,4 +1,4 @@
-for i in range(0, 36):
+for i in range(0, 10000000):
     if i % 3 == 0 and i % 5 == 0:
         print("fizzbuzz")
     elif i % 3 == 0:

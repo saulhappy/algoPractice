@@ -1,1 +1,3 @@
-console.log(Math.abs(-9));
+let arr = [1, 2, 3];
+
+console.log([...arr, 4]);
