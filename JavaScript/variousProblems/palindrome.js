@@ -10,12 +10,12 @@ const str = "abba";
 
 function palindrome(str) {
   let revStr = "";
+
   for (let i of str) {
     revStr = i + revStr;
   }
-  if (revStr === str) {
-    return true;
-  }
+
+  if (revStr === str) return true;
   return false;
 }
 
