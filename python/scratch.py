@@ -1,4 +1,3 @@
-meals = ["pizza", "burgers"]
-meals[2:] = ["pasta"]
+text = "saul"
 
-print(meals)
+print(text[0: 3])
