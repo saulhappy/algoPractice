@@ -13,4 +13,4 @@ def long_word_in_collection(list, string):
     return string in words and len(string) > 4
 
 
-print(long_word_in_collection(list, "cat"))
+print(long_word_in_collection(words, "cat"))
