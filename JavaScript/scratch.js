@@ -1,3 +1,3 @@
 let text = "saul";
 
-console.log(text + "ito");
+console.log(text.slice(-1));
