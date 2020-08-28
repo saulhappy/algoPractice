@@ -5,6 +5,8 @@ const base = 2;
 const exp = -3;
 
 const exponent = function (base, exp) {
+  if (exp < 0) return;
+
   if (exp === 0) {
     return 1;
   } else if (exp === 1) {
