@@ -34,7 +34,7 @@ const arrayReducer = (nums, transformation) => {
   let result = 0;
 
   for (let i = 0; i < nums.length; i++) {
-    result += nums[i] * 2; // how do you abstract away the transformation piece to be able add, subtract, multiply, etc?
+    result += nums[i] (transformation); // how do you abstract away the transformation piece to be able add, subtract, multiply, etc?
   }
 
   return result;
