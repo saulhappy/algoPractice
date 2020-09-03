@@ -1,3 +1,6 @@
-text = "saul"
+heroes = ["superman", "flash", "iron man", "hulk", "batman", "spider man"]
+print(heroes)
 
-print(text[0: 3])
+heroes[2:4] = "jimmy"
+
+print(heroes)
