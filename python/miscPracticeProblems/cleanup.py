@@ -1,17 +1,23 @@
-# Define a fancy_cleanup function that accepts a single string argument
-# The function should clean up the whitespace on both sides of the
-# argument. It should also replace every occurrence of the letter "g" with the
-# letter "z" and every occurence of a space with an exclamation point (!).
+# Define a cleanup function that accepts a list of strings.
+# The function should return the strings joined together by a space.
+# There's one BIG problem -- some of the strings are empty or only consist of spaces!
+# These should NOT be included in the final string
 #
-# fancy_cleanup("       geronimo crikey  ")   => "zeronimo!crikey"
-# fancy_cleanup("       nonsense  ")          => "nonsense"
-# fancy_cleanup("grade")                      => "zrade"
+# cleanup(["cat", "er", "pillar"])           => "cat er pillar"
+# cleanup(["cat", " ", "er", "", "pillar"])  => "cat er pillar"
+# cleanup(["", "", " "])                     => ""
 
-text = "       geronimo crikey  "
-
-
-def fancy_cleanup(text):
-    return text.strip().replace("g", "z").replace(" ", "!")
+strings = ["cat", "er", "pillar"]
 
 
-print(fancy_cleanup(text))
+def cleanup(strings):
+    result = ""
+    for word in strings:
+        if len(word.strip()) == 0:
+            continue
+        else:
+            result += word.strip() + " "
+    return result
+
+
+print(cleanup(strings))
