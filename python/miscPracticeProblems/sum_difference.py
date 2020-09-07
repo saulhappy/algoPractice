@@ -11,9 +11,7 @@ list2 = [1, 2, 4]
 
 
 def sum_difference(list1, list2):
-    sumL1 = sum(list1)
-    sumL2 = sum(list2)
-    return sumL1 - sumL2
+    return sum(list1) - sum(list2)
 
 
 print(sum_difference(list1, list2))

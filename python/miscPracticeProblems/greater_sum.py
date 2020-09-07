@@ -12,12 +12,9 @@ list2 = [1, 2, 4]
 
 
 def greater_sum(list1, list2):
-    sumL1 = sum(list1)
-    sumL2 = sum(list2)
-    if sumL1 > sumL2:
+    if sum(list1) > sum(list2):
         return list1
-    else:
-        return list2
+    return list2
 
 
 print(greater_sum(list1, list2))
