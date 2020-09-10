@@ -1,3 +1,4 @@
-heroes = ("Superman", "Flash", "Thor", "Spiderman")
-*all, others = heroes
-print(all)
+fav_movies = {
+    ["Star Wars", "Schindler's List", "Godfather"]: 1
+}
+print(fav_movies)

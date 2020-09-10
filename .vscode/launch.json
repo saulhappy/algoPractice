@@ -8,7 +8,6 @@
       "name": "JavaScript",
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
       "cwd": "${workspaceFolder}",
       "program": "${file}",
