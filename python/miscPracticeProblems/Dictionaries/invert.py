@@ -14,7 +14,10 @@ my_dict = {
 
 
 def invert(my_dict):
-    return my_dict
+    new_dict = {}
+    for k, v in my_dict.items():
+        new_dict[v] = k
+    return new_dict
 
 
 print(invert(my_dict))
