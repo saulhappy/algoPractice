@@ -12,8 +12,8 @@
 # plenty_of_arguments(a = 25, b = 25, c = 25, d = 26)  => True
 
 
-def plenty_of_arguments():
-    return
+def plenty_of_arguments(a, b, **kwargs):
+    return a + b + sum(kwargs.values()) > 100
 
 
-print(plenty_of_arguments())
+print(plenty_of_arguments(a=25, b=25, c=25, d=26))
