@@ -1,5 +1,7 @@
-# Define a to_dictionary function that accepts a list of strings. 
-# The function should return a dictionary where the keys are the strings 
+# -*- coding: utf-8 - *-
+
+# Define a to_dictionary function that accepts a list of strings.
+# The function should return a dictionary where the keys are the strings
 # and the values are their original index positions in the list.
 #
 # EXAMPLE:
@@ -8,11 +10,12 @@
 
 strings = ["Sherlock Holmes", "Hercule Poirot", "Nancy Drew"]
 
+
 def to_dictionary(strings):
     my_dict = {}
     for i, detective in enumerate(strings):
         my_dict[detective] = i
     return my_dict
 
-print(to_dictionary(strings))
 
+print(to_dictionary(strings))

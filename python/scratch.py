@@ -1,5 +1,2 @@
-def my_func(a, b, *args, **kwargs):
-    print(args)
-
-
-my_func(b=5, a=10, c=15)
+values = [1, 2, 3, 4, 5]
+print({value: sum(values[:index + 2]) for index, value in enumerate(values)})
