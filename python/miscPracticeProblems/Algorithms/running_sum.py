@@ -17,7 +17,24 @@ nums = [1, 2, 3, 4]
 
 
 def running_sum(nums):
-    return nums
+    result = []
+
+    # solution 1
+
+    for i in range(len(nums)):
+        if i == 0:
+            result.append(nums[i])
+        else:
+            result.append(result[i - 1] + nums[i])
+    return result
+
+    # solution 2
+
+    # result.append(nums[0])
+
+    # for i in range(1, len(nums)):
+    #     result.append(sum(nums[:i]) + nums[i])
+    # return result
 
 
 print(running_sum(nums))
