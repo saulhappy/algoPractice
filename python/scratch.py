@@ -1,12 +1,14 @@
-movies = set(["Godfather", "Shawshank Redemption", "The Matrix"])
-print(movies)
+def run_twice(fn):
+    def inner(*args, **kwargs):
+        fn(*args, **kwargs)
+        fn(*args, **kwargs)
 
-movies.add("Star Wars")
-print(movies)
-
-movies.update(["Star Wars", "Top Gun"])
-movies.add(2)
-print(movies)
+    return inner
 
 
-print(set("zyx"))
+@run_twice
+def repeater(phrase):
+    print(phrase)
+
+
+repeater("Python")

@@ -1,3 +1,13 @@
-let text = "saul";
+function a() {
+  function b() {
+    function c() {
+      return greeting;
+    }
+    return c();
+  }
+  return b();
+}
 
-console.log(text.slice(-1));
+const greeting = "hello";
+
+console.log(a());
