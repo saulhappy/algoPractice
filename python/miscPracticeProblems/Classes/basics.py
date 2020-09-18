@@ -32,7 +32,17 @@ bob = Zombie(80)
 sally = Zombie(health=120, brains_eaten=3)
 benjamin = Zombie()
 
-print(bob.health)
-print(bob.brains_eaten)
-print(sally.brains_eaten)
-print(benjamin)
+
+class Person():
+    def __init__(self, first_name, age):
+        self.first_name = first_name
+        self.age = age
+
+    def talk(self):
+        print(
+            f"Hi! My name is {self.first_name} and I'm {self.age} years old.")
+
+
+saul = Person("Saul", 40)
+
+saul.talk()
