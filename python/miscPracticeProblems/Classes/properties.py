@@ -18,15 +18,37 @@
 
 # See sample execution below
 #
-# cheese = PizzaPie(8)
-# cheese.slices_eaten = 2
-# print(cheese.percentage) # 0.25
-#
-# cheese.slices_eaten = 4
-# print(cheese.percentage) # 0.5
-#
-# cheese.slices_eaten = 10 # _slices_eaten should not change because there's only 8 slices in pie
-# print(cheese.percentage) # 0.5
+
+
+class PizzaPie():
+    def __init__(self, total_slices):
+        self.total_slices = total_slices
+        self._slices_eaten = 0
+
+    @property
+    def slices_eaten(self):
+        return self._slices_eaten
+
+    @slices_eaten.setter
+    def slices_eaten(self, slices_eaten):
+        if slices_eaten <= self.total_slices:
+            self._slices_eaten = slices_eaten
+
+    @property
+    def percentage(self):
+        return self._slices_eaten / self.total_slices
+
+
+cheese = PizzaPie(8)
+cheese.slices_eaten = 2
+print(cheese.percentage)  # 0.25
+
+cheese.slices_eaten = 4
+print(cheese.percentage)  # 0.5
+
+# _slices_eaten should not change because there's only 8 slices in pie
+cheese.slices_eaten = 10
+print(cheese.percentage)  # 0.5
 #
 # ERROR - AttributeError: can't set attribute
-# cheese.percentage = 0.50
+cheese.percentage = 0.50
