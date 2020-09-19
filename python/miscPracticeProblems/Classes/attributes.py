@@ -13,8 +13,8 @@ class SuperHero():
 
 supe = SuperHero(stats)
 
-print(supe.name)
-print(supe.super_powers)
+# print(supe.name)
+# print(supe.super_powers)
 
 for attr in ["name", "origin", "alias", "super_powers"]:
     print(getattr(supe, attr, "Not defined"))
@@ -29,5 +29,5 @@ for attr in ["name", "origin", "alias", "super_powers"]:
     print(getattr(supe, attr, "Not defined"))
 
 
-print(supe.name)
-print(supe.super_powers)
+# print(supe.name)
+# print(supe.super_powers)

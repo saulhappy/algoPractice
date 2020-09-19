@@ -15,6 +15,7 @@
 # increment the musician’s income by 5.
 
 class Musician():
+
     def __init__(self, age, income):
         self.age = age
         self.income = income
