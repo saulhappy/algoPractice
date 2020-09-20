@@ -14,15 +14,30 @@
 # The subclass should invoke the Musician superclass’s initialization procedure
 # and pass it the drummer’s name.
 # It should also set the stamina attribute in its own initialization process.
-#
+
+class Musician():
+    def __init__(self, name):
+        self.name = name
+        self.albums = []
+
+    def release_album(self, title):
+        self.albums.append(title)
+
+
+class Drummer(Musician):
+    def __init__(self, name, stamina):
+        super().__init__(name)
+        self.stamina = stamina
+
+
 # EXAMPLE:
-# lars = Drummer(name = "Lars", stamina = 2)
-# print(lars.name)   # "Lars"
-# print(lars.stamina) # 2
-# print(lars.albums) # []
-#
-# lars.release_album("Ride the Lightning")
-# print(lars.albums) # ["Ride the Lightning"]
-#
-# lars.release_album("Master of Puppets")
-# print(lars.albums)  # ["Ride the Lightning", 'Master of Puppets']
+lars = Drummer(name="Lars", stamina=2)
+print(lars.name)   # "Lars"
+print(lars.stamina)  # 2
+print(lars.albums)  # []
+
+lars.release_album("Ride the Lightning")
+print(lars.albums)  # ["Ride the Lightning"]
+
+lars.release_album("Master of Puppets")
+print(lars.albums)  # ["Ride the Lightning", 'Master of Puppets']
