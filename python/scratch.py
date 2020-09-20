@@ -1,3 +1,10 @@
-arr = [1, 2, 3]
+class Knowledge():
+    def __repr__(self):
+        return "Red"
 
-print(sum(arr))
+    def __str__(self):
+        return "Blue"
+
+
+k = Knowledge()
+print(k)
