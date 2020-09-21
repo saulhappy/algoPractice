@@ -98,12 +98,42 @@ class ObjectTypeTests(unittest.TestCase):
 
 
 class DivideTestCase(unittest.TestCase):
+
+    # one method
     def test_divide(self):
         self.assertRaises(ZeroDivisionError, divide, 10, 0)
 
+    # alternative method
     def test_divide_another_way(self):
         with self.assertRaises(ZeroDivisionError):
             divide(10, 0)
+
+# Set up tear downs for testing.
+
+
+class TestOperations(unittest.TestCase):
+    # setupClass runs once. Designed for more "expensive" operations, such as connecting to a databases
+    @classmethod
+    def setUpClass(cls):
+        print("This will run ONCE before the test suite starts")
+    # setUp and TearDown will run before/after each test. Designed to do smaller things (like create instance classes with attributes) a test might need.
+
+    def setUp(self):
+        print("This will run before EACH test")
+
+    def tearDown(self):
+        print("This will run after EACH test")
+
+    # tearDownClass runs once at the end, to do something like close a file, or database connection.
+    @classmethod
+    def tearDownClass(cls):
+        print("This will run ONCE after the test suite finishes")
+
+    def test_stuff(self):
+        self.assertEqual(1, 1)
+
+    def test_more_stuff(self):
+        self.assertEqual([], [])
 
 
 if __name__ == "__main__":
