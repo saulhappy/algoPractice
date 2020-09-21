@@ -26,5 +26,11 @@ class TestMultiply(unittest.TestCase):
         self.assertEqual(multiply(3, 7), 21)
 
 
+class TestSwapCase(unittest.TestCase):
+    @unittest.skip("Testing skip method")
+    def test_swap_case(self):
+        pass
+
+
 if __name__ == "__main__":
     unittest.main()
