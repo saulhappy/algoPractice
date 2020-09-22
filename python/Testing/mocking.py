@@ -1,3 +1,5 @@
+# -*- coding: utf-8 - *-
+
 # Let's mock a fake Airport object.
 # Create a Mock object and assign it to a variable called 'airport'.
 
@@ -19,12 +21,26 @@
 # When invoked the first time, it should return “Opening…”.
 # When invoked the second time, it should return “Already open”.
 
+from unittest.mock import Mock
+
+airport = Mock()
+
+airport.gates = ["A1", "B2", "C3"]
+airport.departures = {
+    "Atlanta": "12:00PM",
+    "Nashville": "04:30PM"
+}
+
+airport.close.return_value = "Closing"
+airport.open.return_value = "Opening..."
+airport.open.side_effect = ["Opening...", "Already open"]
+
 # EXAMPLE
 #
 # Given an airport Mock...
-#
-# print(airport.gates)      # ["A1", "B2", "C3"]
-# print(airport.departures) # { "Atlanta": "12:00PM", "Nashville": "04:30PM" }
-# print(airport.close())    # Closing
-# print(airport.open())     # Opening...
-# print(airport.open())     # Already open
+
+print(airport.gates)      # ["A1", "B2", "C3"]
+print(airport.departures)  # { "Atlanta": "12:00PM", "Nashville": "04:30PM" }
+print(airport.close())    # Closing
+print(airport.open())     # Opening...
+print(airport.open())     # Already open
