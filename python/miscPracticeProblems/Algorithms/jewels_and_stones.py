@@ -19,4 +19,10 @@ S = "aAAbbbb"
 
 
 def numJewelsInStones(J, S):
-    pass
+    count = 0
+    for char in J:
+        count += S.count(char)
+    return count
+
+
+print(numJewelsInStones(J, S))
