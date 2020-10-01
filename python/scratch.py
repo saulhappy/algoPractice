@@ -1,10 +1,2 @@
-class Knowledge():
-    def __repr__(self):
-        return "Red"
-
-    def __str__(self):
-        return "Blue"
-
-
-k = Knowledge()
-print(k)
+arr = [1, 2, 3]
+print(max(arr))
