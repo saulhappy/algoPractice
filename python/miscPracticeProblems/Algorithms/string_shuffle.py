@@ -12,15 +12,14 @@ Output: "leetcode"
 Explanation: As shown, "codeleet" becomes "leetcode" after shuffling.
 """
 
-s = "aiohn"
-indices = [3, 1, 4, 2, 0]
+s = "codeleet"
+indices = [4,5,6,7,0,2,1,3]
 
 
 def restoreString(s, indices):
-    new_string = ""
-    for i in range(len(indices)):
-        new_string += s[indices[i]]
-    return new_string
-
+    result = [''] * len(s)
+    for i in range(len(s)):
+        result[indices[i]] = s[i]
+    return "".join(result)
 
 print(restoreString(s, indices))

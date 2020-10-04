@@ -1,2 +1,3 @@
-arr = [1, 2, 3]
-print(max(arr))
+arr = [''] * 10
+print(len(arr))
+print(arr)
