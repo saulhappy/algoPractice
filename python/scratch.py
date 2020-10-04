@@ -1,3 +1,3 @@
-arr = [''] * 10
-print(len(arr))
-print(arr)
+languages = ["Python", "JS", "PHP", "Java"]
+for x in languages:
+    print(x)
