@@ -18,7 +18,7 @@ address = "1.1.1.1"
 
 
 def defangIPaddr(address):
-    pass
+    return address.replace(".", "[.]")
 
 
 print(defangIPaddr(address))
