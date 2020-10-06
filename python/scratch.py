@@ -1,3 +1,4 @@
+import inspect
+
 languages = ["Python", "JS", "PHP", "Java"]
-for x in languages:
-    print(x)
+print(inspect.getmembers(languages))
