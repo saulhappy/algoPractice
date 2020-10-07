@@ -1,4 +1,4 @@
-import inspect
+n = 10
 
-languages = ["Python", "JS", "PHP", "Java"]
-print(inspect.getmembers(languages))
+for i in range(1, n):
+    print(i)

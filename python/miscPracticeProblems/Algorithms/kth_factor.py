@@ -13,9 +13,20 @@ Output: 3
 Explanation: Factors list is [1, 2, 3, 4, 6, 12], the 3rd factor is 3.
 
 """
-n = 12
-k = 3
+n = 4
+k = 4
 
 
 def kthFactor(n, k):
-    pass
+    factors = []
+
+    for i in range(1, n + 1):
+        if n % i == 0:
+            factors.append(i)
+    if len(factors) >= k:
+        return factors[k - 1]
+    else:
+        return -1
+
+
+print(kthFactor(n, k))
