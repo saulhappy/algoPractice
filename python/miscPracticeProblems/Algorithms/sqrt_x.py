@@ -17,10 +17,13 @@ Output: 2
 Explanation: The square root of 8 is 2.82842..., and since 
              the decimal part is truncated, 2 is returned.
 """
+import math
 
-x = 8
+x = 0
+
 
 def mySqrt(x):
+    return math.trunc(math.sqrt(x))
 
 
 print(mySqrt(x))
