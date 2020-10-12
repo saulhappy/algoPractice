@@ -17,13 +17,8 @@ nums = [3, 4, 5, 2]
 
 
 def maxProduct(nums):
-    maxProd = (nums[0] - 1) * (nums[1] - 1)
-
-    for i in range(1, len(nums)):
-        test = (nums[i] - 1) * (nums[i + 1] - 1)
-        if test > maxProd:
-            maxProd = test
-    return test
+    numsSorted = sorted(nums)
+    return (numsSorted[-1] - 1) * (numsSorted[-2] - 1)
 
 
 print(maxProduct(nums))
