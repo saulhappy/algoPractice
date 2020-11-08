@@ -19,7 +19,18 @@
 
 const salary = [6000, 5000, 4000, 3000, 2000, 1000];
 
-function average(salary) {
+// function average(salary) {
+//   newSal = salary.sort((a, b) => a - b);
+//   newSalFiltered = [];
+
+//   for (let i = 1; i < newSal.length - 1; i++) {
+//     newSalFiltered.push(newSal[i]);
+//   }
+
+//   return newSalFiltered.reduce((a, b) => a + b, 0) / newSalFiltered.length;
+// }
+
+const average = (salary) => {
   newSal = salary.sort((a, b) => a - b);
   newSalFiltered = [];
 
@@ -28,6 +39,6 @@ function average(salary) {
   }
 
   return newSalFiltered.reduce((a, b) => a + b, 0) / newSalFiltered.length;
-}
+};
 
 console.log(average(salary));
