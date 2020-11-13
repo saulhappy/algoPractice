@@ -14,6 +14,18 @@ Try this algorithm:
 """
 
 def arrayRankTransform(arr):
-    pass
+    sortedArr = list(set(arr))
+    sortedArr = sorted(sortedArr)
+    sortedDict = {}
+    result = []
+
+    for index, num in enumerate(sortedArr, 1):
+        sortedDict[num] = index
+
+    for num in arr:
+        result.append(sortedDict[num])
+
+    return result
+
 
 print(arrayRankTransform(arr))
