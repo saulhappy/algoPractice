@@ -115,40 +115,47 @@
 //   })
 // );
 
-const projectStatus = ''
-const getStatus = projectStatus => {
+// const projectStatus = ''
+// const getStatus = projectStatus => {
 
-  const statusOptions = {
-    'INITIALIZED': {
-      "label" : 'Initialized',
-      "color": "variables.darkestGrey"
-    }, 
-    'ASSIGNED': {
-      "label" : 'Assigned',
-      "color": "variables.darkestGrey"
-    }, 
-    'IN_PROGRESS': {
-      "label" : 'In Progress',
-      "color": "variables.darkestGrey"
-    }, 
-    'READY_FOR_REVIEW': {
-      "label" : 'Ready for Review',
-      "color": "variables.darkestGrey"
-    }, 
-    'PUBLISHED': {
-      "label" : 'Published',
-      "color": "variables.darkestGrey"
-    }, 
+//   const statusOptions = {
+//     'INITIALIZED': {
+//       "label" : 'Initialized',
+//       "color": "variables.darkestGrey"
+//     }, 
+//     'ASSIGNED': {
+//       "label" : 'Assigned',
+//       "color": "variables.darkestGrey"
+//     }, 
+//     'IN_PROGRESS': {
+//       "label" : 'In Progress',
+//       "color": "variables.darkestGrey"
+//     }, 
+//     'READY_FOR_REVIEW': {
+//       "label" : 'Ready for Review',
+//       "color": "variables.darkestGrey"
+//     }, 
+//     'PUBLISHED': {
+//       "label" : 'Published',
+//       "color": "variables.darkestGrey"
+//     }, 
   
-  }
+//   }
   
-  try {
-    return statusOptions[projectStatus];
-   } catch(e) {
-     console.log(e)
-     return {'color': 'unknownColor', 'status': "UNKNOWN"}
-   }
-} 
+//   try {
+//     return statusOptions[projectStatus];
+//    } catch(e) {
+//      console.log(e)
+//      return {'color': 'unknownColor', 'status': "UNKNOWN"}
+//    }
+// } 
 
-console.log(getStatus(projectStatus));
+// console.log(getStatus(projectStatus));
 
+obj = {
+  a: 1,
+  b: 2, 
+  c: 3
+}
+
+console.log(obj.a)
