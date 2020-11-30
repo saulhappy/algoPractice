@@ -10,6 +10,16 @@ algorithm to try: create a new set from input, and return the length of that
 
 """
 def removeDuplicates(nums):
-    pass
+    if len(nums) == 0:
+        return 0
+    j = 1
+    result = 1
+
+    for i in range(len(nums)):
+        if  nums[i] == nums[j]:
+            continue
+        else:
+            result += 1
+    return result
 
 print(removeDuplicates(nums))
