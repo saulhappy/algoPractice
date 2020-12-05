@@ -8,7 +8,18 @@ nums = [3,2,2,3]
 val = 3
 
 def removeElement(nums, val):
-    pass
+    i = 0
+
+    while True:
+        try:
+            nums[i]
+        except IndexError:
+            break
+        if nums[i] == val:
+            del nums[i]
+        else:
+            i += 1
+    return len(nums)
 
 
 
