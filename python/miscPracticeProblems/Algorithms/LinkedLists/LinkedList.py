@@ -24,6 +24,22 @@ class linked_list:
             node_count += 1
             current_node = current_node.next
         return node_count
+    
+    def get_at(self, index):
+        if index >= self.length():
+            print("ERROR: Index out of bounds")
+            return None
+        
+        counter = 0
+        current_node = self.head
+
+        while current_node.next != None:
+            current_node = current_node.next
+            if index == counter:
+                return current_node.data
+            else:
+                counter += 1
+
 
     def print_list(self):
         list_data = ""
@@ -44,3 +60,4 @@ l.append(3)
 
 print(l.length())
 print(l.print_list())
+print(l.get_at(5))
