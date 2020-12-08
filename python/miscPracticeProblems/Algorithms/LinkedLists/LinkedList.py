@@ -26,7 +26,7 @@ class linked_list:
         return node_count
     
     def get_at(self, index):
-        if index >= self.length():
+        if index >= self.length() or index < 0:
             print("ERROR: Index out of bounds")
             return None
         
@@ -49,6 +49,13 @@ class linked_list:
             current_node = current_node.next
             list_data += str(current_node.data) + "->"
         return list_data
+
+    def delete(self, index):
+        if index > self.length() or index < 0:
+            print("ERROR: Index out of bounds")
+            return None
+        
+        
 
 
 
