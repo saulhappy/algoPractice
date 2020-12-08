@@ -25,15 +25,22 @@ class linked_list:
             current_node = current_node.next
         return node_count
 
+    def print_list(self):
+        list_data = ""
+        current_node = self.head
+
+        while current_node.next != None:
+            current_node = current_node.next
+            list_data += str(current_node.data) + "->"
+        return list_data
 
 
-a = node("a")
-b = node("b")
-c = node("c")
 
 l = linked_list()
-l.append(a)
-l.append(b)
-l.append(c)
+
+l.append(1)
+l.append(2)
+l.append(3)
 
 print(l.length())
+print(l.print_list())
