@@ -69,6 +69,8 @@ class linked_list:
             counter += 1
 
     def removeElements(self, val):
+        """ explantion: https://www.youtube.com/watch?v=MFrwAUAv2hA"""
+        
         dummy_node = node(None)
         dummy_node.next = self.head
         previous_node = dummy_node
