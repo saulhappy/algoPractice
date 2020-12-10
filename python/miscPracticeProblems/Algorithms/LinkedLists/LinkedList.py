@@ -68,18 +68,39 @@ class linked_list:
                 return
             counter += 1
 
+    def removeElements(self, val):
+        dummy_node = node(None)
+        dummy_node.next = self.head
+        previous_node = dummy_node
+        current_node = previous_node.next
+
+        while(current_node):
+            if current_node.data == val:
+                previous_node.next = current_node.next
+            else:
+                previous_node = previous_node.next
+            current_node = current_node.next
+        return dummy_node.next
+
+
 
 l = linked_list()
 
+l.append(4)
 l.append(1)
 l.append(2)
 l.append(3)
 l.append(4)
-l.append(5)
+l.append(4)
+l.append(4)
 
-print(l.length())
-print(l.print_list())
-l.delete_at(3)
+
+# print(l.length())
+# print(l.print_list())
+# l.delete_at(3)
 
 print(l.print_list())
+l.removeElements(4)
+print(l.print_list())
+
 
