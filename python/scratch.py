@@ -1,6 +1,3 @@
-import sys
-print(sys.version)
+a = "haystack"
 
-# node = "4"
-
-# print(f"{node}  deleted")
+print(a[:3])

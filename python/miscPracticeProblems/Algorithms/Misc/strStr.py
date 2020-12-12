@@ -1,28 +1,32 @@
 """ source: https://leetcode.com/problems/implement-strstr/ """
 
-haystack = ""
-needle = ""
-
+haystack = "mississippi"
+needle = "issip"
+# 4
 
 def strStr(haystack, needle):
+    first_ocurrence = 0
     if needle not in haystack:
         return -1
+    elif len(needle) == 0:
+        return first_ocurrence
+    elif needle == haystack:
+        return first_ocurrence
+    else:
+        for i in range(len(haystack)):
+            try:
+                if haystack[i] == needle[i]:
+                    first_ocurrence = i
+                if needle[:len(needle)] == haystack[i:len(needle)]:
+                    return first_ocurrence
+                else:
+                    i += len(needle)
+            except IndexError:
+                return first_ocurrence
+            
+        return first_ocurrence
 
-    if len(needle) == 0:
-        return 0
 
-    for i in range(len(haystack)):
-        index = 0
-        if needle[0] == haystack[i]:
-            index = i
-            for j in range(1, len(needle)):
-                if needle[j] != haystack[i + 1]:
-                    return -1
-        else:
-            continue
-        return index
-
-    return "it's in there"
 
 
 print(strStr(haystack, needle))
