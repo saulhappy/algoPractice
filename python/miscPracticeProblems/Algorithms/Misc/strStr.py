@@ -1,7 +1,7 @@
 """ source: https://leetcode.com/problems/implement-strstr/ """
 
-haystack = "mississippi"
-needle = "issip"
+haystack = "hello"
+needle = "ll"
 # 4
 
 def strStr(haystack, needle):
@@ -13,20 +13,18 @@ def strStr(haystack, needle):
     elif needle == haystack:
         return first_ocurrence
     else:
-        for i in range(len(haystack)):
+        i = 0
+        while True:
             try:
-                if haystack[i] == needle[i]:
+                if haystack[i] == needle[0]:
                     first_ocurrence = i
-                if needle[:len(needle)] == haystack[i:len(needle)]:
+                if needle == haystack[i:(i + len(needle) - 1)]:
                     return first_ocurrence
                 else:
-                    i += len(needle)
+                    i += len(needle) - 1
             except IndexError:
                 return first_ocurrence
             
         return first_ocurrence
-
-
-
 
 print(strStr(haystack, needle))
