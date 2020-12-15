@@ -1,3 +1,5 @@
-a = "haystack"
+haystack = "aaaaa"
+needle = "issiabp"
+# 4
 
-print(a[:3])
+print(haystack.find(needle))
