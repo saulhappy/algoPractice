@@ -1,5 +1,5 @@
-haystack = "aaaaa"
-needle = "issiabp"
-# 4
+arr = [1, 2, 3, 4]
 
-print(haystack.find(needle))
+# mid = arr[len(arr)/2]
+
+print((type(len(arr)/2)))
