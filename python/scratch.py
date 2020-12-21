@@ -25,8 +25,9 @@ def fibonnaci_rec_memo(n):
     elif n in memo.keys():
         return memo[n]
     else:
-        memo[n] = fibonnaci_rec_memo(n - 1) + fibonnaci_rec_memo(n - 2)
-        return memo[n]
+        result = fibonnaci_rec_memo(n - 1) + fibonnaci_rec_memo(n - 2)
+        memo[n] = result
+        return result
 
 
 print(fibonnaci_rec_memo(n))

@@ -1,4 +1,4 @@
-const intervalId = null;
+let intervalId = null;
 let counter = 0
 
 function printName() {
@@ -6,9 +6,9 @@ function printName() {
         counter++
         console.log("Saul")
     } else{
+        console.log(intervalId)
         clearInterval(intervalId)
     }
 }
 
-setInterval(printName, 1000);
-
+intervalId = setInterval(printName, 1000);
