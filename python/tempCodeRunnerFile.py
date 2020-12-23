@@ -1,0 +1,2 @@
+
+    print_message(message)
