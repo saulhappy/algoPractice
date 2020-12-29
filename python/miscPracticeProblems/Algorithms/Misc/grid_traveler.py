@@ -35,13 +35,12 @@ def grid_traveler_memo(r, c, memo = {}):
         return 1
     if c == 0 or r == 0:
         return 0
-    else:
-        memo[memo_key] = grid_traveler_memo(r - 1, c, memo) + grid_traveler_memo(r, c - 1, memo)
-        return memo[memo_key]
+
+    memo[memo_key] = grid_traveler_memo(r - 1, c, memo) + grid_traveler_memo(r, c - 1, memo)
+    return memo[memo_key]
 
 print(grid_traveler_memo(1,1)) # => 1
 print(grid_traveler_memo(2,3)) # => 3
 print(grid_traveler_memo(3,2)) # => 3
 print(grid_traveler_memo(3,3)) # => 6
 print(grid_traveler_memo(18,18)) # => 2333606220
-
