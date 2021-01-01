@@ -25,6 +25,14 @@ def bestSum(targetSum, numbers):
             shortest_complements = combination
     return shortest_complements
 
+"""
+target sum: m
+n : len(numbers)
+
+time: O(n^m*m)
+space: O(m^2)
+
+"""
 
 # print(bestSum(7, [5, 3, 4, 7])) # => [7]
 # print(bestSum(8, [2, 3, 5])) # => [3, 5]
