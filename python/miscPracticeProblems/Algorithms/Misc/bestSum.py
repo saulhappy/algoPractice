@@ -29,6 +29,7 @@ def bestSum(targetSum, numbers):
 target sum: m
 n : len(numbers)
 
+Brute force:
 time: O(n^m*m)
 space: O(m^2)
 
@@ -36,7 +37,7 @@ space: O(m^2)
 
 # print(bestSum(7, [5, 3, 4, 7])) # => [7]
 # print(bestSum(8, [2, 3, 5])) # => [3, 5]
-print(bestSum(8, [1, 4, 5])) # => [4, 4]
+# print(bestSum(8, [1, 4, 5])) # => [4, 4]
 # print(bestSum(100, [1, 2, 5, 25])) # => [25, 25, 25, 25]
 
 

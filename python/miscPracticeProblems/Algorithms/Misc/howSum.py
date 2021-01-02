@@ -51,3 +51,18 @@ print(howSum_memo(7, [5, 3, 4, 7])) # => [4, 3]
 # print(howSum_memo(7, [2, 4])) # => None
 # print(howSum_memo(8, [2, 3, 5])) # => [2, 2, 2, 2]
 # print(howSum_memo(300, [7, 14])) # => None
+
+
+"""
+target sum: m
+n : len(numbers)
+
+Brute force:
+time: O(n^m*m)
+space: O(m)
+
+Memoized:
+time: O(n*m^2) => quadratic
+space: O(m)
+
+"""
