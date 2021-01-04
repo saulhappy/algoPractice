@@ -14,10 +14,12 @@ Optimization:
 Create an object of arr1, with element as key, frequency (1) as value. 
 Iterate on arr2. If that element exist in arr1, increment the key's frequency value. 
 Return an array of all values in hash map with value greater than one (or two if they're all distinct). 
+
+Simpler: use list comprehension. Could also convert lists to sets, and find intersection.
 """
 
 def findCommon(arr1, arr2):
-    pass
+    return [num for num in arr1 if num in arr2]
 
 print(findCommon(arr1, arr2))
 
