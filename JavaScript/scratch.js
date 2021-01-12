@@ -1,9 +1,5 @@
-const roleOptions = [
-    { label: 'Subcontractor', value: 'SUBCONTRACTOR'},
-    { label: 'Asset Owner', value: 'OWNER'},
-    { label: 'Service Provider', value: 'SERVICE'},
-  ]
+const arr = ["saul", "camilla", "isabel"]
 
-  roleOptions.map(value =>{
-      console.log(value.label)
-  })
+console.log(arr.includes('apple'))
+
+console.log(arr.includes('isabel'))
