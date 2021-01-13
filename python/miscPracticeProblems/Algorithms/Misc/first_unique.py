@@ -13,8 +13,6 @@ Iterate string again with enumerate.
 If char in hash with value of 1, return index. 
 """
 
-string = "aaaaaaaaa"
-
 def first_unique(string): 
     special_chars = ['"', '!', '@', '#', '?', ',', '.', '/', '$', '%', " "]
     char_hash = {}
@@ -36,5 +34,28 @@ def first_unique(string):
 
     return -1
 
-print(first_unique(string))
+"""
+ANOTHER ALGORITHM:
+Iterate: if current character is in the rest of the string, continue. 
+Otherwise, return the current i. If at the end can't find anything, 
+return -1
+"""
+def first_unique_slice(string):
+    for i, char in enumerate(string):
+        if char in string[i + 1:]:
+            continue
+        else:
+            return i
+    return -1
 
+
+print(first_unique('alphabet'))
+print(first_unique('barbados'))
+print(first_unique('crunchy'))
+print(first_unique(''))
+
+
+print(first_unique_slice('alphabet'))
+print(first_unique_slice('barbados'))
+print(first_unique_slice('crunchy'))
+print(first_unique_slice(''))
