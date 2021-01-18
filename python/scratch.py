@@ -1,28 +1,54 @@
-# from time import sleep
-# import sys
+results1 = {
+    "sec1":{
+       "line1":{
+          "notes":"",
+          "value":""
+       },
+       "line2":{
+          "value":""
+       }
+    },
+    "sec2":{
+       "line1":{
+          "notes":""
+       }
+    }
+ }
 
-# for i in range(21):
-#     sys.stdout.write('\r')
-#     # the exact output you're looking for:
-#     sys.stdout.write("[%-20s] %d%%" % ('='*i, 5*i))
-#     sys.stdout.flush()
-#     sleep(0.25)
 
 
-import time
-import sys
+results2 = {
+    "sec1":{
+       "line1":{
+          "notes":"Some Notes",
+          "value":"AA"
+       },
+       "line2":{
+          "value":"BB"
+       }
+    },
+    "sec2":{
+       "line1":{
+          "notes":"sdfs"
+       }
+    }
+ }
 
-toolbar_width = 40
+# print(len(results1))
+# print(sum([len(results1[k]) for k in results1]))
 
-# setup toolbar
-sys.stdout.write("[%s]" % (" " * toolbar_width))
-sys.stdout.flush()
-sys.stdout.write("\b" * (toolbar_width+1)) # return to start of line, after '['
+# print(sum([len(results1[k]) for k in results1 if len(results1[k]) > 0]))
 
-for i in xrange(toolbar_width):
-    time.sleep(0.1) # do real work here
-    # update the bar
-    sys.stdout.write("-")
-    sys.stdout.flush()
+lineCount = 0
+for section in results2:
+    for line in results2[section].values():
+        for item in line.values():
+            if len(item) > 0:
+                lineCount +=1
 
-sys.stdout.write("]\n") # this ends the progress bar
+
+
+print(lineCount)
+
+
+
