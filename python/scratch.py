@@ -582,8 +582,12 @@ for item in section["lines"]:
     n_lines += 1
 
 arr = ["desc", "type", "schema", "line"]
+dont_include = ["type"]
 
 n_items = 0
 
-for item in arr:
+for item in (line_type for line_type in arr if line_type not in dont_include):
     print(item)
+
+
+print(3 / 6)
