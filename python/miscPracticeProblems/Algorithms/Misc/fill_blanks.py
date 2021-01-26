@@ -9,8 +9,26 @@ def fill_blanks(arr):
     for i in range(len(arr)):
         if arr[i] == None:
             arr.pop(i)
-            arr.insert(arr[i - 1], arr[i - 1])
-    return arr
-        
+            if i == len(arr):
+                arr.append(arr[i - 1])
+            else:
+                arr.insert(arr[i - 1], arr[i - 1])
 
-print(fill_blanks(array1))
+    return arr
+
+# another solution
+
+def fill_blanks2(arr):
+    valid = 0            
+    result = []                 
+    for num in arr: 
+        if num is not None:    
+            result.append(num)
+            valid = num
+        else:
+            result.append(valid)
+    return result
+
+
+# print(fill_blanks(array1))
+print(fill_blanks2(array1))
