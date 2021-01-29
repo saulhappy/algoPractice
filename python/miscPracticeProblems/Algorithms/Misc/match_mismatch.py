@@ -10,7 +10,33 @@ sentence2 = 'The city was hit by a really heavy storm'
 #  ['city', 'really'])
 
 def match_mismatch(string1, string2):
-    pass
+    sent1_arr = sentence1.split(" ")
+    sent2_arr = sentence2.split(" ")
+    match = []
+    misMatch = []
+    result = []
+
+    for word in sent1_arr:
+        if word in sent2_arr:
+            match.append(word)
+
+    for word in sent2_arr:
+        if word in sent1_arr:
+            match.append(word)
+
+    for word in sent1_arr:
+        if word not in sent2_arr:
+            misMatch.append(word)
+
+    for word in sent2_arr:
+        if word not in sent1_arr:
+            misMatch.append(word)
+
+    result = [list(set(misMatch))]
+    result += [list(set(match))]
+
+    return result
+
 
 print(match_mismatch(sentence1, sentence2))
 
