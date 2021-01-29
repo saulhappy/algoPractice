@@ -40,3 +40,15 @@ def match_mismatch(string1, string2):
 
 print(match_mismatch(sentence1, sentence2))
 
+"""
+ANTOHER ALGORITHM:
+
+def solution(sentence1, sentence2):
+    set1 = set(sentence1.split())
+    set2 = set(sentence2.split())
+    
+    return sorted(list(set1^set2)), sorted(list(set1&set2)) # ^ A.symmetric_difference(B), & A.intersection(B)
+
+print(solution(sentence1, sentence2))
+
+"""
