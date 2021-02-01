@@ -6,8 +6,17 @@
 n = 35 # => [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31]
 
 def prime_nums(n):
-    pass
+    primes = []
+    for num in range(n):
+        if num > 1: # all prime numbers are greater than 1
+            for i in range(2, num):
+                if (num % i) == 0: # if the modulus == 0 it means that the number can be divided by a number preceding it
+                    break
+            else:
+                primes.append(num)
+    return primes
 
+print(prime_nums(n))
 
 
 

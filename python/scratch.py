@@ -364,7 +364,12 @@ XLS_LINE_ITEM_COLS = [
     "description",
     "image_source",
 ]
-for line_item in XLS_LINE_ITEM_COLS:
-    print(LINE_ITEM_ATTR_MAP[line_item])
+
+arr = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31]
+result = ""
+for num in arr:
+    result += f"{num}, "
+
+print(result)
 
 
