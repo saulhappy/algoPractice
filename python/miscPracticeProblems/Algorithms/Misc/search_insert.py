@@ -40,4 +40,13 @@ def searchInsert(nums, target):
             if nums[i] > target:
                 return i
 
+# Similar algorithm: Iterate. If the target is in the array, return i. Else, return the length of it. 
+# for i in range(len(nums)):
+#     if target <= nums[i]:
+#         return i
+# return len(nums)
+
+# Both are O(n), but can achieve faster binary search solution of O(logN), sacrificing space
+
+
 print(searchInsert(nums, target))
