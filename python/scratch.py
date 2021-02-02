@@ -365,11 +365,18 @@ XLS_LINE_ITEM_COLS = [
     "image_source",
 ]
 
-arr = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31]
-result = ""
-for num in arr:
-    result += f"{num}, "
+actions_string = ""
+actions_off = ["notes", "video", "safety"]
 
-print(result)
+
+def print_test(arr):
+    num = 5
+    for action in arr:
+        print(action)
+    num += 1
+
+
+print(print_test(actions_off))
+
 
 
