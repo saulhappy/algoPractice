@@ -49,4 +49,19 @@ def searchInsert(nums, target):
 # Both are O(n), but can achieve faster binary search solution of O(logN), sacrificing space
 
 
+def searchInsertBinary(nums, target):
+    pass
+    # if target in nums:
+    #     return nums.index(target)
+    # else:
+    #     low, high = 0, len(nums)
+    #     while low < high:
+    #         mid = (low + high) // 2
+    #         if nums[mid] < target:
+    #             low = mid + 1
+    #         else:
+    #             high = mid
+    #     return low
+
+
 print(searchInsert(nums, target))
