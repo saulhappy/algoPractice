@@ -20,10 +20,28 @@ Input: digits = [0]
 Output: [1]
 """
 
-digits = [1,2,3]
+"""
+Algorithm 1: 
+create empty string, and join digits into the string. Convert to integer and add 1. 
+Iterate the string, converting each char back to num, and append to results array. 
+"""
 
-def plusOne(digits):
-    pass
+digits = [0]
 
-print(plusOne(digits))
+def plusOne1(digits):
+    digits_string = ""
+    result = []
+    
+    for num in digits:
+        digits_string += str(num)
+    string_num = int(digits_string) + 1
+    result_string = str(string_num)
+
+    for char in result_string:
+        result.append(int(char))
+    
+    return result
+
+
+print(plusOne1(digits))
 
