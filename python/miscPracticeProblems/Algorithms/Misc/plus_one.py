@@ -39,7 +39,7 @@ return copy.
 
 """
 
-digits = [1, 9]
+digits = [9, 9] # => 100
 
 def plus_One_1(digits):
     digits_string = ""
