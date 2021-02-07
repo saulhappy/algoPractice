@@ -365,27 +365,42 @@ XLS_LINE_ITEM_COLS = [
     "image_source",
 ]
 
+line_data = template["sections"][0]["lines"]
 
-# choices = ", ".join(line_data["choices"])
 
-line_data = {'key': 'customer', 'label': 'Customer', 'line_type': 'text', 'actions_on': [], 'actions_off': [], 'description': 'Do something here.'}
+# if len(choices_string) > 0:
+#     choices_string = choices_string[:-2]
 
-actions_off = ""
-actions_on = ""
+# if choices_string:
+#     cell_name = f"{LINE_ITEM_ATTR_MAP['choices']['xls_col']}{sheet_row_num}"
+#     sheet = populate_cell(sheet, cell_name, choices_string)
 
-if line_data['actions_off']:
-    actions_off = ", -".join(line_data['actions_off'])
-    actions_off = f"-{actions_off}"
 
-if line_data['actions_on']:
-    actions_on = ", ".join(line_data['actions_on'])
 
-if len(actions_off) > 0:
-    actions = f"{actions_off}, {actions_on}"
-else:
-    actions = f"{actions_on}" 
+import json
 
-print(actions)
+print(json.dumps(line_data, indent=4))
+
+# structure of input:
+line_data_choices = [
+    {
+        "label": "Chevorlet",
+        "value": "Chevorlet"
+    },
+    {
+        "label": "Ford",
+        "value": "Ford"
+    }
+]
+
+print(", ".join([item["value"] for item in line_data_choices]))
+
+# print(choices) # => F, o, r, d
+
+# # expected result => "Chevorlet, Ford"
+
+
+
 
 
 

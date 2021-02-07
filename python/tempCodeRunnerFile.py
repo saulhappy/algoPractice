@@ -1,2 +1,3 @@
+import json
 
-                noteCount += 1
+print(json.dumps(line_data, indent=4))

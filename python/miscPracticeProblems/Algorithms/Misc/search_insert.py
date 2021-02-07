@@ -46,22 +46,22 @@ def searchInsert(nums, target):
 #         return i
 # return len(nums)
 
-# Both are O(n), but can achieve faster binary search solution of O(logN), sacrificing space
+# Both are O(n), but can achieve faster binary search solution of O(logN), sacrificing space O(1)
 
 
 def searchInsertBinary(nums, target):
-    pass
-    # if target in nums:
-    #     return nums.index(target)
-    # else:
-    #     low, high = 0, len(nums)
-    #     while low < high:
-    #         mid = (low + high) // 2
-    #         if nums[mid] < target:
-    #             low = mid + 1
-    #         else:
-    #             high = mid
-    #     return low
+    left = 0
+    right = len(nums) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+        if nums[mid] == target:
+            return mid
+        elif target < nums[mid]:
+            right = mid - 1 # target might be at left of array
+        else:
+            left = mid + 1 
+    return left # at end of iteration, if target wasn't found, left position is where it ought to be. 
 
 
 print(searchInsert(nums, target))
