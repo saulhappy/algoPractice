@@ -21,22 +21,28 @@ Example 2:
 Input: n = 1, bad = 1
 Output: 1
 """
-
-n = 5
-bad = 4
-
 """
 Algorithm: binary search
 Set a left pointer to 1, right is n. 
-Perform binary search:
-While left is less than bad, set a midpoint to left + right // 2
-if the mid == bad, return mid
-
+Perform binary search. Keep halving distance between 1 and n until we find bad.
 
 """
+n = 5
+bad = 4
 
 def first_bad_version(n, bad):
-    pass
+    left = 1
+    right = n
+
+    while left <= right:
+        mid = (left + right) // 2
+        if mid == bad:
+            return mid
+        elif mid < bad: 
+            left = mid + 1
+        else:
+            right = mid - 1
+
 
 print(first_bad_version(n, bad))
 
