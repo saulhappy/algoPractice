@@ -7,7 +7,7 @@ function iterativeBinarySearch(n, arr) {
 
   while (start <= end) {
     let mid = Math.floor((start + end) / 2);
-    debugger;
+
     if (arr[mid] === n) {
       return true;
     } else if (arr[mid] < n) {
