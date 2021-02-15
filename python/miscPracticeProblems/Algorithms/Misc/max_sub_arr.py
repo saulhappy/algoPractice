@@ -29,7 +29,21 @@ Output: -100000
 nums = [-2,1,-3,4,-1,2,1,-5,4]
 
 def max_sub_array(nums):
-    pass
+    global_max = sum(nums)
+
+    for i, n in enumerate(nums):
+        if i == 0:
+            curr_sum = nums[0]
+        else:
+            curr_sum += n
+        curr_max = max(curr_sum, global_max)
+        curr_sum += n
+
+        if curr_sum > curr_max:
+            global_max = curr_sum
+        
+    return global_max
+
 
 
 
