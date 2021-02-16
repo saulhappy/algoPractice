@@ -26,7 +26,7 @@ Output: -100000
 
 """
 
-nums = [-2,1,-3,4,-1,2,1,-5,4]
+nums = [-2,1]
 
 def max_sub_array(nums):
     global_max = sum(nums)
@@ -37,14 +37,30 @@ def max_sub_array(nums):
         else:
             curr_sum += n
         curr_max = max(curr_sum, global_max)
-        curr_sum += n
+        if i == 0:
+            pass
+        else:
+            curr_sum += n
 
         if curr_sum > curr_max:
             global_max = curr_sum
         
     return global_max
 
-
-
-
 print(max_sub_array(nums))
+
+# def max_sub_array_yt(nums):
+#     maxSub = nums[0]
+#     curSum = 0
+
+#     for n in nums:
+#         if curSum < 0:
+#             curSum = 0
+#         curSum += n
+#         maxSub = max(maxSub, curSum)
+#     return maxSub
+
+# print(max_sub_array_yt(nums))
+
+
+
