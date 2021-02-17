@@ -26,41 +26,16 @@ Output: -100000
 
 """
 
-nums = [-2,1]
+nums = [-2,1,-3,4,-1,2,1,-5,4]
 
 def max_sub_array(nums):
-    global_max = sum(nums)
+    max_sum = nums[0]
+    current_sum = max_sum
 
-    for i, n in enumerate(nums):
-        if i == 0:
-            curr_sum = nums[0]
-        else:
-            curr_sum += n
-        curr_max = max(curr_sum, global_max)
-        if i == 0:
-            pass
-        else:
-            curr_sum += n
-
-        if curr_sum > curr_max:
-            global_max = curr_sum
-        
-    return global_max
+    for i in range(1, len(nums)):
+        current_sum = max(nums[i] + current_sum, nums[i])
+        max_sum = max(current_sum, max_sum)
+    
+    return max_sum
 
 print(max_sub_array(nums))
-
-# def max_sub_array_yt(nums):
-#     maxSub = nums[0]
-#     curSum = 0
-
-#     for n in nums:
-#         if curSum < 0:
-#             curSum = 0
-#         curSum += n
-#         maxSub = max(maxSub, curSum)
-#     return maxSub
-
-# print(max_sub_array_yt(nums))
-
-
-
