@@ -30,7 +30,7 @@ nums = [-2,1,-3,4,-1,2,1,-5,4]
 
 def max_sub_array(nums):
     max_sum = nums[0]
-    current_sum = max_sum
+    current_sum = nums[0]
 
     for i in range(1, len(nums)):
         current_sum = max(nums[i] + current_sum, nums[i])
