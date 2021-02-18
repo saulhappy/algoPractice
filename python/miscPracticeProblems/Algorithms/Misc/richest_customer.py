@@ -28,11 +28,15 @@ Output: 17
 accounts = [[2,8,7],[7,1,3],[1,9,5]]
 
 def max_wealth(accounts):
-    max_wealth = sum(accounts[0])
+    # max_wealth = sum(accounts[0])
 
-    for i in range(1, len(accounts)):
-        max_wealth = max(max_wealth, sum(accounts[i]))
+    # for i in range(1, len(accounts)):
+    #     max_wealth = max(max_wealth, sum(accounts[i]))
     
-    return max_wealth
+    # return max_wealth
+
+    # more pythonic one-liner:
+    return max(sum(account) for account in accounts) 
+
 
 print(max_wealth(accounts))
