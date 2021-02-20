@@ -24,11 +24,11 @@ Example 3:
 Input: word1  = ["abc", "d", "defg"], word2 = ["abcddefg"]
 Output: true
 """
-word1 = ["ab", "c"]
-word2 = ["a", "bc"]
+word1 = ["abc", "d", "defg"]
+word2 = ["abcddefg"]
 
 def arrayStringsAreEqual(word1, word2):
-    pass
+    return "".join(word1) == "".join(word2)
 
 
 print(arrayStringsAreEqual(word1, word2))
