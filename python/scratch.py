@@ -393,13 +393,14 @@ line_data_choices = [
     }
 ]
 
-print(", ".join([item["value"] for item in line_data_choices]))
+# print(", ".join([item["value"] for item in line_data_choices]))
 
 # print(choices) # => F, o, r, d
 
 # # expected result => "Chevorlet, Ford"
 
 
+  
 
 
 
