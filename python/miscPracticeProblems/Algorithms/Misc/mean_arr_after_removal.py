@@ -19,9 +19,21 @@ Output: 4.00000
 
 
 """
-arr = [6,2,7,5,1,2,0,3,10,2,5,0,5,5,0,8,7,6,8,0]
+arr = [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3]
 
 def trim_mean(arr):
-    pass
+        arr.sort()
+        
+        five_percent_of_arr = len(arr) * 0.05
+        sum_elements = 0
+        n_elements = 0
+        
+        for i in range(int(five_percent_of_arr), (len(arr)) - int(five_percent_of_arr)):
+            sum_elements += arr[i]
+            n_elements += 1
+            
+        return sum_elements / n_elements
+
+
 
 print(trim_mean(arr))
