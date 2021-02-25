@@ -1,7 +1,7 @@
 template = {
     "id": 4,
     "name": "sauls_template",
-    "description": "Example checklist **is** a description.",
+    "description": "",
     "version": "1.0.1",
     "categories": [
         "safety",
@@ -375,29 +375,29 @@ line_data = template["sections"][0]["lines"]
 #     cell_name = f"{LINE_ITEM_ATTR_MAP['choices']['xls_col']}{sheet_row_num}"
 #     sheet = populate_cell(sheet, cell_name, choices_string)
 
-
-
-import json
-
-print(json.dumps(line_data, indent=4))
+# print(json.dumps(line_data, indent=4))
 
 # structure of input:
-line_data_choices = [
-    {
-        "label": "Chevorlet",
-        "value": "Chevorlet"
-    },
-    {
-        "label": "Ford",
-        "value": "Ford"
-    }
-]
+# line_data_choices = [
+#     {
+#         "label": "Chevorlet",
+#         "value": "Chevorlet"
+#     },
+#     {
+#         "label": "Ford",
+#         "value": "Ford"
+#     }
+# ]
 
 # print(", ".join([item["value"] for item in line_data_choices]))
 
 # print(choices) # => F, o, r, d
 
 # # expected result => "Chevorlet, Ford"
+
+import json
+
+template.get("else", print("else not there"))
 
 
   
