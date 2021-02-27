@@ -23,10 +23,24 @@ Explanation: There are three ways to climb to the top.
 2. 1 step + 2 steps
 3. 2 steps + 1 step
 """
-n = 3
 
-def climb_stairs(n):
-    pass
+# Turns out this is the same problem as fibonnacci
+n = 38
+
+def climb_stairs(n, memo={}):
+    if n in memo.keys():
+        return memo[n]
+
+    if n == 1:
+        return 1
+    if n == 2:
+        return 2
+    if n == 3:
+        return 3
+    else:
+        memo[n] = climb_stairs(n - 1, memo) + climb_stairs(n - 2, memo)
+        return memo[n] 
+
 
 
 print(climb_stairs(n))
