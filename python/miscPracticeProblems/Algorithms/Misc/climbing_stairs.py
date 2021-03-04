@@ -25,7 +25,7 @@ Explanation: There are three ways to climb to the top.
 """
 
 # Turns out this is the same problem as fibonnacci
-n = 38
+n = 5
 
 def climb_stairs(n, memo={}):
     if n in memo.keys():
