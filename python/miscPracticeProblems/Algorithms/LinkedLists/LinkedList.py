@@ -87,13 +87,13 @@ class linked_list:
     def deleteDuplicatesSorted(self):
         """ leetcode source: https://leetcode.com/problems/remove-duplicates-from-sorted-list/ """
         current_node = self.head
-        next_node = self.head.next
 
-        while current_node.next != None:
-            if current_node.data == next_node.data:
-                current_node.next = next_node.next.next
-            current_node = current_node.next
-        return current_node
+        while current_node != None and current_node.next != None:
+            if current_node.data == current_node.next.data:
+                current_node.next = current_node.next.next
+            else:
+                current_node = current_node.next
+        return self.head
 
 
 
@@ -102,8 +102,7 @@ l = linked_list()
 l.append(1)
 l.append(1)
 l.append(2)
-l.append(3)
-l.append(3)
+
 
 print(l.print_list())
 l.deleteDuplicatesSorted()
