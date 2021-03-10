@@ -1,9 +1,4 @@
-a, b, _ = 'important', 'second important', 'not important'
+x = ""
 
-person = {
-    'name': 'Pietje Puk', 
-    'age': 27, 
-    'profession': 'Data Scientist'}
-_, age, _ = person.values()
-print(age)
-print(_)
+if isinstance(x, str):
+    print("hit")
