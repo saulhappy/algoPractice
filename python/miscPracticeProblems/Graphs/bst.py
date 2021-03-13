@@ -3,11 +3,18 @@
 class Node():
     def __init__(self, data = None):
         self.data = data
+        self.right = None
+        self.left = None
 
 class BST():
     def __init__(self):
-        self.root = Node()
-        self.count = 1
+        self.root = None
+        self.count = 0
 
 
+    def insert(self, data):
+        if self.root == None:
+            self.root = Node(data)
+            self.count += 1
+    
 
