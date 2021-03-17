@@ -47,4 +47,14 @@ class BST():
             self._print_tree(current_node.right)
 
 
+def fill_tree(tree, num_elems=10, max_int=100):
+    from random import randint
 
+    # for _ in range(num_elems):
+    #     value = randint(0, max_int)
+    #     tree.insert(value)
+    while num_elems > 0:
+        value = randint(0, max_int)
+        tree.insert(value)
+        num_elems -= 1
+    return tree
