@@ -36,6 +36,15 @@ class BST():
         else:
             print("This value is already in the tree")
 
+    def print_tree_inOrder(self):
+        if self.root != None:
+            self._print_tree(self.root)
+        
+    def _print_tree(self, current_node):
+        if current_node != None:
+            self._print_tree(current_node.left)
+            print(str(current_node.value))
+            self._print_tree(current_node.right)
 
-    
+
 
