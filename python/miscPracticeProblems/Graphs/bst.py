@@ -48,8 +48,21 @@ class BST():
             print(str(current_node.value))
             self._print_tree(current_node.right)
 
+    def height(self):
+        if self.root != None:
+            return self._height(self.root, 0)
+        else:
+            return 0
 
-def fill_tree(tree, num_elems=10, max_int=100):
+    def _height(self, current_node, current_height):
+        if current_node == None: return current_height
+        left_height = self._height(current_node.left, current_height + 1)
+        right_height = self._height(current_node.right, current_height + 1)
+        return max(left_height, right_height)
+
+
+# helper function to fill tree in with random integers
+def rand_fill_tree(tree, num_elems=10, max_int=100):
     from random import randint
 
     while num_elems > 0:
@@ -59,9 +72,9 @@ def fill_tree(tree, num_elems=10, max_int=100):
     return tree
 
 
-
 tree = BST()
-tree = fill_tree(tree)
+tree = rand_fill_tree(tree)
 tree.print_tree_inOrder()
 
 print(f"The tree has {tree.count} elements")
+print(f"the tree's height is {tree.height()}")
