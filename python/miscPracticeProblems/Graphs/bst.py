@@ -20,6 +20,7 @@ class BST():
             self.count += 1
         else:
             self._insert(value, self.root)
+            self.count += 1
     
     # recursive private insert method:
     def _insert(self, value, current_node):
@@ -35,6 +36,7 @@ class BST():
                 self._insert(value, current_node.right)
         else:
             print("This value is already in the tree")
+            self.count -= 1
 
     def print_tree_inOrder(self):
         if self.root != None:
@@ -50,11 +52,16 @@ class BST():
 def fill_tree(tree, num_elems=10, max_int=100):
     from random import randint
 
-    # for _ in range(num_elems):
-    #     value = randint(0, max_int)
-    #     tree.insert(value)
     while num_elems > 0:
         value = randint(0, max_int)
         tree.insert(value)
         num_elems -= 1
     return tree
+
+
+
+tree = BST()
+tree = fill_tree(tree)
+tree.print_tree_inOrder()
+
+print(f"The tree has {tree.count} elements")
