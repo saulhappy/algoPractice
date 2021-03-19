@@ -5,6 +5,7 @@ class Node():
         self.value = value
         self.right = None
         self.left = None
+        self.parent = None
 
 class BST():
     def __init__(self):
@@ -27,15 +28,17 @@ class BST():
         if value < current_node.value:
             if current_node.left == None:
                 current_node.left = Node(value)
+                current_node.left.parent = current_node
             else: 
                 self._insert(value, current_node.left)
         elif value > current_node.value:
             if current_node.right == None:
                 current_node.right = Node(value)
+                current_node.right.parent = current_node
             else:
                 self._insert(value, current_node.right)
         else:
-            print("This value is already in the tree")
+            print(f"{value} is already in the tree")
             self.count -= 1
 
     def print_tree_inOrder(self):
@@ -97,6 +100,7 @@ tree.insert(3)
 tree.insert(6)
 tree.insert(20)
 tree.insert(15)
+tree.insert(23)
 tree.insert(23)
 # tree = rand_fill_tree(tree)
 tree.print_tree_inOrder()
