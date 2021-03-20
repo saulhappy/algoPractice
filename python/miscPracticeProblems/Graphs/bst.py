@@ -77,6 +77,18 @@ class BST():
         elif value > current_node.value and current_node.right != None:
             return self._contains(current_node.right, value)
         return False 
+
+    def get_node(self, value):
+        if self.root != None:
+            return self._get_node(self.root, value)
+    
+    def _get_node(self, current_node, value):
+        if value == current_node.value:
+            return current_node
+        elif value < current_node.value and current_node.left != None:
+            return self._get_node(current_node.left, value)
+        elif value > current_node.value and current_node.right != None:
+            return self._get_node(current_node.right, value)
         
         
 
