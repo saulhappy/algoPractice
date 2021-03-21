@@ -90,7 +90,22 @@ class BST():
         elif value > current_node.value and current_node.right != None:
             return self._get_node(current_node.right, value)
         
-        
+    def delete_value(self, value):
+        return self.delete_node(self.get_node(value))
+
+    def delete_node(self, node):
+        # returns the node with min value in tree rooted at input node
+        def min_value_node(n):
+            current = n
+            while current.left != None:
+                current = current.left
+            return current
+
+        # returns the number of children of input node
+        def num_children(n):
+            num_children = 0
+            if n.left != None: num_children
+
 
 
 # helper function to fill tree in with random integers
@@ -103,6 +118,7 @@ def rand_fill_tree(tree, num_elems=10, max_int=100):
         num_elems -= 1
     return tree
 
+# tree = rand_fill_tree(tree)
 
 tree = BST()
 tree.insert(7)
@@ -114,7 +130,6 @@ tree.insert(20)
 tree.insert(15)
 tree.insert(23)
 tree.insert(23)
-# tree = rand_fill_tree(tree)
 tree.print_tree_inOrder()
 
 print(f"The tree has {tree.count} elements")
@@ -123,3 +138,5 @@ print(tree.contains(7))
 print(tree.contains(17))
 print(tree.contains(15))
 print(tree.contains(23))
+
+print(tree.get_node(12))
