@@ -104,7 +104,9 @@ class BST():
         # returns the number of children of input node
         def num_children(n):
             num_children = 0
-            if n.left != None: num_children
+            if n.left != None: num_children +=1
+            if n.right != None: num_children += 1
+            return num_children
 
 
 
