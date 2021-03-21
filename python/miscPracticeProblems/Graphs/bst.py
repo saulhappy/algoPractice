@@ -108,6 +108,23 @@ class BST():
             if n.right != None: num_children += 1
             return num_children
 
+        # get the parent of the node to be deleted, and num of child nodes
+        node_parent = node.parent
+        node_children_num = num_children(node)
+
+        # break deletion operation into different cases based on the
+        # tree's structure and node targeted for deletion
+
+        # CASE 1: node has no children: simply set parent's reference of
+        # that node to none
+
+        if node_children_num == 0:
+            if node_parent.left == node:
+                node_parent.left == None
+            else:
+                node_parent.right == None 
+        
+
 
 
 # helper function to fill tree in with random integers
