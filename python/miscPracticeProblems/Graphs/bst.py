@@ -115,7 +115,7 @@ class BST():
         # break deletion operation into different cases based on the
         # tree's structure and node targeted for deletion
 
-        # CASE 1: node has no children: simply set parent's reference of
+        # CASE 1: node has no leaves: simply set parent's reference of
         # that node to none
 
         if node_children_num == 0:
@@ -123,7 +123,20 @@ class BST():
                 node_parent.left == None
             else:
                 node_parent.right == None 
-        
+
+        # CASE 2: node has a single child: swap out the parent of that child, with the parent of the node. 
+
+        if node_children_num == 1:
+            # get that single child
+            if node.left != None:
+                child = node.left
+            else:
+                child = node.right
+            # replace targeted node for deletion with its single child. 
+        if node_parent.left == node:
+            node_parent.left = child
+        else:
+            node_parent.right = child
 
 
 
