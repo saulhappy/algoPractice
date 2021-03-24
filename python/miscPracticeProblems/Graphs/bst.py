@@ -91,9 +91,9 @@ class BST():
             return self._get_node(current_node.right, value)
         
     def delete_value(self, value):
-        return self.delete_node(self.get_node(value))
+        return self._delete_node(self.get_node(value))
 
-    def delete_node(self, node):
+    def _delete_node(self, node):
         # returns the node with min value in tree rooted at input node
         def min_value_node(n):
             current = n
@@ -137,7 +137,16 @@ class BST():
             node_parent.left = child
         else:
             node_parent.right = child
+        # update the child's parent prop
+        child.parent = node_parent
 
+        # CASE 3: node has two children: 
+        if node_children_num == 2:
+            successor = min_value_node(node.right)
+            print(f"successor value is now {successor.value}")
+
+            node.value == successor.value
+            self._delete_node(successor)
 
 
 # helper function to fill tree in with random integers
@@ -153,22 +162,31 @@ def rand_fill_tree(tree, num_elems=10, max_int=100):
 # tree = rand_fill_tree(tree)
 
 tree = BST()
-tree.insert(7)
 tree.insert(5)
-tree.insert(8)
-tree.insert(3)
+tree.insert(4)
 tree.insert(6)
-tree.insert(20)
-tree.insert(15)
-tree.insert(23)
-tree.insert(23)
+tree.insert(10)
+tree.insert(9)
+tree.insert(11)
+
+print("==============================")
+print("TREE'S IN ORDER VALUES ARE:")
 tree.print_tree_inOrder()
+print("==============================")
 
-print(f"The tree has {tree.count} elements")
-print(f"the tree's height is {tree.height()}")
-print(tree.contains(7))
-print(tree.contains(17))
-print(tree.contains(15))
-print(tree.contains(23))
+tree.delete_value(6)
+print("==============================")
+print("TREE'S IN ORDER VALUES ARE:")
+tree.print_tree_inOrder()
+print("==============================")
 
-print(tree.get_node(12))
+
+
+# print(f"The tree has {tree.count} elements")
+# print(f"the tree's height is {tree.height()}")
+# print(tree.contains(7))
+# print(tree.contains(17))
+# print(tree.contains(15))
+# print(tree.contains(23))
+
+# print(tree.get_node(12))
