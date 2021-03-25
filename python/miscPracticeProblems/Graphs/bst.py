@@ -162,25 +162,30 @@ def rand_fill_tree(tree, num_elems=10, max_int=100):
 # tree = rand_fill_tree(tree)
 
 tree = BST()
+tree.insert(12)
 tree.insert(5)
-tree.insert(4)
-tree.insert(6)
-tree.insert(10)
-tree.insert(9)
-tree.insert(11)
+tree.insert(20)
+tree.insert(3)
+tree.insert(7)
+tree.insert(17)
+tree.insert(25)
 
 print("==============================")
 print("TREE'S IN ORDER VALUES ARE:")
 tree.print_tree_inOrder()
 print("==============================")
 
-tree.delete_value(6)
+# tree.delete_value(6)
+# print("==============================")
+# print("TREE'S IN ORDER VALUES ARE:")
+# tree.print_tree_inOrder()
+# print("==============================")
+
+tree.delete_value(20)
 print("==============================")
 print("TREE'S IN ORDER VALUES ARE:")
 tree.print_tree_inOrder()
 print("==============================")
-
-
 
 # print(f"The tree has {tree.count} elements")
 # print(f"the tree's height is {tree.height()}")
