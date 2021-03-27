@@ -129,14 +129,11 @@ class binary_search_tree:
 
 			# Added this if statement post-video, previously if you 
 			# deleted the root node it would delete entire tree.
-			if node_parent!=None:
 				# replace the node to be deleted with its child
-				if node_parent.left_child==node:
-					node_parent.left_child=child
-				else:
-					node_parent.right_child=child
+			if node_parent.left_child==node: 
+				node_parent.left_child=child
 			else:
-				self.root=child
+				node_parent.right_child=child
 
 			# correct the parent pointer in node
 			child.parent=node_parent
@@ -178,8 +175,9 @@ tree.insert(10)
 tree.insert(9)
 tree.insert(11)
 
+
 tree.print_tree()
 
 tree.delete_value(5)
-
+print("==============================")
 tree.print_tree()

@@ -81,6 +81,9 @@ class BST():
     def get_node(self, value):
         if self.root != None:
             return self._get_node(self.root, value)
+        else:
+            print(f"A node with the value of {value} is not found in this tree.")
+            return None
     
     def _get_node(self, current_node, value):
         if value == current_node.value:
@@ -89,12 +92,17 @@ class BST():
             return self._get_node(current_node.left, value)
         elif value > current_node.value and current_node.right != None:
             return self._get_node(current_node.right, value)
+        return None
         
     def delete_value(self, value):
         return self._delete_node(self.get_node(value))
 
     def _delete_node(self, node):
-        # returns the node with min value in tree rooted at input node
+        if node == None or self.get_node(node.value) == None:
+            print(f"A node with the value of {node.value} is not found in this tree.")
+            return None
+
+        # helper function returns the node with min value in tree rooted at input node
         def min_value_node(n):
             current = n
             while current.left != None:
@@ -110,7 +118,7 @@ class BST():
 
         # get the parent of the node to be deleted, and num of child nodes
         node_parent = node.parent
-        node_children_num = num_children(node)
+        n_node_children = num_children(node)
 
         # break deletion operation into different cases based on the
         # tree's structure and node targeted for deletion
@@ -118,34 +126,40 @@ class BST():
         # CASE 1: node has no leaves: simply set parent's reference of
         # that node to none
 
-        if node_children_num == 0:
-            if node_parent.left == node:
-                node_parent.left == None
-            else:
-                node_parent.right == None 
+        if n_node_children == 0:
+            if node_parent != None:
+                if node_parent.left == node:
+                    node_parent.left == None
+                else:
+                    node_parent.right == None
+            else: 
+                self.root = None
 
         # CASE 2: node has a single child: swap out the parent of that child, with the parent of the node. 
 
-        if node_children_num == 1:
+        if n_node_children == 1:
             # get that single child
             if node.left != None:
                 child = node.left
             else:
                 child = node.right
             # replace targeted node for deletion with its single child. 
-        if node_parent.left == node:
-            node_parent.left = child
-        else:
-            node_parent.right = child
-        # update the child's parent prop
-        child.parent = node_parent
+            if node_parent != None:
+                if node_parent.left == node:
+                    node_parent.left = child
+                else:
+                    node_parent.right = child
+            else: 
+                self.root == child
+
+                # update the child's parent prop
+            child.parent = node_parent
 
         # CASE 3: node has two children: 
-        if node_children_num == 2:
+        if n_node_children == 2:
             successor = min_value_node(node.right)
-            print(f"successor value is now {successor.value}")
 
-            node.value == successor.value
+            node.value = successor.value
             self._delete_node(successor)
 
 
@@ -162,36 +176,20 @@ def rand_fill_tree(tree, num_elems=10, max_int=100):
 # tree = rand_fill_tree(tree)
 
 tree = BST()
+tree.insert(15)
 tree.insert(12)
-tree.insert(5)
-tree.insert(20)
-tree.insert(3)
-tree.insert(7)
 tree.insert(17)
+tree.insert(8)
+tree.insert(14)
+tree.insert(13)
+tree.insert(16)
 tree.insert(25)
 
-print("==============================")
-print("TREE'S IN ORDER VALUES ARE:")
 tree.print_tree_inOrder()
-print("==============================")
 
-# tree.delete_value(6)
+tree.get_node(3)
+
+
+# tree.delete_value(3)
 # print("==============================")
-# print("TREE'S IN ORDER VALUES ARE:")
 # tree.print_tree_inOrder()
-# print("==============================")
-
-tree.delete_value(20)
-print("==============================")
-print("TREE'S IN ORDER VALUES ARE:")
-tree.print_tree_inOrder()
-print("==============================")
-
-# print(f"The tree has {tree.count} elements")
-# print(f"the tree's height is {tree.height()}")
-# print(tree.contains(7))
-# print(tree.contains(17))
-# print(tree.contains(15))
-# print(tree.contains(23))
-
-# print(tree.get_node(12))
