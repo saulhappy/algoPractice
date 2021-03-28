@@ -81,9 +81,6 @@ class BST():
     def get_node(self, value):
         if self.root != None:
             return self._get_node(self.root, value)
-        else:
-            print(f"A node with the value of {value} is not found in this tree.")
-            return None
     
     def _get_node(self, current_node, value):
         if value == current_node.value:
@@ -92,14 +89,19 @@ class BST():
             return self._get_node(current_node.left, value)
         elif value > current_node.value and current_node.right != None:
             return self._get_node(current_node.right, value)
-        return None
+        else:
+            print(f"A node with the value of {value} is not found in this tree")
+            return None
         
     def delete_value(self, value):
-        return self._delete_node(self.get_node(value))
+        if value == None:
+            print("Can't delete value of None.")
+            return None
+        else:
+            return self._delete_node(self.get_node(value))
 
     def _delete_node(self, node):
         if node == None or self.get_node(node.value) == None:
-            print(f"A node with the value of {node.value} is not found in this tree.")
             return None
 
         # helper function returns the node with min value in tree rooted at input node
@@ -187,9 +189,7 @@ tree.insert(25)
 
 tree.print_tree_inOrder()
 
-tree.get_node(3)
+tree.delete_value(8)
+print("==============================")
+tree.print_tree_inOrder()
 
-
-# tree.delete_value(3)
-# print("==============================")
-# tree.print_tree_inOrder()
