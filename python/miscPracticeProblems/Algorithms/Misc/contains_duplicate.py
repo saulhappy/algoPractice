@@ -13,10 +13,18 @@ Input: nums = [1,2,3,4]
 Output: false
 
 """
-nums = [1,2,3,1]
+# Algo1: set a seen array. Iterate nums array. If num in seen, return True. Else
+# append num to seen. Return False at end of iteration. Exceeds time. 
+
+nums = [1,2,3,4]
 
 def contains_duplicate(nums):
-    pass
-
+    seen = []
+    for num in nums:
+        if num in seen:
+            return True
+        else:
+            seen.append(num)
+    return False
 
 print(contains_duplicate(nums))
