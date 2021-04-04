@@ -16,15 +16,24 @@ Output: false
 # Algo1: set a seen array. Iterate nums array. If num in seen, return True. Else
 # append num to seen. Return False at end of iteration. Exceeds time. 
 
-nums = [1,2,3,4]
+# Algo2: use a hash instead of array to contain seen. Accepted
 
+nums = [1,2,3,1]
+
+# Algo1: 
+# def contains_duplicate(nums):
+#     seen = []
+#     for num in nums:
+#         if num in seen: return True
+#         else: seen.append(num)
+#     return False
+
+# Algo2: 
 def contains_duplicate(nums):
-    seen = []
+    seen = {}
     for num in nums:
-        if num in seen:
-            return True
-        else:
-            seen.append(num)
+        if num in seen: return True
+        else: seen[num] = 1
     return False
 
 print(contains_duplicate(nums))
