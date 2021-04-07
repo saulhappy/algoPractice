@@ -14,7 +14,14 @@ Output: [9,4]
 Explanation: [4,9] is also accepted.
 
 """
+### algo 1:
+# make sets of nums 1 and 2. Return the intersection. 
+
+nums1 = [4,9,5]
+nums2 = [9,4,9,8,4]
 
 def intersection(nums1, nums2):
-    pass
+    return list(set(nums1).intersection(set(nums2)))
+
+print(intersection(nums1, nums2))
 
