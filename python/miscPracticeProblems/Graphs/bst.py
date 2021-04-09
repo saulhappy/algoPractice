@@ -80,15 +80,17 @@ class BST():
 
     def get_node(self, value):
         if self.root != None:
-            return self._get_node(self.root, value)
+            return self._get_node(value, self.root)
+        else:
+            return None
     
-    def _get_node(self, current_node, value):
+    def _get_node(self, value, current_node):
         if value == current_node.value:
             return current_node
         elif value < current_node.value and current_node.left != None:
-            return self._get_node(current_node.left, value)
+            return self._get_node(value, current_node.left)
         elif value > current_node.value and current_node.right != None:
-            return self._get_node(current_node.right, value)
+            return self._get_node(value, current_node.right)
         else:
             print(f"A node with the value of {value} is not found in this tree")
             return None
@@ -187,9 +189,12 @@ tree.insert(13)
 tree.insert(16)
 tree.insert(25)
 
+print("tree's node count is ", tree.count)
 tree.print_tree_inOrder()
 
 tree.delete_value(8)
 print("==============================")
 tree.print_tree_inOrder()
+print("====================")
+print("tree's node count is ", tree.count)
 
