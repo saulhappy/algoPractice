@@ -95,76 +95,19 @@ class BST():
             print(f"A node with the value of {value} is not found in this tree")
             return None
         
-    def delete_value(self, value):
-        if value == None:
-            print("Can't delete value of None.")
-            return None
-        else:
-            return self._delete_node(self.get_node(value))
+    # returns the node with min value in tree rooted at input node
+    def min_value_node(self, n):
+        current = n
+        while current.left != None:
+            current = current.left
+        return current
 
-    def _delete_node(self, node):
-        if node == None or self.get_node(node.value) == None:
-            return None
-
-        # helper function returns the node with min value in tree rooted at input node
-        def min_value_node(n):
-            current = n
-            while current.left != None:
-                current = current.left
-            return current
-
-        # returns the number of children of input node
-        def num_children(n):
-            num_children = 0
-            if n.left != None: num_children +=1
-            if n.right != None: num_children += 1
-            return num_children
-
-        # get the parent of the node to be deleted, and num of child nodes
-        node_parent = node.parent
-        n_node_children = num_children(node)
-
-        # break deletion operation into different cases based on the
-        # tree's structure and node targeted for deletion
-
-        # CASE 1: node has no leaves: simply set parent's reference of
-        # that node to none
-
-        if n_node_children == 0:
-            if node_parent != None:
-                if node_parent.left == node:
-                    node_parent.left == None
-                else:
-                    node_parent.right == None
-            else: 
-                self.root = None
-
-        # CASE 2: node has a single child: swap out the parent of that child, with the parent of the node. 
-
-        if n_node_children == 1:
-            # get that single child
-            if node.left != None:
-                child = node.left
-            else:
-                child = node.right
-            # replace targeted node for deletion with its single child. 
-            if node_parent != None:
-                if node_parent.left == node:
-                    node_parent.left = child
-                else:
-                    node_parent.right = child
-            else: 
-                self.root == child
-
-                # update the child's parent prop
-            child.parent = node_parent
-
-        # CASE 3: node has two children: 
-        if n_node_children == 2:
-            successor = min_value_node(node.right)
-
-            node.value = successor.value
-            self._delete_node(successor)
+    # returns the number of children of input node
+    def num_children(self, n):
+        num_children = 0
+        if n.left != None: num_children +=1
+        if n.right != None: num_children += 1
+        return num_children
 
 
 # helper function to fill tree in with random integers
@@ -189,12 +132,8 @@ tree.insert(13)
 tree.insert(16)
 tree.insert(25)
 
-print("tree's node count is ", tree.count)
+print(f"tree's nodes are: ")
 tree.print_tree_inOrder()
+print("tree's node count is", tree.count)
 
-tree.delete_value(8)
-print("==============================")
-tree.print_tree_inOrder()
-print("====================")
-print("tree's node count is ", tree.count)
 
