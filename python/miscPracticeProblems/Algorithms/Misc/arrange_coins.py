@@ -28,23 +28,15 @@ Because the 4th row is incomplete, we return 3.
 
 """
 
-n = 6
-# 3
+n = 3
 
 def arrangeCoins(n):
-    if n == 0: return 0
-    if 1 <= n <= 2: return 1
-    if n == 3: return 2
-
     steps = 0
-    counter = 0
-
-    while n > 0:
-        counter += 1
-        if (steps + counter) > n: 
-            return steps
-        else:
-            steps += 1
-        n -= 1
+    
+    while n > steps:
+        steps += 1
+        n = n - steps
+    return steps
 
 print(arrangeCoins(n))
+
