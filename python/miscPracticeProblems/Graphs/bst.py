@@ -102,6 +102,16 @@ class BST():
             current = current.left
         return current
 
+    def max_value(self):
+        if self.root != None:
+            return self._max_value(self.root)
+    
+    def _max_value(self, current_node):
+        if current_node.right is None:
+             print(f"max value in tree is {current_node.value}")
+             return None
+        return self._max_value(current_node.right)
+
     # returns the number of children of input node
     def num_children(self, n):
         num_children = 0
@@ -110,18 +120,7 @@ class BST():
         return num_children
 
     def delete_node(self, value):
-        if self.root == None: return None
-
-        if self.root.value == value:
-            if not self.root.left and not self.root.right: return None 
-            if not self.root.left and self.root.right: return self.root.right
-            if not self.root.right and self.root.left: return self.root.left
-        
-        elif self.root.value > value:
-            self.root.left = self.delete_node(self.root.left.value)
-        else: 
-            self.root.right = self.delete_node(self.root.right.value)
-        return self.root 
+        pass
 
 
 # helper function to fill tree in with random integers
@@ -137,17 +136,16 @@ def rand_fill_tree(tree, num_elems=10, max_int=100):
 # tree = rand_fill_tree(tree)
 
 tree = BST()
-tree.insert(15)
+tree.insert(7)
+tree.insert(5)
 tree.insert(12)
-tree.insert(17)
-tree.insert(8)
-tree.insert(14)
-tree.insert(13)
-tree.insert(16)
-tree.insert(25)
+
 
 print(f"tree's nodes are: ")
+print("   ")
 tree.print_tree_inOrder()
+print("   ")
 print("tree's node count is", tree.count)
-
+print("   ")
+tree.max_value()
 
