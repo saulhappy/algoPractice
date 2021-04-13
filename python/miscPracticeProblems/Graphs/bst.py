@@ -109,6 +109,20 @@ class BST():
         if n.right != None: num_children += 1
         return num_children
 
+    def delete_node(self, value):
+        if self.root == None: return None
+
+        if self.root.value == value:
+            if not self.root.left and not self.root.right: return None 
+            if not self.root.left and self.root.right: return self.root.right
+            if not self.root.right and self.root.left: return self.root.left
+        
+        elif self.root.value > value:
+            self.root.left = self.delete_node(self.root.left.value)
+        else: 
+            self.root.right = self.delete_node(self.root.right.value)
+        return self.root 
+
 
 # helper function to fill tree in with random integers
 def rand_fill_tree(tree, num_elems=10, max_int=100):
