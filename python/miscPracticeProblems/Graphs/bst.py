@@ -102,15 +102,27 @@ class BST():
             current = current.left
         return current
 
+
+    # returns max value of tree
     def max_value(self):
         if self.root != None:
             return self._max_value(self.root)
     
     def _max_value(self, current_node):
         if current_node.right is None:
-             print(f"max value in tree is {current_node.value}")
-             return None
+            print(f"The max value in tree is {current_node.value}")
+            return None
         return self._max_value(current_node.right)
+
+    def min_value(self):
+        if self.root != None:
+            return self._min_value(self.root)
+    
+    def _min_value(self, current_node):
+        if current_node.left is None:
+            print(f"The min value in tree is {current_node.value}")
+            return None
+        return self._min_value(current_node.left)
 
     # returns the number of children of input node
     def num_children(self, n):
@@ -139,13 +151,14 @@ tree = BST()
 tree.insert(7)
 tree.insert(5)
 tree.insert(12)
+tree.insert(8)
+tree.insert(27)
+tree.insert(3)
 
-
-print(f"tree's nodes are: ")
 print("   ")
+print(f"tree's nodes are: ")
 tree.print_tree_inOrder()
 print("   ")
 print("tree's node count is", tree.count)
-print("   ")
 tree.max_value()
-
+tree.min_value()
