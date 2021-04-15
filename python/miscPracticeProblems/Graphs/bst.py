@@ -42,11 +42,11 @@ class BST():
             self.count -= 1
 
     def print_tree_inOrder(self):
-        if self.root != None:
+        if self.root:
             self._print_tree(self.root)
         
     def _print_tree(self, current_node):
-        if current_node != None:
+        if current_node:
             self._print_tree(current_node.left)
             print(str(current_node.value))
             self._print_tree(current_node.right)
@@ -113,9 +113,10 @@ class BST():
             print(f"The max value in tree is {current_node.value}")
             return None
         return self._max_value(current_node.right)
-
+    
+    # returns max value of tree
     def min_value(self):
-        if self.root != None:
+        if self.root:
             return self._min_value(self.root)
     
     def _min_value(self, current_node):
@@ -131,9 +132,30 @@ class BST():
         if n.right != None: num_children += 1
         return num_children
 
-    def delete_node(self, value):
-        pass
+    # deletes node with input value
+    def delete_value(self, value):
+        if self.root:
+            return self._delete_node(self.root, value)
+        print("The tree is empty. Nothing to delete")
+        return None
 
+    def _delete_node(self, current_node, value):
+        if current_node.value == value:
+            # leaf node:
+            if not current_node.left and not current_node.right: return None
+            # node has one right child:
+            if not current_node.left and current_node.right: return current_node.right
+            # node has one left child:
+            if not current_node.right and current_node.left: return current_node.left
+            # node has two children:
+            if current_node.right and current_node.left: print("figuring it out")
+
+        if current_node.value > value:
+            current_node.left = self._delete_node(current_node, value)
+        else:
+            current_node.right = self._delete_node(current_node, value)
+
+        return current_node
 
 # helper function to fill tree in with random integers
 def rand_fill_tree(tree, num_elems=10, max_int=100):
@@ -151,14 +173,23 @@ tree = BST()
 tree.insert(7)
 tree.insert(5)
 tree.insert(12)
-tree.insert(8)
-tree.insert(27)
-tree.insert(3)
+
 
 print("   ")
 print(f"tree's nodes are: ")
 tree.print_tree_inOrder()
 print("   ")
+print("tree's height is: ", tree.height())
 print("tree's node count is", tree.count)
 tree.max_value()
 tree.min_value()
+
+# current delete implementation: https://www.youtube.com/watch?v=wMyWHO9F1OM
+# STILL NOT WORKING! >:/
+
+# print("   ")
+# tree.delete_value(5)
+# print(f"tree's nodes are: ")
+# tree.print_tree_inOrder()
+# print("   ")
+# print("tree's node count is", tree.count)
