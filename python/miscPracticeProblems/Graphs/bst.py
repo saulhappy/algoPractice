@@ -10,7 +10,6 @@ class Node():
 class BST():
     def __init__(self):
         self.root = None
-        self.count = 0
 
 
     # if there is no root, create it, increment the count. else, call private insert with the value. 
@@ -18,10 +17,8 @@ class BST():
     def insert(self, value):
         if self.root == None:
             self.root = Node(value)
-            self.count += 1
         else:
             self._insert(value, self.root)
-            self.count += 1
     
     # recursive private insert method:
     def _insert(self, value, current_node):
@@ -39,7 +36,6 @@ class BST():
                 self._insert(value, current_node.right)
         else:
             print(f"{value} is already in the tree")
-            self.count -= 1
 
     def print_tree_inOrder(self):
         if self.root:
@@ -50,6 +46,18 @@ class BST():
             self._print_tree(current_node.left)
             print(str(current_node.value))
             self._print_tree(current_node.right)
+
+    def count_nodes(self):
+        if self.root:
+            self._count_nodes(self.root)
+        
+    def _count_nodes(self, current_node, count=1):
+        if current_node:
+            count += 1
+            self._count_nodes(current_node.left, count)
+            self._count_nodes(current_node.right, count)
+        else:
+            print("Tree's node count is ", str(count))
 
     def height(self):
         if self.root != None:
@@ -134,27 +142,23 @@ class BST():
 
     # deletes node with input value
     def delete_value(self, value):
-        if self.root:
-            return self._delete_node(self.root, value)
-        print("The tree is empty. Nothing to delete")
-        return None
+        if self.root is None: 
+            print("This tree is empty.")
+            return None
+        self._delete_node(self.root, value)
+   
 
     def _delete_node(self, current_node, value):
+        if current_node is None: return None
+
         if current_node.value == value:
-            # leaf node:
-            if not current_node.left and not current_node.right: return None
-            # node has one right child:
-            if not current_node.left and current_node.right: return current_node.right
-            # node has one left child:
-            if not current_node.right and current_node.left: return current_node.left
-            # node has two children:
-            if current_node.right and current_node.left: print("figuring it out")
+            if current_node.left is None and current_node.right is None: return None
 
         if current_node.value > value:
-            current_node.left = self._delete_node(current_node, value)
+            current_node.left = self._delete_node(current_node.left, value)
         else:
-            current_node.right = self._delete_node(current_node, value)
-
+            current_node.right = self._delete_node(current_node.right, value)
+        
         return current_node
 
 # helper function to fill tree in with random integers
@@ -180,16 +184,16 @@ print(f"tree's nodes are: ")
 tree.print_tree_inOrder()
 print("   ")
 print("tree's height is: ", tree.height())
-print("tree's node count is", tree.count)
+print("tree's node count is", tree.count_nodes())
 tree.max_value()
 tree.min_value()
 
-# current delete implementation: https://www.youtube.com/watch?v=wMyWHO9F1OM
-# STILL NOT WORKING! >:/
+print("   ")
 
-# print("   ")
-# tree.delete_value(5)
-# print(f"tree's nodes are: ")
-# tree.print_tree_inOrder()
-# print("   ")
-# print("tree's node count is", tree.count)
+tree.delete_value(12)
+
+print(f"tree's nodes are: ")
+tree.print_tree_inOrder()
+print("   ")
+print("tree's node count is", tree.count_nodes())
+
