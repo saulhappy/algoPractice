@@ -152,7 +152,18 @@ class BST():
         if current_node is None: return None
 
         if current_node.value == value:
+            # node has no children
             if current_node.left is None and current_node.right is None: return None
+            # node only has right child
+            if current_node.left is None and current_node.right: return current_node.right
+            # node only has left child
+            if current_node.left and current_node.right is None: return current_node.left
+            # node has both children: replace node's value with next min value
+            if current_node.left and current_node.right: 
+                pointer = current_node.right
+                while pointer.left: pointer = pointer.left # keep traversing left to get lowest value
+                current_node.value = pointer.value # copy value
+                current_node.right = self._delete_node(current_node.right, current_node.value)# delete node of value we copied
 
         if current_node.value > value:
             current_node.left = self._delete_node(current_node.left, value)
@@ -175,28 +186,37 @@ def rand_fill_tree(tree, num_elems=10, max_int=100):
 
 tree = BST()
 print("tree's node count is", tree.count_nodes())
-tree.insert(7)
-tree.insert(5)
 tree.insert(12)
-
+tree.insert(5)
+tree.insert(17)
+tree.insert(3)
+tree.insert(7)
+tree.insert(6)
+tree.insert(8)
 
 print("   ")
 print(f"tree's nodes are: ")
 tree.print_tree_inOrder()
 print("   ")
 print("tree's height is: ", tree.height())
-print("tree's node count is", tree.count_nodes())
+
 tree.max_value()
 tree.min_value()
 
 print("   ")
 
-tree.delete_value(12)
+tree.delete_value(5)
 
 print(f"tree's nodes are: ")
 tree.print_tree_inOrder()
 print("   ")
-print("tree's node count is", tree.count_nodes())
+print("tree's height is: ", tree.height())
 
 
-
+#         12
+#      /     \ 
+#     5        17 
+#   /  \     /    \
+#  3     7
+#      /   \ 
+#     6      8 
