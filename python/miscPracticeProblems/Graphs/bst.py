@@ -47,16 +47,24 @@ class BST():
             print(str(current_node.value))
             self._print_tree(current_node.right)
 
+#         12
+#      /     \ 
+#     5        17 
+#   /  \     /    \
+#  3     7
+#      /   \ 
+#     6      8 
     def count_nodes(self):
-        if self.root is not None:
+        if self.root:
             return self._count_nodes(self.root, 0)
         else:
             return 0
         
-    def _count_nodes(self, current_node, count):
-        if current_node is None: return count
-        left_count = self._count_nodes(current_node.left, count + 1)
-        right_count = self._count_nodes(current_node.right, count + 1)
+    def _count_nodes(self, current_node, current_count):
+        current_value = current_node.value
+        if current_node is None: return current_count
+        left_count = self._count_nodes(current_node.left, current_count + 1)
+        right_count = self._count_nodes(current_node.right, current_count + 1)
         return left_count + right_count
 
     def height(self):
@@ -186,11 +194,11 @@ def rand_fill_tree(tree, num_elems=10, max_int=100):
 
 tree = BST()
 print("tree's node count is", tree.count_nodes())
+tree.insert(7)
 tree.insert(12)
 tree.insert(5)
 tree.insert(17)
 tree.insert(3)
-tree.insert(7)
 tree.insert(6)
 tree.insert(8)
 
@@ -205,18 +213,11 @@ tree.min_value()
 
 print("   ")
 
-tree.delete_value(5)
+# tree.delete_value(3)
 
-print(f"tree's nodes are: ")
-tree.print_tree_inOrder()
-print("   ")
-print("tree's height is: ", tree.height())
-
-
-#         12
-#      /     \ 
-#     5        17 
-#   /  \     /    \
-#  3     7
-#      /   \ 
-#     6      8 
+# print(f"tree's nodes are: ")
+# tree.print_tree_inOrder()
+# print("   ")
+# print("tree's height is: ", tree.height())
+# print("   ")
+print("tree's node count is", tree.count_nodes())
