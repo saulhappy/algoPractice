@@ -47,19 +47,28 @@ class BST():
             print(str(current_node.value))
             self._print_tree(current_node.right)
 
-    def count_nodes(self):
-        if self.root:
-            return self._count_nodes(self.root, 1)
-        else:
-            return None
+    
+    # youtube solution: https://www.youtube.com/watch?v=ROSIGLLr9Mo
+    # def count_nodes(self):
+    #     if self.root is None: return 0
+    #     return (1 + self.count_nodes(self.root.left) + self.count_nodes(self.root.right))
         
-    def _count_nodes(self, current_node, current_count):
-        if current_node.left is None and current_node.right is None:
-            return current_count      
-        if current_node.left:
-            return self._count_nodes(current_node.left, current_count + 1)
-        if current_node.right:
-            return self._count_nodes(current_node.right, current_count + 1)
+
+    # INSTINCT ALGO:
+    # def count_nodes(self):
+    #     if self.root:
+    #         return self._count_nodes(self.root, 1)
+    #     else:
+    #         return None
+        
+    # def _count_nodes(self, current_node, current_count):
+        
+        # if current_node.left is None and current_node.right is None:
+        #     return current_count      
+        # if current_node.left:
+        #     return self._count_nodes(current_node.left, current_count + 1)
+        # if current_node.right:
+        #     return self._count_nodes(current_node.right, current_count + 1)
 
     def height(self):
         if self.root != None:
