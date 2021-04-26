@@ -47,40 +47,68 @@ class BST():
             print(str(current_node.value))
             self._print_tree(current_node.right)
 
-    
-    # youtube solution: https://www.youtube.com/watch?v=ROSIGLLr9Mo
-    # def count_nodes(self):
-    #     if self.root is None: return 0
-    #     return (1 + self.count_nodes(self.root.left) + self.count_nodes(self.root.right))
-        
 
-    # INSTINCT ALGO:
-    # def count_nodes(self):
-    #     if self.root:
-    #         return self._count_nodes(self.root, 1)
-    #     else:
-    #         return None
-        
-    # def _count_nodes(self, current_node, current_count):
-        
-        # if current_node.left is None and current_node.right is None:
-        #     return current_count      
-        # if current_node.left:
-        #     return self._count_nodes(current_node.left, current_count + 1)
-        # if current_node.right:
-        #     return self._count_nodes(current_node.right, current_count + 1)
-
-    def height(self):
-        if self.root != None:
-            return self._height(self.root, 0)
+    def count_nodes(self):
+        if self.root:
+            return self._count_nodes(self.root)
         else:
-            return 0
+            return None
+        
+    def _count_nodes(self, current_node):
+        left_count = 0
+        right_count = 0
 
-    def _height(self, current_node, current_height):
-        if current_node == None: return current_height
-        left_height = self._height(current_node.left, current_height + 1)
-        right_height = self._height(current_node.right, current_height + 1)
-        return max(left_height, right_height)
+        if current_node.left is None and current_node.right is None: return 1      
+        if current_node.left: left_count = self._count_nodes(current_node.left)
+        if current_node.right: right_count = self._count_nodes(current_node.right)
+
+        return left_count + right_count + 1
+
+    # ALGO 2
+    def height(self):
+        if self.root:
+            return self._height(self.root)
+        else:
+            return None
+
+    def _height(self, current_node):
+        left_height = 0
+        right_height = 0
+        if current_node.left is None and current_node.right is None: return 1
+        if current_node.left: left_height = self._height(current_node.left)
+        if current_node.right: right_height = self._height(current_node.right)
+        
+        return max(left_height, right_height) + 1
+
+
+    # ALGO 1
+    # def height(self):
+    #     if self.root != None:
+    #         return self._height(self.root, 0)
+    #     else:
+    #         return 0
+
+    # def _height(self, current_node, current_height):
+    #     if current_node == None: return current_height
+    #     left_height = self._height(current_node.left, current_height + 1)
+    #     right_height = self._height(current_node.right, current_height + 1)
+    #     return max(left_height, right_height)
+
+
+    def sum_nodes(self):
+        if self.root is None: return 0
+        return self._sum_nodes(self.root)
+    
+    def _sum_nodes(self, current_node):
+        left_sum = 0
+        right_sum = 0
+
+        if current_node.left is None and current_node.right is None: return current_node.value
+        if current_node.left: left_sum = self._sum_nodes(current_node.left)
+        if current_node.right: right_sum = self._sum_nodes(current_node.right)
+
+        return current_node.value + left_sum + right_sum
+
 
     def contains(self, value):
         if self.root != None:
@@ -199,17 +227,13 @@ tree = BST()
 print("tree's node count is", tree.count_nodes())
 tree.insert(12)
 tree.insert(5)
+tree.insert(17)
+tree.insert(8)
 tree.insert(3)
-tree.insert(7)
 
 
-#         12
-#      /     \ 
-#     5        17 
-#   /  \     /    \
-#  3     7
-#      /   \ 
-#     6      8 
+
+
 
 print("   ")
 print(f"tree's nodes are: ")
@@ -222,11 +246,14 @@ tree.min_value()
 
 print("   ")
 
-# tree.delete_value(3)
+print(f"tree node count is {tree.count_nodes()}")
+tree.delete_value(8)
 
-# print(f"tree's nodes are: ")
-# tree.print_tree_inOrder()
-# print("   ")
-# print("tree's height is: ", tree.height())
-# print("   ")
+print(f"tree's nodes are: ")
+tree.print_tree_inOrder()
+print("   ")
+print("tree's height is: ", tree.height())
+print("   ")
 print("tree's node count is", tree.count_nodes())
+print("   ")
+print("tree's sum", tree.sum_nodes())
