@@ -97,7 +97,8 @@ class BST():
 
 # TRAVERSALS
 
-    #DFS: IN ORDER: ALGO 1
+    #DFS: IN ORDER: LEFT, ROOT, RIGHT
+    # ALGO 1
     # def get_dfs_inorder_values(self):
     #     values = []
     #     if self.root: 
@@ -121,6 +122,15 @@ class BST():
         values.append(node.value)
         if self.root.right: values += self.get_dfs_inorder_values(node.right)
         return values 
+    
+    #DFS: IN ORDER: ROOT, LEFT, RIGHT
+    def get_dfs_preorder_values(self, node):
+        pass
+
+
+    #DFS: POST ORDER: LEFT, RIGHT, ROOT
+    def get_dfs_postorder_values(self, node):
+        pass
 
 
 
