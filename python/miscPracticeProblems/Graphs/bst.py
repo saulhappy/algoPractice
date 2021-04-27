@@ -65,10 +65,11 @@ class BST():
     #     if current_node.right: self._get_dfs_inorder_values(current_node.right, values)
     #     return values   
     # 
+    
     # ALGO 2:
     def get_dfs_inorder_values(self, node):
         values = []
-        if node is None: return None
+        if node is None: return []
         if node.left: values += self.get_dfs_inorder_values(node.left)
         values.append(node.value)
         if self.root.right: values += self.get_dfs_inorder_values(node.right)

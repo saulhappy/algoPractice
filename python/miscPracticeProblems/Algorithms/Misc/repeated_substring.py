@@ -19,3 +19,6 @@ Output: true
 Explanation: It is the substring "abc" four times or the substring "abcabc" twice.
 
 """
+
+def repeatedSubstringPattern(s):
+    pass
