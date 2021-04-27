@@ -48,7 +48,54 @@ class BST():
             self._print_tree(current_node.right)
 
 
-    # TRAVERSALS
+    def count_nodes(self):
+        if self.root:
+            return self._count_nodes(self.root)
+        else:
+            return None
+        
+    def _count_nodes(self, current_node):
+        left_count = 0
+        right_count = 0
+
+        if current_node.left is None and current_node.right is None: return 1      
+        if current_node.left: left_count = self._count_nodes(current_node.left)
+        if current_node.right: right_count = self._count_nodes(current_node.right)
+
+        return left_count + right_count + 1
+
+# CALCULATE HEIGHT OF TREE
+
+    # ALGO 1
+    # def height(self):
+    #     if self.root != None:
+    #         return self._height(self.root, 0)
+    #     else:
+    #         return 0
+
+    # def _height(self, current_node, current_height):
+    #     if current_node == None: return current_height
+    #     left_height = self._height(current_node.left, current_height + 1)
+    #     right_height = self._height(current_node.right, current_height + 1)
+    #     return max(left_height, right_height)
+
+    #ALGO 2
+    def height(self):
+        if self.root:
+            return self._height(self.root)
+        else:
+            return None
+
+    def _height(self, current_node):
+        left_height = 0
+        right_height = 0
+        if current_node.left is None and current_node.right is None: return 1
+        if current_node.left: left_height = self._height(current_node.left)
+        if current_node.right: right_height = self._height(current_node.right)
+        
+        return max(left_height, right_height) + 1
+
+# TRAVERSALS
 
     #DFS: IN ORDER: ALGO 1
     # def get_dfs_inorder_values(self):
@@ -75,53 +122,6 @@ class BST():
         if self.root.right: values += self.get_dfs_inorder_values(node.right)
         return values 
 
-    def count_nodes(self):
-        if self.root:
-            return self._count_nodes(self.root)
-        else:
-            return None
-        
-    def _count_nodes(self, current_node):
-        left_count = 0
-        right_count = 0
-
-        if current_node.left is None and current_node.right is None: return 1      
-        if current_node.left: left_count = self._count_nodes(current_node.left)
-        if current_node.right: right_count = self._count_nodes(current_node.right)
-
-        return left_count + right_count + 1
-
-    # CALCULATE HEIGHT OF TREE
-
-    #ALGO 2
-    def height(self):
-        if self.root:
-            return self._height(self.root)
-        else:
-            return None
-
-    def _height(self, current_node):
-        left_height = 0
-        right_height = 0
-        if current_node.left is None and current_node.right is None: return 1
-        if current_node.left: left_height = self._height(current_node.left)
-        if current_node.right: right_height = self._height(current_node.right)
-        
-        return max(left_height, right_height) + 1
-
-
-    # ALGO 1
-    # def height(self):
-    #     if self.root != None:
-    #         return self._height(self.root, 0)
-    #     else:
-    #         return 0
-
-    # def _height(self, current_node, current_height):
-    #     if current_node == None: return current_height
-    #     left_height = self._height(current_node.left, current_height + 1)
-    #     right_height = self._height(current_node.right, current_height + 1)
-    #     return max(left_height, right_height)
 
 
     def sum_nodes(self):
@@ -262,9 +262,3 @@ tree.insert(22)
 print(f"tree's nodes are: ")
 tree.print_tree_inOrder()
 print(f"in order values are: {tree.get_dfs_inorder_values(tree.root)}")
-
-
-
-
-
-# ADD TRAVERSAL ARRAY OUTPUTS
