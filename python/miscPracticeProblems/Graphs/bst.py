@@ -48,6 +48,20 @@ class BST():
             self._print_tree(current_node.right)
 
 
+    def get_dfs_inorder_values(self):
+        values = []
+        if self.root: 
+            self._get_dfs_inorder_values(self.root, values)
+            return values
+        else:
+            return None
+    
+    def _get_dfs_inorder_values(self, current_node, values):
+        if current_node.left: self._get_dfs_inorder_values(current_node.left, values)
+        values.append(current_node.value)
+        if current_node.right: self._get_dfs_inorder_values(current_node.right, values)
+        return values
+
     def count_nodes(self):
         if self.root:
             return self._count_nodes(self.root)
@@ -224,36 +238,18 @@ def rand_fill_tree(tree, num_elems=10, max_int=100):
 # tree = rand_fill_tree(tree)
 
 tree = BST()
-print("tree's node count is", tree.count_nodes())
-tree.insert(12)
-tree.insert(5)
+tree.insert(10)
 tree.insert(17)
-tree.insert(8)
 tree.insert(3)
-
-
-
-
-
-print("   ")
-print(f"tree's nodes are: ")
-tree.print_tree_inOrder()
-print("   ")
-print("tree's height is: ", tree.height())
-
-tree.max_value()
-tree.min_value()
-
-print("   ")
-
-print(f"tree node count is {tree.count_nodes()}")
-tree.delete_value(8)
+tree.insert(16)
+tree.insert(22)
 
 print(f"tree's nodes are: ")
 tree.print_tree_inOrder()
-print("   ")
-print("tree's height is: ", tree.height())
-print("   ")
-print("tree's node count is", tree.count_nodes())
-print("   ")
-print("tree's sum", tree.sum_nodes())
+print(f"in order values are: {tree.get_dfs_inorder_values()}")
+print(f"tree root value: ", tree.root.value)
+
+
+
+
+# ADD TRAVERSAL ARRAY OUTPUTS
