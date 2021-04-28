@@ -123,14 +123,25 @@ class BST():
         if self.root.right: values += self.get_dfs_inorder_values(node.right)
         return values 
     
-    #DFS: IN ORDER: ROOT, LEFT, RIGHT
+    #DFS: PRE ORDER: ROOT, LEFT, RIGHT
+    # [ 15, 10, 3, 17, 16, 22 ]
     def get_dfs_preorder_values(self, node):
-        pass
+        values = []
+        if node is None: return []
+        values.append(node.value)
+        if node.left: values += self.get_dfs_preorder_values(node.left)
+        if node.right: values += self.get_dfs_preorder_values(node.right)
+        return values
 
 
     #DFS: POST ORDER: LEFT, RIGHT, ROOT
     def get_dfs_postorder_values(self, node):
-        pass
+        values = []
+        if node is None: return []
+        if node.left: values += self.get_dfs_postorder_values(node.left)
+        if node.right: values += self.get_dfs_postorder_values(node.right)
+        values.append(node.value)
+        return values
 
 
 
@@ -263,6 +274,7 @@ def rand_fill_tree(tree, num_elems=10, max_int=100):
 # tree = rand_fill_tree(tree)
 
 tree = BST()
+tree.insert(15)
 tree.insert(10)
 tree.insert(17)
 tree.insert(3)
@@ -271,4 +283,4 @@ tree.insert(22)
 
 print(f"tree's nodes are: ")
 tree.print_tree_inOrder()
-print(f"in order values are: {tree.get_dfs_inorder_values(tree.root)}")
+print(f"post order values are: {tree.get_dfs_postorder_values(tree.root)}")
