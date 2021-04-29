@@ -287,13 +287,12 @@ def rand_fill_tree(tree, num_elems=10, max_int=100):
 # tree = rand_fill_tree(tree)
 
 tree = BST()
-tree.insert(15)
-tree.insert(10)
-tree.insert(17)
 tree.insert(3)
-tree.insert(16)
-tree.insert(22)
+tree.insert(9)
+tree.insert(20)
+tree.insert(15)
+tree.insert(7)
 
 print(f"tree's nodes are: ")
 tree.print_tree_inOrder()
-print(f"BFS values are: {tree.get_bfs_values()}")
+print(f"sum of left leaves: {tree.sum_left_leaves(tree.root)}")
