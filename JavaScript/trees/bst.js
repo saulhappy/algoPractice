@@ -175,7 +175,7 @@ t.insert(22);
 // console.log(t.max());
 // console.log(t.contains(22));
 // console.log(t.dfsInOrder());
-console.log(t.dfsPreOrder());
+// console.log(t.dfsPreOrder());
 // console.log(t.dfsPostOrder());
-// console.log(t.bfs());
+console.log(t.bfs());
 // in order values are: [3, 10, 15, 16, 17, 22]

@@ -143,7 +143,20 @@ class BST():
         values.append(node.value)
         return values
 
+    # BFS: USING A QUEUE TO DO LEVEL ORDER TRAVERSAL
 
+    def get_bfs_values(self):
+        values = []
+        queue = []
+        if self.root is None: return None
+        queue.append(self.root)
+
+        while len(queue) != 0:
+            current_node = queue.pop(0)
+            if current_node.left: queue.append(current_node.left)
+            if current_node.right: queue.append(current_node.right)
+            values.append(current_node.value)
+        return values
 
     def sum_nodes(self):
         if self.root is None: return 0
@@ -283,4 +296,4 @@ tree.insert(22)
 
 print(f"tree's nodes are: ")
 tree.print_tree_inOrder()
-print(f"post order values are: {tree.get_dfs_postorder_values(tree.root)}")
+print(f"BFS values are: {tree.get_bfs_values()}")
