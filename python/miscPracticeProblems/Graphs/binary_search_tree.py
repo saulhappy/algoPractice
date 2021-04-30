@@ -10,6 +10,7 @@ class Node():
 class BST():
     def __init__(self):
         self.root = None
+        self.leftSum = 0
 
 
     # if there is no root, create it, increment the count. else, call private insert with the value. 
@@ -158,6 +159,17 @@ class BST():
             values.append(current_node.value)
         return values
 
+
+    def sum_left_leaves(self, root):
+        if not root: return 0
+        if root.left: 
+            if not root.left.left and not root.left.right: self.leftSum += root.left.value
+        
+        self.sum_left_leaves(root.left)
+        self.sum_left_leaves(root.right)
+        return self.leftSum 
+
+
     def sum_nodes(self):
         if self.root is None: return 0
         return self._sum_nodes(self.root)
@@ -287,11 +299,12 @@ def rand_fill_tree(tree, num_elems=10, max_int=100):
 # tree = rand_fill_tree(tree)
 
 tree = BST()
-tree.insert(3)
+tree.insert(17)
+tree.insert(12)
+tree.insert(25)
 tree.insert(9)
-tree.insert(20)
-tree.insert(15)
-tree.insert(7)
+tree.insert(21)
+tree.insert(27)
 
 print(f"tree's nodes are: ")
 tree.print_tree_inOrder()
