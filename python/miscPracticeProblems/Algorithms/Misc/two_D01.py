@@ -27,9 +27,10 @@ def sum_row_col(arr):
     for row in arr:
         row_total.append(sum(row))
     for i in range(len(arr)):
-        curr_col =[arr[i][i]]
+        curr_col =[arr[0][i]]
         for j in range(i + 1, 5):
             curr_col.append(arr[j][i])
+        col_total.append(sum(curr_col))
 
     
     return f"row total: {row_total} \ncolumn total: {col_total}"
