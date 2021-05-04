@@ -28,7 +28,7 @@ def sum_row_col(arr):
         row_total.append(sum(row))
     for i in range(len(arr)):
         curr_col =[arr[0][i]]
-        for j in range(i + 1, 5):
+        for j in range(1, 5):
             curr_col.append(arr[j][i])
         col_total.append(sum(curr_col))
 
