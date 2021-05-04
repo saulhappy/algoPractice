@@ -49,21 +49,17 @@ forced_march(floor8)   => False
 forced_march(floor9)   => True
 """
 
+"""
+Algo 1 to try:
+Make a direction function that takes in a string. Based on the string, it will tell you 
+to up, down, left, or right. 
 
-def forced_march(floor):
-    # directions = {
-    #     """TODO"""
-    #     ">": (0, 1),
-    # }
-    
-    # row = 0
-    # column = 0
-    
-    # if floor[row][column] == 'E':
-    #     return true
-    # else:
-    #     directions[]
-        
+If '>', stay in the same row, but increment column num 
+If '<', stay in the same row, but decrement column num
+If 'v', stay in the same col, but increment row num
+If '^', stay in the same col, but decrement row num
+If 'E', return true. 
+"""
 
 floor1 = [
     ['>', '>', '>', '>', 'v'],
@@ -71,52 +67,85 @@ floor1 = [
     ['>', '^', '^', '>', 'E']
 ]
 
-floor2 = [
-    ['v', '>', 'v'],
-    ['v', '^', '>'],
-    ['<', '>', 'E']
-]
 
-floor3 = [
-    ['v', '>', '>', 'v', '>'],
-    ['>', '>', 'v', '>', '^'],
-    ['^', '>', '>', '>', 'E']
-]
+    
+def forced_march(floor):
+    row = 0
+    col = 0
 
-floor4 = [
-    ['v', '>', '>', 'v'],
-    ['v', '^', '>', '>'],
-    ['v', '>', '>', 'v'],
-    ['v', '^', '<', 'v'],
-    ['>', '>', '^', 'E']
-]
+    result = 0
+    SUCCESS = 1
+    FAIL = -1
+    CONTINUE = 0
+    def _direction(string, col, row):
 
-floor5 = [
-    ['>', '>', '>', '>', '>', '>', '>', '>', '>', 'v'],
-    ['v', '^', '>', 'v', '<', '>', 'v', '<', '<', '<'],
-    ['>', '^', 'v', '<', '^', '<', '<', '^', '>', 'E']
-]
+        try:
+            if string == 'E': return (1, col, row)
+            if string == '>': col += 1
+            if string == '<': col -= 1 
+            if string == 'v': row += 1
+            if string == '^': row -= 1
+            return (0, col, row)
+        except UnboundLocalError:
+            return -1
+    
+    while result == 0:
+       (result, col, row)  = _direction(floor[row][col], row, col)
+    print(result)
 
-floor6 = [
-    ['>', '>', 'v', 'E', 'v'],
-    ['v', '^', '>', '^', 'v'],
-    ['>', '^', '^', '>', '>']
-]
+        
+print(forced_march(floor1))
 
-floor7 = [
-    ['>', '>', 'v', '>', 'v'],
-    ['v', '^', '>', '^', 'v'],
-    ['>', 'E', '^', '>', '>']
-]
 
-floor8 = [
-    ['>', '>', 'v', '>', '^'],
-    ['v', '^', '>', '^', 'v'],
-    ['>', 'E', '^', '>', '>']
-]
 
-floor9 = [
-    ['>', 'v', '>', '>', 'v', '^'],
-    ['v', '<', '^', 'v', '<', 'E'],
-    ['>', '>', '^', '>', '>', '^']
-]
+
+
+# floor2 = [
+#     ['v', '>', 'v'],
+#     ['v', '^', '>'],
+#     ['<', '>', 'E']
+# ]
+
+# floor3 = [
+#     ['v', '>', '>', 'v', '>'],
+#     ['>', '>', 'v', '>', '^'],
+#     ['^', '>', '>', '>', 'E']
+# ]
+
+# floor4 = [
+#     ['v', '>', '>', 'v'],
+#     ['v', '^', '>', '>'],
+#     ['v', '>', '>', 'v'],
+#     ['v', '^', '<', 'v'],
+#     ['>', '>', '^', 'E']
+# ]
+
+# floor5 = [
+#     ['>', '>', '>', '>', '>', '>', '>', '>', '>', 'v'],
+#     ['v', '^', '>', 'v', '<', '>', 'v', '<', '<', '<'],
+#     ['>', '^', 'v', '<', '^', '<', '<', '^', '>', 'E']
+# ]
+
+# floor6 = [
+#     ['>', '>', 'v', 'E', 'v'],
+#     ['v', '^', '>', '^', 'v'],
+#     ['>', '^', '^', '>', '>']
+# ]
+
+# floor7 = [
+#     ['>', '>', 'v', '>', 'v'],
+#     ['v', '^', '>', '^', 'v'],
+#     ['>', 'E', '^', '>', '>']
+# ]
+
+# floor8 = [
+#     ['>', '>', 'v', '>', '^'],
+#     ['v', '^', '>', '^', 'v'],
+#     ['>', 'E', '^', '>', '>']
+# ]
+
+# floor9 = [
+#     ['>', 'v', '>', '>', 'v', '^'],
+#     ['v', '<', '^', 'v', '<', 'E'],
+#     ['>', '>', '^', '>', '>', '^']
+# ]
