@@ -62,12 +62,26 @@ If 'E', return true.
 """
 
 
+floor1 = [
+    ['>', '>', '>', '>', 'v'],
+    ['v', '^', '>', '^', 'v'],
+    ['>', '^', '^', '>', 'E']
+]
+
 floor2 = [
     ['v', '>', 'v'],
     ['v', '^', '>'],
     ['<', '>', 'E']
 ]
     
+floor3 = [
+    ['v', '>', '>', 'v', '>'],
+    ['>', '>', 'v', '>', '^'],
+    ['^', '>', '>', '>', 'E']
+]
+
+
+
 def forced_march(floor):
     row = 0
     col = 0
@@ -90,28 +104,19 @@ def forced_march(floor):
     
     while result == 0:
        (result, col, row)  = _direction(floor[row][col], row, col)
-    if result == 1 : return True
     if result == -1 : return False
+    if col < 0: return False
+    if row < 0: return False
+    if result == 1 : return True
 
         
-print(forced_march(floor2))
+print(forced_march(floor3))
 
 
 
 
-floor1 = [
-    ['>', '>', '>', '>', 'v'],
-    ['v', '^', '>', '^', 'v'],
-    ['>', '^', '^', '>', 'E']
-]
 
 
-
-floor3 = [
-    ['v', '>', '>', 'v', '>'],
-    ['>', '>', 'v', '>', '^'],
-    ['^', '>', '>', '>', 'E']
-]
 
 floor4 = [
     ['v', '>', '>', 'v'],
