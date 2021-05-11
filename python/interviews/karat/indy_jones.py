@@ -42,10 +42,10 @@ forced_march(floor1)   => True
 forced_march(floor2)   => False
 forced_march(floor3)   => True
 forced_march(floor4)   => True
-forced_march(floor5)   => False
+forced_march(floor5)   => False => out of bounds (failed)
 forced_march(floor6)   => True
-forced_march(floor7)   => False
-forced_march(floor8)   => False
+forced_march(floor7)   => False => out of bounds (failed)
+forced_march(floor8)   => False => out of bounds (failed)
 forced_march(floor9)   => True
 """
 
@@ -80,6 +80,47 @@ floor3 = [
     ['^', '>', '>', '>', 'E']
 ]
 
+floor4 = [
+    ['v', '>', '>', 'v'],
+    ['v', '^', '>', '>'],
+    ['v', '>', '>', 'v'],
+    ['v', '^', '<', 'v'],
+    ['>', '>', '^', 'E']
+]
+
+floor5 = [
+    ['>', '>', '>', '>', '>', '>', '>', '>', '>', 'v'],
+    ['v', '^', '>', 'v', '<', '>', 'v', '<', '<', '<'],
+    ['>', '^', 'v', '<', '^', '<', '<', '^', '>', 'E']
+]
+
+floor6 = [
+    ['>', '>', 'v', 'E', 'v'],
+    ['v', '^', '>', '^', 'v'],
+    ['>', '^', '^', '>', '>']
+]
+
+floor7 = [
+    ['>', '>', 'v', '>', 'v'],
+    ['v', '^', '>', '^', 'v'],
+    ['>', 'E', '^', '>', '>']
+]
+
+
+floor8 = [
+    ['>', '>', 'v', '>', '^'],
+    ['v', '^', '>', '^', 'v'],
+    ['>', 'E', '^', '>', '>']
+]
+
+
+floor9 = [
+    ['>', 'v', '>', '>', 'v', '^'],
+    ['v', '<', '^', 'v', '<', 'E'],
+    ['>', '>', '^', '>', '>', '^']
+]
+
+
 
 
 def forced_march(floor):
@@ -110,48 +151,5 @@ def forced_march(floor):
     if result == 1 : return True
 
         
-print(forced_march(floor3))
+print(forced_march(floor9))
 
-
-
-
-
-
-
-floor4 = [
-    ['v', '>', '>', 'v'],
-    ['v', '^', '>', '>'],
-    ['v', '>', '>', 'v'],
-    ['v', '^', '<', 'v'],
-    ['>', '>', '^', 'E']
-]
-
-floor5 = [
-    ['>', '>', '>', '>', '>', '>', '>', '>', '>', 'v'],
-    ['v', '^', '>', 'v', '<', '>', 'v', '<', '<', '<'],
-    ['>', '^', 'v', '<', '^', '<', '<', '^', '>', 'E']
-]
-
-floor6 = [
-    ['>', '>', 'v', 'E', 'v'],
-    ['v', '^', '>', '^', 'v'],
-    ['>', '^', '^', '>', '>']
-]
-
-floor7 = [
-    ['>', '>', 'v', '>', 'v'],
-    ['v', '^', '>', '^', 'v'],
-    ['>', 'E', '^', '>', '>']
-]
-
-floor8 = [
-    ['>', '>', 'v', '>', '^'],
-    ['v', '^', '>', '^', 'v'],
-    ['>', 'E', '^', '>', '>']
-]
-
-floor9 = [
-    ['>', 'v', '>', '>', 'v', '^'],
-    ['v', '<', '^', 'v', '<', 'E'],
-    ['>', '>', '^', '>', '>', '^']
-]
