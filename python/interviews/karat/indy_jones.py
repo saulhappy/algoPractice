@@ -107,12 +107,6 @@ floor7 = [
 ]
 
 
-floor8 = [
-    ['>', '>', 'v', '>', '^'],
-    ['v', '^', '>', '^', 'v'],
-    ['>', 'E', '^', '>', '>']
-]
-
 
 floor9 = [
     ['>', 'v', '>', '>', 'v', '^'],
@@ -121,35 +115,35 @@ floor9 = [
 ]
 
 
+floor8 = [
+    ['>', '>', 'v', '>', '^'],
+    ['v', '^', '>', '^', 'v'],
+    ['>', 'E', '^', '>', '>']
+]
 
+def out_of_bounds(floor, row, column):
+    if row < 0: return True
+    if column < 0: return True
+    if row >= len(floor): return True
+    if column >= len(floor[0]): return True
+
+def next_position(floor, row, column):
+    square = floor[row][column]
+    if square == "^": return row - 1, column
+    if square == ">": return row, column + 1
+    if square == "v": return row + 1, column
+    if square == "<": return row, column - 1
 
 def forced_march(floor):
-    row = 0
-    col = 0
+    row = 0     # Start in upper left corner
+    column = 0
+    while True:
+        is_out_of_bounds = out_of_bounds(floor, row, column)
+        if is_out_of_bounds: return False 
+        if floor[row][column] == "E": return True       
+        row, column = next_position(floor, row, column) # keep going
 
-    result = 0
-    SUCCESS = 1
-    FAIL = -1
-    CONTINUE = 0
-    def _direction(string, row, col):
-
-        try:
-            if string == 'E': return (1, col, row)
-            if string == '>': col += 1
-            if string == '<': col -= 1 
-            if string == 'v': row += 1
-            if string == '^': row -= 1
-            return (0, col, row)
-        except UnboundLocalError:
-            return -1
-    
-    while result == 0:
-       (result, col, row)  = _direction(floor[row][col], row, col)
-    if result == -1 : return False
-    if col < 0: return False
-    if row < 0: return False
-    if result == 1 : return True
+print(forced_march(floor8))
 
         
-print(forced_march(floor9))
 
