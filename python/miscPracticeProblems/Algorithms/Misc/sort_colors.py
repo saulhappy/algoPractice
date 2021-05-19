@@ -36,6 +36,32 @@ def sort_colors(nums):
             nums[mid], nums[high] = nums[high], nums[mid]
             high -= 1
     return nums
+
+
+# two pass iteration counting number of 0s, 1s, and 2s, and replace original one
+def sort_colors_counting_zeros(nums):
+    zeros, ones, twos= 0,0,0
+    for i in nums:
+        if i == 0:
+            zeros +=1
+        elif i == 1:
+            ones += 1
+        elif i == 2:
+            twos += 1
+
+    for i in range(len(nums)):
+        if zeros != 0:
+            nums[i] = 0
+            zeros -=1
+            continue
+        if ones != 0:
+            nums[i] = 1
+            ones -=1
+            continue
+        if twos != 0:
+            nums[i] = 2
+            twos -=1
+            continue
         
 
-print(sort_colors(nums4))
+print(sort_colors_counting_zeros(nums1))
