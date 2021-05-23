@@ -26,9 +26,10 @@ def find_missing_repeating(arr):
 
     # for missing
     for i in range(len(arr)):
-        if arr[i] != arr[i+1] + 1:
-            missing = arr[i] + 1
-            break
+        if arr[i] != arr[i+1]:
+            if arr[i+1] > arr[1] + 1:
+                missing = arr[i] + 1
+                break
     
     # for repeating
     for i in range(len(arr)):
@@ -39,4 +40,4 @@ def find_missing_repeating(arr):
     return f"Missing = {missing}   Repeating = {repeating}"
 
 
-print(find_missing_repeating(arr1))
+print(find_missing_repeating(arr2))
