@@ -18,6 +18,10 @@ Output: Missing = 5, Repeating = 1
 arr1=[3,1,3] # => missing = 2, repeating = 3
 arr2=[4, 3, 6, 2, 1, 1] # => missing = 5, repeating = 1
 
+
+# works for these test cases. would need try/catch at end of arrays...
+# or if missing is assumed to be start or end of array
+
 def find_missing_repeating(arr):
     missing = None
     repeating = None
@@ -26,10 +30,9 @@ def find_missing_repeating(arr):
 
     # for missing
     for i in range(len(arr)):
-        if arr[i] != arr[i+1]:
-            if arr[i+1] > arr[1] + 1:
-                missing = arr[i] + 1
-                break
+        if arr[i+1] >= arr[i] + 2:
+            missing = arr[i] + 1
+            break
     
     # for repeating
     for i in range(len(arr)):
@@ -40,4 +43,4 @@ def find_missing_repeating(arr):
     return f"Missing = {missing}   Repeating = {repeating}"
 
 
-print(find_missing_repeating(arr2))
+print(find_missing_repeating(arr1))
