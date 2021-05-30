@@ -40,13 +40,23 @@ class BST():
 
     def print_tree_inOrder(self):
         if self.root:
+            print("the tree's in-order node(s) are:")
             self._print_tree(self.root)
+        else:
+            print("this tree is empty")
         
     def _print_tree(self, current_node):
         if current_node:
             self._print_tree(current_node.left)
             print(str(current_node.value))
             self._print_tree(current_node.right)
+
+    # def print_tree_inOrder(self, node):
+    #     print("the tree's in-order node(s) are:")
+    #     if node:
+    #         self.print_tree_inOrder(node.left)
+    #         print(str(node.value))
+    #         self.print_tree_inOrder(node.right)
 
 
     def count_nodes(self):
@@ -296,16 +306,3 @@ def rand_fill_tree(tree, num_elems=10, max_int=100):
         num_elems -= 1
     return tree
 
-# tree = rand_fill_tree(tree)
-
-tree = BST()
-tree.insert(17)
-tree.insert(12)
-tree.insert(25)
-tree.insert(9)
-tree.insert(21)
-tree.insert(27)
-
-print(f"tree's nodes are: ")
-tree.print_tree_inOrder()
-print(f"sum of left leaves: {tree.sum_left_leaves(tree.root)}")
