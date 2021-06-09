@@ -40,11 +40,32 @@ def can_construct(target, word_bank):
             if can_construct(suffix, word_bank): return True
     return False
 
+# MEMOIZED:
+# M = len of target
+# N = len of word bank
+# time : O(N * M^2)
+# space: O(M^2)
 
-print(can_construct(target0, wordbank0))
-print(can_construct(target1, wordbank1))
-print(can_construct(target2, wordbank2))
-print(can_construct(target3, wordbank3))
+def can_construct_memo(target, word_bank, memo={}):
+    if target in memo: return memo[target]
+    if target == '': return True
 
+    for word in word_bank:
+        if target.find(word) == 0: # if the beginning of word is the 0th index of target,
+            suffix = target[len(word):] # slice the word to get remainder after removing the amount of characters of word
+            if can_construct_memo(suffix, word_bank, memo): 
+                memo[target] = True
+                return True
+    memo[target] = False
+    return False
 
+# print(can_construct(target0, wordbank0))
+# print(can_construct(target1, wordbank1))
+# print(can_construct(target2, wordbank2))
+# print(can_construct(target3, wordbank3))
+
+print(can_construct_memo(target0, wordbank0))
+print(can_construct_memo(target1, wordbank1))
+print(can_construct_memo(target2, wordbank2))
+print(can_construct_memo(target3, wordbank3))
 
