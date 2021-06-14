@@ -6,7 +6,8 @@
     #       5     12
     #     /   \      \
     #    3      6      14 
-
+    #   /
+    #  2
 
 from binary_search_tree import BST
 
@@ -17,10 +18,19 @@ t.insert(12)
 t.insert(3)
 t.insert(6)
 t.insert(14)
+t.insert(2)
+# should return 5
 
-t.print_tree_inOrder()
+def count_even_values(node):
+    if node is None: return 0
+    
+    count = 0 
 
-def is_even_value(t):
-    pass 
+    count = count_even_values(node.left)
+    if node.value % 2 == 0: count += 1
+    count += count_even_values((node.right))
 
-print(is_even_value(t))
+    return count
+    
+
+print(count_even_values(t.root))
