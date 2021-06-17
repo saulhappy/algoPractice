@@ -24,4 +24,21 @@ Explanation: The unique elements are [1,2,3,4,5], and the sum is 15.
 """
 
 def sum_of_unique(arr):
-    pass
+    arr_map = {}
+    result = 0
+
+    for num in arr:
+        if num in arr_map:
+            arr_map[num] += 1
+        else:
+            arr_map[num] = 1
+    
+    for (key, value ) in arr_map.items():
+        if value == 1:
+            result += key
+    
+    return result
+
+# OR: return sum(digit for digit in nums if nums.count(digit) == 1)
+
+print(sum_of_unique([1,2,3,4,5]))
