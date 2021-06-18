@@ -137,12 +137,9 @@ class BST():
     #DFS: PRE ORDER: ROOT, LEFT, RIGHT
     # [ 15, 10, 3, 17, 16, 22 ]
     def get_dfs_preorder_values(self, node):
-        values = []
-        if node is None: return []
-        values.append(node.value)
-        if node.left: values += self.get_dfs_preorder_values(node.left)
-        if node.right: values += self.get_dfs_preorder_values(node.right)
-        return values
+        if node is None:
+            return []
+        return [node.value] + self.get_dfs_preorder_values(node.left) + self.get_dfs_preorder_values(node.right)
 
 
     #DFS: POST ORDER: LEFT, RIGHT, ROOT
