@@ -127,12 +127,9 @@ class BST():
     
     # ALGO 2:
     def get_dfs_inorder_values(self, node):
-        values = []
-        if node is None: return []
-        if node.left: values += self.get_dfs_inorder_values(node.left)
-        values.append(node.value)
-        if self.root.right: values += self.get_dfs_inorder_values(node.right)
-        return values 
+        if node is None:
+            return []
+        return self.get_dfs_inorder_values(node.left) + [node.value] + self.get_dfs_inorder_values(node.right) 
     
     #DFS: PRE ORDER: ROOT, LEFT, RIGHT
     # [ 15, 10, 3, 17, 16, 22 ]
