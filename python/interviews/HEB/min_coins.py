@@ -22,27 +22,46 @@
 
 coins = [1, 3, 5]
 
+
+# simple greedy version
+
 def min_coins(coins, total):
-    if total == 0:
-        return 0
+    sorted_coins = sorted(coins, reverse=True)
+    coin_count = 0
 
-    coin_map = {}
-
-    for coin in coins:
-        coin_map[coin] = 1
+    for coin in sorted_coins:
+        while total >= coin:
+            total -= coin
+            coin_count += 1
     
-    for i in range(1,total+1):
-        for coin in coins:
-            if i - coin in coin_map:
-                if i not in coin_map:
-                    coin_map[i] = coin_map[i-coin] +1
-                else:
-                    coin_map[i] = min(coin_map[i],coin_map[i-coin]+1)
+    return coin_count
 
-    if total not in coin_map:
-        return None
-    else:
-        return coin_map[total]
+
+
+
+
+# dp version
+# def min_coins(coins, total):
+#     if total == 0:
+#         return 0
+
+#     coin_map = {}
+
+#     for coin in coins:
+#         coin_map[coin] = 1
+    
+#     for i in range(1,total+1):
+#         for coin in coins:
+#             if i - coin in coin_map:
+#                 if i not in coin_map:
+#                     coin_map[i] = coin_map[i-coin] +1
+#                 else:
+#                     coin_map[i] = min(coin_map[i],coin_map[i-coin]+1)
+
+#     if total not in coin_map:
+#         return None
+#     else:
+#         return coin_map[total]
 
 print(min_coins(coins, 11))
 print(min_coins(coins, 20))
