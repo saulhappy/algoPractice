@@ -31,8 +31,11 @@ def min_coins(coins, total):
 
     for coin in sorted_coins:
         while total >= coin:
-            total -= coin
-            coin_count += 1
+            if total - coin >= 0:
+                total -= coin
+                coin_count += 1
+            else:
+                return -1 # can't make change
     
     return coin_count
 
