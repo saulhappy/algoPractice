@@ -141,12 +141,9 @@ class BST():
 
     #DFS: POST ORDER: LEFT, RIGHT, ROOT
     def get_dfs_postorder_values(self, node):
-        values = []
-        if node is None: return []
-        if node.left: values += self.get_dfs_postorder_values(node.left)
-        if node.right: values += self.get_dfs_postorder_values(node.right)
-        values.append(node.value)
-        return values
+        if node is None:
+            return []
+        return self.get_dfs_postorder_values(node.left) + self.get_dfs_postorder_values(node.right) + [node.value]
 
     # BFS: USING A QUEUE TO DO LEVEL ORDER TRAVERSAL
 
