@@ -24,12 +24,17 @@ class TestBowlingGame(unittest.TestCase):
         self.bowling_game.roll(6)
         self.helper_roll_many(0, 17)
         self.assertEquals(self.bowling_game.score(), 22)
+    
+    def test_OneStrikeThen8ThenZeros(self):
+        self.bowling_game.roll(10)
+        self.bowling_game.roll(5)
+        self.bowling_game.roll(8)
+        self.helper_roll_many(0, 16)
+        self.assertEquals(self.bowling_game.score(), 26)
 
     def helper_roll_many(self, pins_knocked_down, num_rolls):
         for _ in range(num_rolls):
             self.bowling_game.roll(pins_knocked_down)
-
-
 
 if __name__ == "__main__":
     unittest.main()
