@@ -9,12 +9,22 @@ class ScoreBowlingGame():
         result = 0
         roll_index = 0
         for frame_index in range(10):
-            if self.is_spare_frame(roll_index):
+            if self.is_strike_frame(roll_index):
+                result += self.return_strike_score(roll_index)
+                roll_index += 1
+            elif self.is_spare_frame(roll_index):
                 result += self.return_spare_score(roll_index)
+                roll_index += 2
             else:
                 result += self.return_frame_score(roll_index)
-            roll_index += 2
+                roll_index += 2
         return result
+
+    def is_strike_frame(self, roll_index):
+        return self.rolls[roll_index] == 10
+
+    def return_strike_score(self, roll_index):
+        return 10 + self.rolls[roll_index + 1] + self.rolls[roll_index + 2] 
 
     def is_spare_frame(self, roll_index):
         return self.rolls[roll_index] + self.rolls[roll_index + 1] == 10
