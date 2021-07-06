@@ -5,7 +5,7 @@ from ScoreBowlingGame import ScoreBowlingGame
 class TestBowlingGame(unittest.TestCase):
 
     def setUp(self):
-        self.bowling_game = ScoreBowlingGame() # Q: why doesn't this accumulate scores?
+        self.bowling_game = ScoreBowlingGame()
 
     def test_GameCreate(self):
          self.assertIsInstance(self.bowling_game, ScoreBowlingGame)
@@ -28,9 +28,13 @@ class TestBowlingGame(unittest.TestCase):
     def test_OneStrikeThen8ThenZeros(self):
         self.bowling_game.roll(10)
         self.bowling_game.roll(5)
-        self.bowling_game.roll(8)
+        self.bowling_game.roll(3)
         self.helper_roll_many(0, 16)
         self.assertEquals(self.bowling_game.score(), 26)
+
+    def test_PerfectGame(self):
+        self.helper_roll_many(10, 12)
+        self.assertEquals(self.bowling_game.score(), 300)
 
     def helper_roll_many(self, pins_knocked_down, num_rolls):
         for _ in range(num_rolls):
